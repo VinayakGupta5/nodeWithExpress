@@ -1,0 +1,279 @@
+{
+	"info": {
+		"_postman_id": "7473d88d-ecab-40ee-86b3-c82058f0f15a",
+		"name": "Ecommerce MongoDB API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25213221"
+	},
+	"item": [
+		{
+			"name": "/admin/add-product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"pkId\":\"a\",\r\n    \"name\":\"a\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1234/admin/addProduct",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"admin",
+						"addProduct"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "To add multiple Products",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n    \"pkId\":\"a\",\r\n    \"name\":\"asli\"\r\n    },\r\n    {\r\n    \"pkId\":\"b\",\r\n    \"name\":\"asli\"\r\n    },\r\n      {\r\n    \"pkId\":\"c\",\r\n    \"name\":\"asli\"\r\n    },\r\n      {\r\n    \"pkId\":\"g\",\r\n    \"name\":\"asli\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1234/admin/addManyProduct",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"admin",
+						"addManyProduct"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get All products",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "hi",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "price",
+							"value": "12",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "description",
+							"value": "This is a boy",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "imageUrl",
+							"value": "aa",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:1234/admin/getProducts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"admin",
+						"getProducts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get product by id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "hi",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "price",
+							"value": "12",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "description",
+							"value": "This is a boy",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "imageUrl",
+							"value": "aa",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:1234/product/63ce73f6e06bd378bf8d368d",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"product",
+						"63ce73f6e06bd378bf8d368d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete Product",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "hi",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "price",
+							"value": "12",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "description",
+							"value": "This is a boy",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "imageUrl",
+							"value": "aa",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:1234/admin/deleteProduct/g",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"admin",
+						"deleteProduct",
+						"g"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find By title",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "hi",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "price",
+							"value": "12",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "description",
+							"value": "This is a boy",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "imageUrl",
+							"value": "aa",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:1234/findBytitle?title=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"findBytitle"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
