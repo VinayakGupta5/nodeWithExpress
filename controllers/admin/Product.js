@@ -32,3 +32,10 @@ exports.getAllProducts = (req, res, next) => {
       res.send(err)
     })
 }
+
+exports.deleteProduct = (req, res, next) => {
+  Product.deleteOne({pkId:req.params.pkId})
+  .then(result => {
+    res.send(result)
+  })
+}
