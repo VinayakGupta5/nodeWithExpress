@@ -2,10 +2,13 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const adminRoutes = require('./routes/admin/admin')
+const cors = require('cors')
 
-const app = express()
 
 const port = 1234
+
+const app = express()
+app.use(cors())
 
 app.use(express.static('public'));
 app.use(express.json());

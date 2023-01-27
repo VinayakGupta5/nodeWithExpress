@@ -77,11 +77,6 @@ exports.postMultipleProducts = (req, res, next) => {
   Product.find({
     'PKID': {
       $in: Ids
-      //[
-      //   mongoose.Types.ObjectId('4ed3ede8844f0f351100000c'),
-      //   mongoose.Types.ObjectId('4ed3f117a844e0471100000d'),
-      //   mongoose.Types.ObjectId('4ed3f18132f50c491100000e')
-      // ]
     }
   }, function (err, existingDocFounded) {
     console.log("docs", existingDocFounded);
