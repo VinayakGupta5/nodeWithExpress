@@ -23,7 +23,8 @@ app.use('/admin', adminRoutes)
 mongoose.set('strictQuery', false);
 
 mongoose.connect(
-  'mongodb+srv://ecommerce:2BDDE5I9PwK6ZGOV@cluster0.1x9aowm.mongodb.net/?retryWrites=true&w=majority'
+  // 'mongodb+srv://ecommerce:2BDDE5I9PwK6ZGOV@cluster0.1x9aowm.mongodb.net/?retryWrites=true&w=majority'
+  "mongodb+srv://swildev:UDUGzXP8nNfhA3sR@swindia1.17wlqvp.mongodb.net/?retryWrites=true&w=majority"
 )
   .then(result => {
     console.log("mongoDb Connected successfully")

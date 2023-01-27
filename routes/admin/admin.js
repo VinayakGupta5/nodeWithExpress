@@ -7,6 +7,6 @@ const router = express.Router()
 router.post('/addProduct',adminController.postProduct)
 router.post('/addManyProduct',adminController.postMultipleProducts)
 router.get('/getProducts',adminController.getAllProducts)
-router.delete('/deleteProduct/:pkId',adminController.deleteProduct)
+router.delete('/deleteProduct/:PKID',adminController.deleteProduct)
 
 module.exports = router
