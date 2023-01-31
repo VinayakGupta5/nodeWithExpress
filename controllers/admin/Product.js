@@ -104,9 +104,17 @@ exports.postMultipleProducts = (req, res, next) => {
 
 }
 
+exports.getOneProductById = (req, res, next) => {
+  Product.find({PKID: req.params.PKID})
+  .then(product => {
+    res.send(product)
+    console.log("Product by Id",product)
+  })
+}
+
 exports.getAllProducts = (req, res, next) => {
   Product.find()
-    .then(products => {
+    .then(producdts => {
       res.send(products)
     })
     .catch(err => {
