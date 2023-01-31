@@ -113,8 +113,9 @@ exports.getOneProductById = (req, res, next) => {
 }
 
 exports.getAllProducts = (req, res, next) => {
+
   Product.find()
-    .then(producdts => {
+    .then(products => {
       res.send(products)
     })
     .catch(err => {
