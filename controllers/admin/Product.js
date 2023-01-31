@@ -74,11 +74,7 @@ exports.postMultipleProducts = (req, res, next) => {
     return post.PKID
   })
 
-  Product.find({
-    'PKID': {
-      $in: Ids
-    }
-  }, function (err, existingDocFounded) {
+  Product.find({ 'PKID': { $in: Ids } }, function (err, existingDocFounded) {
     console.log("docs", existingDocFounded);
     existingDoc = existingDocFounded
     postsData.forEach((post) => {
@@ -199,13 +195,30 @@ exports.deleteProduct = (req, res, next) => {
 exports.getProductsPerPage = (req, res, next) => {
   var page = req.query.page
   var items_per_page = req.query.noOfItems
+  if (page === 'undefined') {
+    page = 1
+  }
+  if (items_per_page === 'undefined') {
+    items_per_page = 20
+  }
   Product.find()
     .skip((page - 1) * items_per_page)
     .limit(items_per_page)
     .then(products => {
       res.send(products)
     })
-    .catch(err=>{
+    .catch(err => {
       res.send(err)
     })
+}
+
+exports.checkProductsExist = (req, res, next) => {
+  var existProdIds = []
+  Product.find({ 'PKID': { $in: req.body } }, function (err, existingDocFounded) {
+    console.log("docs", existingDocFounded);
+    existingDocFounded.forEach(pro => {
+      existProdIds.push(pro.PKID)
+    })
+    res.send({PKID:existProdIds})
+  })
 }
