@@ -105,11 +105,11 @@ exports.postMultipleProducts = (req, res, next) => {
 }
 
 exports.getOneProductById = (req, res, next) => {
-  Product.find({PKID: req.params.PKID})
-  .then(product => {
-    res.send(product)
-    console.log("Product by Id",product)
-  })
+  Product.find({ PKID: req.params.PKID })
+    .then(product => {
+      res.send(product)
+      console.log("Product by Id", product)
+    })
 }
 
 exports.getAllProducts = (req, res, next) => {
@@ -121,6 +121,56 @@ exports.getAllProducts = (req, res, next) => {
     .catch(err => {
       res.send(err)
     })
+}
+
+exports.updateProduct = (req, res, next) => {
+  Product.find({ PKID: req.params.PKID })
+    .then(product => {
+      product.PKID = req.body.PKID,
+      product.NameToDisplay = req.body.NameToDisplay,
+      product.Brand = req.body.Brand,
+      product.Strength: req.body.Strength,
+      product.Unit1: req.body.Unit1,
+      product.ProdConv1: req.body.ProdConv1,
+      product.Unit2: req.body.Unit2,
+      product.SellLoose: req.body.SellLoose,
+      product.ProdConv2: req.body.ProdConv2,
+      product.Unit3: req.body.Unit3,
+                          IsExpiryApplied: req.body.IsExpiryApplied,
+                            IsMfgDateApplied: req.body.IsMfgDateApplied,
+                              IsUniqueIDapplied: req.body.IsUniqueIDapplied,
+                                IsColorApplied: req.body.IsColorApplied,
+                                  IsBarCodeApplied: req.body.IsBarCodeApplied,
+                                    Description: req.body.Description,
+                                      FkprodCatgId: req.body.FkprodCatgId,
+                                        MRP: req.body.MRP,
+                                          Barcode: req.body.Barcode,
+                                            Weight: req.body.Weight,
+                                              Height: req.body.Height,
+                                                Width: req.body.Width,
+                                                  Length: req.body.Length,
+                                                    WeightUnit: req.body.WeightUnit,
+                                                      HeightUnit: req.body.HeightUnit,
+                                                        Status: req.body.Status,
+                                                          Image: req.body.Image,
+                                                            BestBefore: req.body.BestBefore,
+                                                              BestBeforeUnit: req.body.BestBeforeUnit,
+                                                                Skudefinition: req.body.Skudefinition,
+                                                                  HSNCode: req.body.HSNCode,
+                                                                    MfgGroupName: req.body.MfgGroupName,
+                                                                      GroupName: req.body.GroupName,
+                                                                        GroupAlias: req.body.GroupAlias,
+                                                                          MfgGroupAlias: req.body.MfgGroupAlias,
+                                                                            Category: req.body.Category,
+                                                                              CategoryGroup: req.body.CategoryGroup,
+                                                                                CatgSKU: req.body.CatgSKU,
+                                                                                  Generic1: req.body.Generic1,
+                                                                                    Generic2: req.body.Generic2,
+                                                                                      BoxSize: req.body.BoxSize,
+                                                                                        Schedule: req.body.Schedule,
+                                                                                          Remarks: req.body.Remarks,
+                                                                                            Images: req.body.Images,
+  })
 }
 
 exports.deleteProduct = (req, res, next) => {
