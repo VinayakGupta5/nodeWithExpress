@@ -106,7 +106,7 @@ exports.postMultipleProducts = (req, res, next) => {
 
 exports.getOneProductById = (req, res, next) => {
   // Product.find({ PKID: req.params.PKID })
-  Product.findById(req.params._id )
+  Product.findById(req.params._id)
     .then(product => {
       res.send(product)
       console.log("Product by Id", product)
@@ -125,56 +125,56 @@ exports.getAllProducts = (req, res, next) => {
 }
 
 exports.updateProduct = (req, res, next) => {
-  const updateProduct = 
-    {
-      PKID: req.body.PKID,
-      NameToDisplay: req.body.NameToDisplay,
-      Brand: req.body.Brand,
-      Strength: req.body.Strength,
-      Unit1: req.body.Unit1,
-      ProdConv1: req.body.ProdConv1,
-      Unit2: req.body.Unit2,
-      SellLoose: req.body.SellLoose,
-      ProdConv2: req.body.ProdConv2,
-      Unit3: req.body.Unit3,
-      IsExpiryApplied: req.body.IsExpiryApplied,
-      IsMfgDateApplied: req.body.IsMfgDateApplied,
-      IsUniqueIDapplied: req.body.IsUniqueIDapplied,
-      IsColorApplied: req.body.IsColorApplied,
-      IsBarCodeApplied: req.body.IsBarCodeApplied,
-      Description: req.body.Description,
-      FkprodCatgId: req.body.FkprodCatgId,
-      MRP: req.body.MRP,
-      Barcode: req.body.Barcode,
-      Weight: req.body.Weight,
-      Height: req.body.Height,
-      Width: req.body.Width,
-      Length: req.body.Length,
-      WeightUnit: req.body.WeightUnit,
-      HeightUnit: req.body.HeightUnit,
-      Status: req.body.Status,
-      Image: req.body.Image,
-      BestBefore: req.body.BestBefore,
-      BestBeforeUnit: req.body.BestBeforeUnit,
-      Skudefinition: req.body.Skudefinition,
-      HSNCode: req.body.HSNCode,
-      MfgGroupName: req.body.MfgGroupName,
-      GroupName: req.body.GroupName,
-      GroupAlias: req.body.GroupAlias,
-      MfgGroupAlias: req.body.MfgGroupAlias,
-      Category: req.body.Category,
-      CategoryGroup: req.body.CategoryGroup,
-      CatgSKU: req.body.CatgSKU,
-      Generic1: req.body.Generic1,
-      Generic2: req.body.Generic2,
-      BoxSize: req.body.BoxSize,
-      Schedule: req.body.Schedule,
-      Remarks: req.body.Remarks,
-      Images: req.body.Images
-    }
+  const updateProduct =
+  {
+    PKID: req.body.PKID,
+    NameToDisplay: req.body.NameToDisplay,
+    Brand: req.body.Brand,
+    Strength: req.body.Strength,
+    Unit1: req.body.Unit1,
+    ProdConv1: req.body.ProdConv1,
+    Unit2: req.body.Unit2,
+    SellLoose: req.body.SellLoose,
+    ProdConv2: req.body.ProdConv2,
+    Unit3: req.body.Unit3,
+    IsExpiryApplied: req.body.IsExpiryApplied,
+    IsMfgDateApplied: req.body.IsMfgDateApplied,
+    IsUniqueIDapplied: req.body.IsUniqueIDapplied,
+    IsColorApplied: req.body.IsColorApplied,
+    IsBarCodeApplied: req.body.IsBarCodeApplied,
+    Description: req.body.Description,
+    FkprodCatgId: req.body.FkprodCatgId,
+    MRP: req.body.MRP,
+    Barcode: req.body.Barcode,
+    Weight: req.body.Weight,
+    Height: req.body.Height,
+    Width: req.body.Width,
+    Length: req.body.Length,
+    WeightUnit: req.body.WeightUnit,
+    HeightUnit: req.body.HeightUnit,
+    Status: req.body.Status,
+    Image: req.body.Image,
+    BestBefore: req.body.BestBefore,
+    BestBeforeUnit: req.body.BestBeforeUnit,
+    Skudefinition: req.body.Skudefinition,
+    HSNCode: req.body.HSNCode,
+    MfgGroupName: req.body.MfgGroupName,
+    GroupName: req.body.GroupName,
+    GroupAlias: req.body.GroupAlias,
+    MfgGroupAlias: req.body.MfgGroupAlias,
+    Category: req.body.Category,
+    CategoryGroup: req.body.CategoryGroup,
+    CatgSKU: req.body.CatgSKU,
+    Generic1: req.body.Generic1,
+    Generic2: req.body.Generic2,
+    BoxSize: req.body.BoxSize,
+    Schedule: req.body.Schedule,
+    Remarks: req.body.Remarks,
+    Images: req.body.Images
+  }
   Product.findByIdAndUpdate(req.body._id, updateProduct)
     .then(result => {
-      res.send({message: "Updated Successfully"})
+      res.send({ message: "Updated Successfully" })
     })
     .catch(err => {
       res.send(err)
@@ -184,7 +184,7 @@ exports.updateProduct = (req, res, next) => {
 }
 
 exports.deleteProduct = (req, res, next) => {
-  
+
   // Product.deleteOne({ PKID: req.params.PKID })
   Product.findByIdAndDelete(req.params._id)
     .then(result => {
@@ -192,5 +192,20 @@ exports.deleteProduct = (req, res, next) => {
     })
     .catch(err => {
       console.log(err)
+    })
+}
+
+
+exports.getProductsPerPage = (req, res, next) => {
+  var page = req.query.page
+  var items_per_page = req.query.noOfItems
+  Product.find()
+    .skip((page - 1) * items_per_page)
+    .limit(items_per_page)
+    .then(products => {
+      res.send(products)
+    })
+    .catch(err=>{
+      res.send(err)
     })
 }
