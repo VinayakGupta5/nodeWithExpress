@@ -219,6 +219,6 @@ exports.checkProductsExist = (req, res, next) => {
     existingDocFounded.forEach(pro => {
       existProdIds.push(pro.PKID)
     })
-    res.send({PKID:existProdIds})
+    res.send({ PKID: existProdIds })
   })
 }

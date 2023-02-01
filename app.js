@@ -25,12 +25,21 @@ app.use('/admin', adminRoutes)
 
 mongoose.set('strictQuery', false);
 
+var a = 1
+
+setInterval(() => {
+  a = a + 1
+}, 1);
+
 mongoose.connect(
   // 'mongodb+srv://ecommerce:2BDDE5I9PwK6ZGOV@cluster0.1x9aowm.mongodb.net/?retryWrites=true&w=majority'
-  "mongodb+srv://swildev:UDUGzXP8nNfhA3sR@swindia1.17wlqvp.mongodb.net/?retryWrites=true&w=majority"
+  "mongodb+srv://swildev:UDUGzXP8nNfhA3sR@swindia1.17wlqvp.mongodb.net/SwilMain?retryWrites=true&w=majority"
+  // "mongodb+srv://swildev:UDUGzXP8nNfhA3sR@swindia1.17wlqvp.mongodb.net/test?retryWrites=true&w=majority"
 )
   .then(result => {
-    console.log("mongoDb Connected successfully")
+    console.log("before",a)
+    console.log("mongooose Connected successfully")
+    console.log("after",a)
     app.listen(port, () => {
       console.log("listen server on http://localhost:" + port)
     })
