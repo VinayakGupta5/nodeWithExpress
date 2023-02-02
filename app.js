@@ -1,11 +1,10 @@
 const express = require('express')
-const bodyParser = require('body-parser')
-const mongoose = require('mongoose')
 const adminRoutes = require('./routes/admin/admin')
 const cors = require('cors')
-
+const connectToDb = require('./conn/connFunction');
 
 const port = 1234
+
 
 const app = express()
 app.use(cors())
@@ -13,38 +12,32 @@ app.use(cors())
 app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
-// app.use(bodyParser.urlencoded({ extended: true }))
 
-
-// To parse or accept data in raw json from postman
-// app.use(bodyParser.json())
-
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+  res.header('Access-Control-Allow-Credentials', 'true');
+  next();
+});
 
 app.use('/admin', adminRoutes)
 
 
-mongoose.set('strictQuery', false);
+// const databaseName = 'test';
+const databaseName = 'test';
+(async () => {
+  const connection = await connectToDb(databaseName)
+    .then(result => {
+      console.log("connect database successfully")
+    });
+})();
 
-var a = 1
+app.listen(port, () => {
+  console.log("listen server on http://localhost:" + port)
 
-setInterval(() => {
-  a = a + 1
-}, 1);
+})
 
-mongoose.connect(
-  // 'mongodb+srv://ecommerce:2BDDE5I9PwK6ZGOV@cluster0.1x9aowm.mongodb.net/?retryWrites=true&w=majority'
-  "mongodb+srv://swildev:UDUGzXP8nNfhA3sR@swindia1.17wlqvp.mongodb.net/SwilMain?retryWrites=true&w=majority"
-  // "mongodb+srv://swildev:UDUGzXP8nNfhA3sR@swindia1.17wlqvp.mongodb.net/test?retryWrites=true&w=majority"
-)
-  .then(result => {
-    console.log("before",a)
-    console.log("mongooose Connected successfully")
-    console.log("after",a)
-    app.listen(port, () => {
-      console.log("listen server on http://localhost:" + port)
-    })
-  })
-  .catch(err => {
-    console.log("mongoDb connection Failed!")
-  })
+
+
+
+
 

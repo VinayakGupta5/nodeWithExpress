@@ -1,3 +1,4 @@
+const connectToDb = require('../../conn/connFunction')
 const Product = require('../../models/Product')
 exports.postProduct = (req, res, next) => {
   Product.findOne({ PKID: req.body.PKID })
@@ -65,7 +66,7 @@ exports.postProduct = (req, res, next) => {
 }
 
 exports.postMultipleProducts = (req, res, next) => {
-  console.log("2First")
+  // console.log("2First")
   var existingDoc = []
   var notExistDoc = []
   const postsData = req.body
@@ -75,7 +76,7 @@ exports.postMultipleProducts = (req, res, next) => {
   })
 
   Product.find({ 'PKID': { $in: Ids } }, function (err, existingDocFounded) {
-    console.log("docs", existingDocFounded);
+    // console.log("docs", existingDocFounded);
     existingDoc = existingDocFounded
     postsData.forEach((post) => {
       var findDoc = existingDocFounded.find((doc) => doc.PKID === post.PKID)
@@ -92,7 +93,7 @@ exports.postMultipleProducts = (req, res, next) => {
         })
       })
       .catch(err => {
-        console.log(err)
+        res.send(err)
       })
 
 
@@ -105,19 +106,28 @@ exports.getOneProductById = (req, res, next) => {
   Product.findById(req.params._id)
     .then(product => {
       res.send(product)
-      console.log("Product by Id", product)
+      // console.log("Product by Id", product)
     })
 }
 
 exports.getAllProducts = (req, res, next) => {
+  // console.log("getallProducts")
+  const uri = "mongodb+srv://swildev:UDUGzXP8nNfhA3sR@swindia1.17wlqvp.mongodb.net/test?retryWrites=true&w=majority"
+    // const uri = "mongodb+srv://swildev:UDUGzXP8nNfhA3sR@swindia1.17wlqvp.mongodb.net/SwilMain?retryWrites=true&w=majority"
+    (async () => {
+      const connection = await connectToDb(uri)
+        .then(result => {
+          Product.find()
+            .then(products => {
+              res.send(products)
+            })
+            .catch(err => {
+              res.send(err)
+            })
+        });
+    })();
 
-  Product.find()
-    .then(products => {
-      res.send(products)
-    })
-    .catch(err => {
-      res.send(err)
-    })
+
 }
 
 exports.updateProduct = (req, res, next) => {
@@ -187,7 +197,7 @@ exports.deleteProduct = (req, res, next) => {
       res.send(result)
     })
     .catch(err => {
-      console.log(err)
+      // console.log(err)
     })
 }
 
@@ -201,21 +211,34 @@ exports.getProductsPerPage = (req, res, next) => {
   if (items_per_page === 'undefined') {
     items_per_page = 20
   }
-  Product.find()
-    .skip((page - 1) * items_per_page)
-    .limit(items_per_page)
-    .then(products => {
-      res.send(products)
-    })
-    .catch(err => {
-      res.send(err)
-    })
+
+  const databaseName = 'test';
+  // const databaseName = 'SwilMain';
+  (async () => {
+    const connection = await connectToDb(databaseName)
+      .then(result => {
+        Product.find()
+          .skip((page - 1) * items_per_page)
+          .limit(items_per_page)
+          .then(products => {
+            console.log("first")
+            res.header('Set-Cookie', 'name=value; Max-Age=3600');
+            res.send(products)
+          })
+          .catch(err => {
+            res.send(err)
+          })
+      });
+  })();
+
+
+
 }
 
 exports.checkProductsExist = (req, res, next) => {
   var existProdIds = []
   Product.find({ 'PKID': { $in: req.body } }, function (err, existingDocFounded) {
-    console.log("docs", existingDocFounded);
+    // console.log("docs", existingDocFounded);
     existingDocFounded.forEach(pro => {
       existProdIds.push(pro.PKID)
     })
