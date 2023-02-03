@@ -111,12 +111,12 @@ exports.getOneProductById = (req, res, next) => {
 }
 
 exports.getAllProducts = (req, res, next) => {
-  // console.log("getallProducts")
-  const uri = "mongodb+srv://swildev:UDUGzXP8nNfhA3sR@swindia1.17wlqvp.mongodb.net/test?retryWrites=true&w=majority"
-    // const uri = "mongodb+srv://swildev:UDUGzXP8nNfhA3sR@swindia1.17wlqvp.mongodb.net/SwilMain?retryWrites=true&w=majority"
-    (async () => {
-      const connection = await connectToDb(uri)
-        .then(result => {
+  console.log("getallProducts")
+  // const uri = "mongodb+srv://swildev:UDUGzXP8nNfhA3sR@swindia1.17wlqvp.mongodb.net/test?retryWrites=true&w=majority"
+  //   // const uri = "mongodb+srv://swildev:UDUGzXP8nNfhA3sR@swindia1.17wlqvp.mongodb.net/SwilMain?retryWrites=true&w=majority"
+  //   (async () => {
+  //     const connection = await connectToDb(uri)
+  //       .then(result => {
           Product.find()
             .then(products => {
               res.send(products)
@@ -124,8 +124,8 @@ exports.getAllProducts = (req, res, next) => {
             .catch(err => {
               res.send(err)
             })
-        });
-    })();
+        // });
+    // })();
 
 
 }
@@ -221,7 +221,7 @@ exports.getProductsPerPage = (req, res, next) => {
           .skip((page - 1) * items_per_page)
           .limit(items_per_page)
           .then(products => {
-            console.log("first")
+            // console.log("first")
             res.header('Set-Cookie', 'name=value; Max-Age=3600');
             res.send(products)
           })
