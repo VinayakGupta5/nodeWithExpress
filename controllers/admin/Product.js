@@ -84,7 +84,6 @@ exports.postMultipleProducts = (req, res, next) => {
         notExistDoc.push(post)
       }
     })
-
     Product.insertMany(notExistDoc)
       .then(result => {
         res.send({
@@ -95,8 +94,6 @@ exports.postMultipleProducts = (req, res, next) => {
       .catch(err => {
         res.send(err)
       })
-
-
   });
 
 }
@@ -117,15 +114,15 @@ exports.getAllProducts = (req, res, next) => {
   //   (async () => {
   //     const connection = await connectToDb(uri)
   //       .then(result => {
-          Product.find()
-            .then(products => {
-              res.send(products)
-            })
-            .catch(err => {
-              res.send(err)
-            })
-        // });
-    // })();
+  Product.find()
+    .then(products => {
+      res.send(products)
+    })
+    .catch(err => {
+      res.send(err)
+    })
+  // });
+  // })();
 
 
 }
@@ -176,7 +173,8 @@ exports.updateProduct = (req, res, next) => {
     BoxSize: req.body.BoxSize,
     Schedule: req.body.Schedule,
     Remarks: req.body.Remarks,
-    Images: req.body.Images
+    Images: req.body.Images,
+    active: req.body.active
   }
   Product.findByIdAndUpdate(req.body._id, updateProduct)
     .then(result => {
@@ -230,9 +228,6 @@ exports.getProductsPerPage = (req, res, next) => {
           })
       });
   })();
-
-
-
 }
 
 exports.checkProductsExist = (req, res, next) => {
