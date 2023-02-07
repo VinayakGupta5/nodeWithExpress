@@ -26,7 +26,7 @@ exports.Login = (req, res, next) => {
                 email: user.email
               }
               if (doMatch) {
-                jwt.sign(userData, this.secretKey, { expiresIn: "20s" }, (err, token) => {
+                jwt.sign(userData, this.secretKey, { expiresIn: "3000s" }, (err, token) => {
                   if (err) {
                     return res.send({ err: err })
                   }

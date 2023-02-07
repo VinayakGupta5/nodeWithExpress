@@ -3,6 +3,7 @@ const adminRoutes = require('./routes/admin/admin')
 const authRoutes = require('./routes/admin/AuthRouter')
 const cors = require('cors')
 const connectToDb = require('./conn/connFunction');
+const isAuth = require('./middleware/isAuth')
 
 const port = 1234
 
@@ -21,7 +22,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/api/auth', authRoutes)
-app.use('/admin', adminRoutes)
+app.use('/admin',isAuth, adminRoutes)
 
 
 // const databaseName = 'test';
