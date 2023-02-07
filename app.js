@@ -1,5 +1,6 @@
 const express = require('express')
 const adminRoutes = require('./routes/admin/admin')
+const authRoutes = require('./routes/admin/AuthRouter')
 const cors = require('cors')
 const connectToDb = require('./conn/connFunction');
 
@@ -19,6 +20,7 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use('/api/auth', authRoutes)
 app.use('/admin', adminRoutes)
 
 

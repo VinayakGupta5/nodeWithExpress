@@ -7,6 +7,35 @@
 	},
 	"item": [
 		{
+			"name": "Signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"PKID\": 498,\r\n        \"NameToDisplay\": \"S CELEPRA 10 14 *10\",\r\n        \"Alias\": \"ML231\",\r\n        \"Product\": \"S CELEPRA 10                            \",\r\n        \"Brand\": null,\r\n        \"Strength\": \"14 *10    \",\r\n        \"Unit1\": \"Strip     \",\r\n        \"ProdConv1\": 14.0000,\r\n        \"Unit2\": \"*10       \",\r\n        \"SellLoose\": false,\r\n        \"ProdConv2\": 14.0000,\r\n        \"Unit3\": \"0\",\r\n        \"CaseLot\": \"1\",\r\n        \"NameToPrint\": \"S CELEPRA 10                            \",\r\n        \"IsExpiryApplied\": true,\r\n        \"IsMfgDateApplied\": false,\r\n        \"IsUniqueIDapplied\": false,\r\n        \"IsColorApplied\": false,\r\n        \"IsBarCodeApplied\": true,\r\n        \"IsBatchApplied\": true,\r\n        \"IsVirtual\": false,\r\n        \"Description\": \"\",\r\n        \"FkprodCatgId\": 9,\r\n        \"FkmktGroupId\": 256,\r\n        \"FkmfgGroupId\": null,\r\n        \"ShelfID\": \"               \",\r\n        \"MinStock\": 0,\r\n        \"MaxStock\": 0,\r\n        \"MinDays\": null,\r\n        \"MaxDays\": null,\r\n        \"MRP\": 90.9400,\r\n        \"SaleRate\": 64.9600,\r\n        \"TradeRate\": 58.1800,\r\n        \"DistributionRate\": 0.0000,\r\n        \"SuggestedRate\": 64.9600,\r\n        \"MRPSaleRateUnit\": \"1\",\r\n        \"PurchaseRate\": 58.4600,\r\n        \"CostRate\": 58.4600,\r\n        \"PurchaseRateUnit\": \"1\",\r\n        \"AddLT\": false,\r\n        \"Barcode\": 0,\r\n        \"Weight\": 0.0000,\r\n        \"Height\": 0.0000,\r\n        \"Width\": 0.0000,\r\n        \"Length\": 0.0000,\r\n        \"WeightUnit\": null,\r\n        \"HeightUnit\": null,\r\n        \"Status\": \"C\",\r\n        \"DiscDate\": null,\r\n        \"IncreaseSaleRateBy\": null,\r\n        \"Image\": null,\r\n        \"KeepStock\": true,\r\n        \"AllowDecimal\": false,\r\n        \"BestBefore\": 0,\r\n        \"BestBeforeUnit\": \"0\",\r\n        \"Skudefinition\": null,\r\n        \"TradeDisc\": 0.0000,\r\n        \"Fkhsnid\": 161,\r\n        \"HSNCode\": \"30049099(GST12)\",\r\n        \"GroupName\": \"MICRO LABS SYNAPSE            \",\r\n        \"MfgGroupName\": null,\r\n        \"GroupAlias\": null,\r\n        \"MfgGroupAlias\": null,\r\n        \"Category\": \"N_A  [PG2,SG2]\",\r\n        \"CurrQty\": 1.000000,\r\n        \"curQtyUnit1\": 1.000000,\r\n        \"curQtyUnit2\": 0.000000,\r\n        \"pm_PkprodId\": 0,\r\n        \"pm_SellLoose\": false,\r\n        \"SalesTax\": \"SG2_G\",\r\n        \"FKSaleTaxID\": 68,\r\n        \"PurchaseTax\": \"PG2_G\",\r\n        \"FKPurchaseTaxID\": 49,\r\n        \"ProdCatgColor\": \"0\",\r\n        \"CategoryGroup\": null,\r\n        \"MRPSaleRateUnitDesc\": \"Strip     \",\r\n        \"PurchaseRateUnitDesc\": \"Strip     \",\r\n        \"MaxDiscount\": 0.0000,\r\n        \"defProdBatch\": null,\r\n        \"defProdExpDate\": null,\r\n        \"defProdMfgDate\": null,\r\n        \"defProdColor\": null,\r\n        \"defProdUniqueID\": null,\r\n        \"defProdNameStyle\": null,\r\n        \"defProdConv1\": null,\r\n        \"defProdConv2\": null,\r\n        \"defDimension\": null,\r\n        \"defUnit1\": null,\r\n        \"defUnit2\": null,\r\n        \"defTradeRate\": null,\r\n        \"defDistributionRate\": null,\r\n        \"TblProdLocLnk\": [],\r\n        \"TblProdAttrDtl\": [],\r\n        \"TblProdLotDtl\": [],\r\n        \"TblProdStockDtl\": [],\r\n        \"TblProdUniqueMas\": [],\r\n        \"dtBatch\": [],\r\n        \"pimage\": null,\r\n        \"Stock\": 0.000000,\r\n        \"CatgSKU\": null,\r\n        \"SaleRateCalcMethod\": null,\r\n        \"DiscountPer\": 0.0,\r\n        \"DiscountOn\": null,\r\n        \"MarginOn\": null,\r\n        \"MarginPer\": 0.0,\r\n        \"SaleTaxRate\": 0.0,\r\n        \"MRPOn\": null,\r\n        \"MRPCalcFactor\": 0.0,\r\n        \"MRPCalcRound\": 0.0,\r\n        \"SaleRateCalcRound\": 0.0,\r\n        \"DistRateRoundOff\": 0.0,\r\n        \"TradeRateRoundOff\": 0.0,\r\n        \"DistRateMargin\": 0.0,\r\n        \"TradeRateMargin\": 0.0,\r\n        \"DistRateOn\": null,\r\n        \"TradeRateOn\": null,\r\n        \"DeductionExpired\": 0.0,\r\n        \"DeductionDamaged\": 0.0,\r\n        \"DeductionDays\": 0,\r\n        \"PurDeductionExpired\": 0.0,\r\n        \"PurDeductionDamaged\": 0.0,\r\n        \"FKPurTaxIDWithoutCForm\": 0,\r\n        \"PurchaseTaxWithoutCForm\": null,\r\n        \"FKSalesTaxIDWithoutCForm\": 0,\r\n        \"SalesTaxWithoutCForm\": null,\r\n        \"FKSalesTaxIDWithCForm\": 0,\r\n        \"SalesTaxWithCForm\": null,\r\n        \"FKPurTaxIDWithCForm\": 0,\r\n        \"PurchaseTaxWithCForm\": null,\r\n        \"NoOfPrompt\": 0,\r\n        \"Prompt1\": null,\r\n        \"Prompt2\": null,\r\n        \"Prompt3\": null,\r\n        \"WidthPrompt1\": 0,\r\n        \"WidthPrompt2\": 0,\r\n        \"WidthPrompt3\": 0,\r\n        \"PurchaseTaxRate\": 0.0,\r\n        \"Generic1\": null,\r\n        \"Generic2\": null,\r\n        \"FkGenericId1\": null,\r\n        \"FkGenericId2\": null,\r\n        \"BoxSize\": null,\r\n        \"Schedule\": null,\r\n        \"PkprodId\": 0,\r\n        \"Remarks\": null,\r\n        \"Images\": null,\r\n        \"ImageStatus\": false,\r\n        \"FKUserID\": 1,\r\n        \"UserName\": \"admin\",\r\n        \"DATE_MODIFIED\": \"2021-05-07T13:25:46.173\",\r\n        \"FKCreatedByID\": 0,\r\n        \"CreatedByUser\": null,\r\n        \"CreationDate\": \"0001-01-01T00:00:00\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1234/admin/addProduct",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"admin",
+						"addProduct"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "/admin/add-product",
 			"request": {
 				"method": "POST",
@@ -42,7 +71,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "[\r\n    {\r\n    \"PKID\": 498,\r\n    \"NameToDisplay\": \"shoes\",\r\n    \"Brand\": null,\r\n    \"Strength\": \"14 *10    \",\r\n    \"Unit1\": \"Strip     \",\r\n    \"ProdConv1\": 14.0000,\r\n    \"Unit2\": \"*10       \",\r\n    \"SellLoose\": false,\r\n    \"ProdConv2\": 14.0000,\r\n    \"Unit3\": \"0\",\r\n    \"IsExpiryApplied\": true,\r\n    \"IsMfgDateApplied\": false,\r\n    \"IsUniqueIDapplied\": false,\r\n    \"IsColorApplied\": false,\r\n    \"IsBarCodeApplied\": true,\r\n    \"Description\": \"\",\r\n    \"FkprodCatgId\": 9,\r\n    \"MRP\": 90.9400,\r\n    \"Barcode\": 0,\r\n    \"Weight\": 0.0000,\r\n    \"Height\": 0.0000,\r\n    \"Width\": 0.0000,\r\n    \"Length\": 0.0000,\r\n    \"WeightUnit\": null,\r\n    \"HeightUnit\": null,\r\n    \"Status\": \"C\",\r\n    \"Image\": null,\r\n    \"BestBefore\": 0,\r\n    \"BestBeforeUnit\": \"0\",\r\n    \"Skudefinition\": null,\r\n    \"HSNCode\": \"30049099(GST12)\",\r\n    \"GroupName\": \"MICRO LABS SYNAPSE            \",\r\n    \"MfgGroupName\": null,\r\n    \"GroupAlias\": null,\r\n    \"MfgGroupAlias\": null,\r\n    \"Category\": \"N_A  [PG2,SG2]\",\r\n    \"CatgSKU\": null,\r\n    \"Generic1\": null,\r\n    \"Generic2\": null,\r\n    \"BoxSize\": null,\r\n    \"Schedule\": null,\r\n    \"Remarks\": null,\r\n    \"Images\": null\r\n},\r\n{\r\n    \"PKID\": 499,\r\n    \"NameToDisplay\": \"baby shop\",\r\n    \"Brand\": null,\r\n    \"Strength\": \"14 *10    \",\r\n    \"Unit1\": \"Strip     \",\r\n    \"ProdConv1\": 14.0000,\r\n    \"Unit2\": \"*10       \",\r\n    \"SellLoose\": false,\r\n    \"ProdConv2\": 14.0000,\r\n    \"Unit3\": \"0\",\r\n    \"IsExpiryApplied\": true,\r\n    \"IsMfgDateApplied\": false,\r\n    \"IsUniqueIDapplied\": false,\r\n    \"IsColorApplied\": false,\r\n    \"IsBarCodeApplied\": true,\r\n    \"Description\": \"\",\r\n    \"FkprodCatgId\": 9,\r\n    \"MRP\": 90.9400,\r\n    \"Barcode\": 0,\r\n    \"Weight\": 0.0000,\r\n    \"Height\": 0.0000,\r\n    \"Width\": 0.0000,\r\n    \"Length\": 0.0000,\r\n    \"WeightUnit\": null,\r\n    \"HeightUnit\": null,\r\n    \"Status\": \"C\",\r\n    \"Image\": null,\r\n    \"BestBefore\": 0,\r\n    \"BestBeforeUnit\": \"0\",\r\n    \"Skudefinition\": null,\r\n    \"HSNCode\": \"30049099(GST12)\",\r\n    \"GroupName\": \"MICRO LABS SYNAPSE            \",\r\n    \"MfgGroupName\": null,\r\n    \"GroupAlias\": null,\r\n    \"MfgGroupAlias\": null,\r\n    \"Category\": \"N_A  [PG2,SG2]\",\r\n    \"CatgSKU\": null,\r\n    \"Generic1\": null,\r\n    \"Generic2\": null,\r\n    \"BoxSize\": null,\r\n    \"Schedule\": null,\r\n    \"Remarks\": null,\r\n    \"Images\": null\r\n}\r\n]",
+					"raw": "[\r\n    {\r\n        \"active\":true,\r\n    \"PKID\": 498,\r\n    \"NameToDisplay\": \"shoes\",\r\n    \"Brand\": null,\r\n    \"Strength\": \"14 *10    \",\r\n    \"Unit1\": \"Strip     \",\r\n    \"ProdConv1\": 14.0000,\r\n    \"Unit2\": \"*10       \",\r\n    \"SellLoose\": false,\r\n    \"ProdConv2\": 14.0000,\r\n    \"Unit3\": \"0\",\r\n    \"IsExpiryApplied\": true,\r\n    \"IsMfgDateApplied\": false,\r\n    \"IsUniqueIDapplied\": false,\r\n    \"IsColorApplied\": false,\r\n    \"IsBarCodeApplied\": true,\r\n    \"Description\": \"\",\r\n    \"FkprodCatgId\": 9,\r\n    \"MRP\": 90.9400,\r\n    \"Barcode\": 0,\r\n    \"Weight\": 0.0000,\r\n    \"Height\": 0.0000,\r\n    \"Width\": 0.0000,\r\n    \"Length\": 0.0000,\r\n    \"WeightUnit\": null,\r\n    \"HeightUnit\": null,\r\n    \"Status\": \"C\",\r\n    \"Image\": null,\r\n    \"BestBefore\": 0,\r\n    \"BestBeforeUnit\": \"0\",\r\n    \"Skudefinition\": null,\r\n    \"HSNCode\": \"30049099(GST12)\",\r\n    \"GroupName\": \"MICRO LABS SYNAPSE            \",\r\n    \"MfgGroupName\": null,\r\n    \"GroupAlias\": null,\r\n    \"MfgGroupAlias\": null,\r\n    \"Category\": \"N_A  [PG2,SG2]\",\r\n    \"CatgSKU\": null,\r\n    \"Generic1\": null,\r\n    \"Generic2\": null,\r\n    \"BoxSize\": null,\r\n    \"Schedule\": null,\r\n    \"Remarks\": null,\r\n    \"Images\": null\r\n},\r\n{\r\n    \"PKID\": 499,\r\n    \"NameToDisplay\": \"baby shop\",\r\n    \"Brand\": null,\r\n    \"Strength\": \"14 *10    \",\r\n    \"Unit1\": \"Strip     \",\r\n    \"ProdConv1\": 14.0000,\r\n    \"Unit2\": \"*10       \",\r\n    \"SellLoose\": false,\r\n    \"ProdConv2\": 14.0000,\r\n    \"Unit3\": \"0\",\r\n    \"IsExpiryApplied\": true,\r\n    \"IsMfgDateApplied\": false,\r\n    \"IsUniqueIDapplied\": false,\r\n    \"IsColorApplied\": false,\r\n    \"IsBarCodeApplied\": true,\r\n    \"Description\": \"\",\r\n    \"FkprodCatgId\": 9,\r\n    \"MRP\": 90.9400,\r\n    \"Barcode\": 0,\r\n    \"Weight\": 0.0000,\r\n    \"Height\": 0.0000,\r\n    \"Width\": 0.0000,\r\n    \"Length\": 0.0000,\r\n    \"WeightUnit\": null,\r\n    \"HeightUnit\": null,\r\n    \"Status\": \"C\",\r\n    \"Image\": null,\r\n    \"BestBefore\": 0,\r\n    \"BestBeforeUnit\": \"0\",\r\n    \"Skudefinition\": null,\r\n    \"HSNCode\": \"30049099(GST12)\",\r\n    \"GroupName\": \"MICRO LABS SYNAPSE            \",\r\n    \"MfgGroupName\": null,\r\n    \"GroupAlias\": null,\r\n    \"MfgGroupAlias\": null,\r\n    \"Category\": \"N_A  [PG2,SG2]\",\r\n    \"CatgSKU\": null,\r\n    \"Generic1\": null,\r\n    \"Generic2\": null,\r\n    \"BoxSize\": null,\r\n    \"Schedule\": null,\r\n    \"Remarks\": null,\r\n    \"Images\": null\r\n}\r\n]",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -65,7 +94,63 @@
 			"response": []
 		},
 		{
+			"name": "checkProductsExist",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[1048, 4594, 4412, 4408, 4409, 4410, 4411, 5184, 4622, 3502]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1234/admin/checkProductsExist",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"admin",
+						"checkProductsExist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "get All products",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:1234/admin/getProducts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"admin",
+						"getProducts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get All products Per page",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -102,7 +187,7 @@
 					]
 				},
 				"url": {
-					"raw": "http://localhost:1234/admin/getProducts",
+					"raw": "http://localhost:1234/admin/getProductsPerPage?page=1&noOfItems=2",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -110,7 +195,17 @@
 					"port": "1234",
 					"path": [
 						"admin",
-						"getProducts"
+						"getProductsPerPage"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "noOfItems",
+							"value": "2"
+						}
 					]
 				}
 			},
@@ -176,7 +271,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"_id\": \"63d8a7e955044da2024451bb\",\r\n    \"PKID\": 10000003,\r\n    \"NameToDisplay\": \"*Mer\",\r\n    \"Brand\": \"\",\r\n    \"Strength\": null,\r\n    \"Unit1\": \"Pack\",\r\n    \"ProdConv1\": 1,\r\n    \"Unit2\": \"PCS\",\r\n    \"SellLoose\": false,\r\n    \"ProdConv2\": 5,\r\n    \"Unit3\": \"\",\r\n    \"IsExpiryApplied\": true,\r\n    \"IsMfgDateApplied\": false,\r\n    \"IsUniqueIDapplied\": false,\r\n    \"IsColorApplied\": false,\r\n    \"IsBarCodeApplied\": false,\r\n    \"Description\": null,\r\n    \"FkprodCatgId\": 10000028,\r\n    \"MRP\": 0,\r\n    \"Barcode\": 0,\r\n    \"Weight\": null,\r\n    \"Height\": null,\r\n    \"Width\": null,\r\n    \"Length\": null,\r\n    \"WeightUnit\": null,\r\n    \"HeightUnit\": null,\r\n    \"Status\": \"C\",\r\n    \"BestBefore\": 0,\r\n    \"BestBeforeUnit\": \"D\",\r\n    \"Skudefinition\": null,\r\n    \"HSNCode\": \"30049099(GST12)\",\r\n    \"GroupName\": \"MANKIND_NOVELISH\",\r\n    \"MfgGroupName\": null,\r\n    \"GroupAlias\": null,\r\n    \"MfgGroupAlias\": null,\r\n    \"Category\": \"General\",\r\n    \"CategoryGroup\": null,\r\n    \"CatgSKU\": null,\r\n    \"Generic1\": null,\r\n    \"Generic2\": null,\r\n    \"BoxSize\": null,\r\n    \"Schedule\": null,\r\n    \"Remarks\": null,\r\n    \"Images\": null,\r\n    \"__v\": 0\r\n}",
+					"raw": " {\r\n        \"_id\": \"63e0c1cedd65b6f78dd0cf0e\",\r\n        \"PKID\": 4594,\r\n        \"NameToDisplay\": \"4 QUIN BROM EYE DROPS 5 ML\",\r\n        \"active\": true\r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -233,7 +328,7 @@
 					]
 				},
 				"url": {
-					"raw": "http://localhost:1234/admin/deleteProduct/63d8a7e955044da2024451bb",
+					"raw": "http://localhost:1234/admin/deleteProduct/63dce722ab5ee6ca832ec5e9",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -242,7 +337,7 @@
 					"path": [
 						"admin",
 						"deleteProduct",
-						"63d8a7e955044da2024451bb"
+						"63dce722ab5ee6ca832ec5e9"
 					]
 				}
 			},
