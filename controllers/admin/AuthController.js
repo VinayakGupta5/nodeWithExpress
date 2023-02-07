@@ -1,8 +1,55 @@
 const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
 const Users = require('../../models/AuthModel')
-exports.Login = (req, res, next) => {
 
+exports.secretKey = 'ecommerce1';
+
+
+exports.Login = (req, res, next) => {
+  const email = req.body.email;
+  const pass = req.body.pass;
+  const emailValidation = email.includes('@')
+  if (!emailValidation) {
+    return res.send({ message: "email is not valid!" })
+  }
+  if (!pass) {
+    return res.send({ message: "password can not be empty!" })
+  }
+  else {
+    return Users.findOne({ email: email })
+      .then(user => {
+        if (user) {
+          bcrypt.compare(pass, user.pass)
+            .then(doMatch => {
+              const userData = {
+                _id: user._id,
+                email: user.email
+              }
+              if (doMatch) {
+                jwt.sign(userData, this.secretKey, { expiresIn: "20s" }, (err, token) => {
+                  if (err) {
+                    return res.send({ err: err })
+                  }
+                  else {
+                    return res.send({
+                      token: token,
+                      profileData: userData
+                    })
+                  }
+                })
+              }
+              else {
+                return res.send({ message: "password does not match" })
+              }
+            })
+        }
+        else {
+          return res.send({ message: "Email not found!" })
+        }
+      })
+  }
 }
+
 exports.Signup = (req, res, next) => {
   const email = req.body.email;
   const pass = req.body.pass;
@@ -10,20 +57,19 @@ exports.Signup = (req, res, next) => {
   const websiteName = req.body.websiteName;
   const emailValidation = email.includes('@')
   if (!emailValidation) {
-    res.send({ message: "email is not valid!" })
+    return res.send({ message: "email is not valid!" })
   }
   if (!pass) {
-    res.send({ message: "pass can not be empty!" })
+    return res.send({ message: "pass can not be empty!" })
   }
   if (pass !== confimPass) {
-    res.send({ message: "ConfirmPass is not match!" })
+    return res.send({ message: "ConfirmPass is not match!" })
   }
   if (!websiteName) {
-    res.send({ message: "website Name can not be empty!" })
+    return res.send({ message: "website Name can not be empty!" })
   }
   else {
-    console.log(email, pass, confimPass, websiteName)
-    Users.findOne({ email: email })
+    return Users.findOne({ email: email })
       .then(user => {
         if (user) {
           res.send({ message: "User already exist!" })
@@ -38,7 +84,14 @@ exports.Signup = (req, res, next) => {
               })
               user.save()
                 .then(userCreate => {
-                  res.send({ status: "successfully created", data: userCreate })
+                  res.send({
+                    status: "successfully created",
+                    data: {
+                      _id: userCreate._id,
+                      email: userCreate.email,
+                      websiteName: userCreate.websiteName
+                    }
+                  })
                 })
                 .catch(err => {
                   res.send({ err: err })
@@ -47,6 +100,4 @@ exports.Signup = (req, res, next) => {
         }
       })
   }
-
-
 }

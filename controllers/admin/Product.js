@@ -66,7 +66,6 @@ exports.postProduct = (req, res, next) => {
 }
 
 exports.postMultipleProducts = (req, res, next) => {
-  // console.log("2First")
   var existingDoc = []
   var notExistDoc = []
   const postsData = req.body
@@ -76,7 +75,6 @@ exports.postMultipleProducts = (req, res, next) => {
   })
 
   Product.find({ 'PKID': { $in: Ids } }, function (err, existingDocFounded) {
-    // console.log("docs", existingDocFounded);
     existingDoc = existingDocFounded
     postsData.forEach((post) => {
       var findDoc = existingDocFounded.find((doc) => doc.PKID === post.PKID)
@@ -99,16 +97,18 @@ exports.postMultipleProducts = (req, res, next) => {
 }
 
 exports.getOneProductById = (req, res, next) => {
-  // Product.find({ PKID: req.params.PKID })
   Product.findById(req.params._id)
     .then(product => {
-      res.send(product)
-      // console.log("Product by Id", product)
+      if (product) {
+        return res.send(product)
+      }
+      else {
+        return res.send({ message: "product not found!" })
+      }
     })
 }
 
 exports.getAllProducts = (req, res, next) => {
-  console.log("getallProducts")
   // const uri = "mongodb+srv://swildev:UDUGzXP8nNfhA3sR@swindia1.17wlqvp.mongodb.net/test?retryWrites=true&w=majority"
   //   // const uri = "mongodb+srv://swildev:UDUGzXP8nNfhA3sR@swindia1.17wlqvp.mongodb.net/SwilMain?retryWrites=true&w=majority"
   //   (async () => {
@@ -192,13 +192,12 @@ exports.deleteProduct = (req, res, next) => {
   // Product.deleteOne({ PKID: req.params.PKID })
   Product.findByIdAndDelete(req.params._id)
     .then(result => {
-      res.send(result)
+      return res.send(result)
     })
     .catch(err => {
-      // console.log(err)
+      return res.send(err)
     })
 }
-
 
 exports.getProductsPerPage = (req, res, next) => {
   var page = req.query.page
@@ -219,8 +218,6 @@ exports.getProductsPerPage = (req, res, next) => {
           .skip((page - 1) * items_per_page)
           .limit(items_per_page)
           .then(products => {
-            // console.log("first")
-            res.header('Set-Cookie', 'name=value; Max-Age=3600');
             res.send(products)
           })
           .catch(err => {
@@ -233,7 +230,6 @@ exports.getProductsPerPage = (req, res, next) => {
 exports.checkProductsExist = (req, res, next) => {
   var existProdIds = []
   Product.find({ 'PKID': { $in: req.body } }, function (err, existingDocFounded) {
-    // console.log("docs", existingDocFounded);
     existingDocFounded.forEach(pro => {
       existProdIds.push(pro.PKID)
     })
