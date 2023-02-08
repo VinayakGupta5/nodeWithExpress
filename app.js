@@ -5,7 +5,6 @@ const authRoutes = require('./routes/admin/AuthRouter')
 const cors = require('cors')
 const connectToDb = require('./conn/connFunction');
 const isAuth = require('./middleware/isAuth');
-const { encrypt, secretKey, decrypt } = require('./Global/Global');
 const crypto = require('crypto')
 
 const port = 1234
@@ -29,7 +28,8 @@ app.use('/admin', isAuth, adminRoutes)
 
 
 // const databaseName = 'test';
-const databaseName = 'test';
+const databaseName = 'SwilMain';
+
 (async () => {
   const connection = await connectToDb(databaseName)
     .then(result => {
@@ -39,7 +39,6 @@ const databaseName = 'test';
 
 app.listen(port, () => {
   console.log("listen server on http://localhost:" + port)
-
 })
 
 
