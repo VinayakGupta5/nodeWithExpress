@@ -1,11 +1,11 @@
 const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
+const { encrypt, decrypt, secretKey } = require('../../Global/Global');
 const Users = require('../../models/AuthModel')
-
-exports.secretKey = 'ecommerce1';
 
 
 exports.Login = (req, res, next) => {
+  console.log("first")
   const email = req.body.email;
   const pass = req.body.pass;
   const emailValidation = email.includes('@')
@@ -21,12 +21,20 @@ exports.Login = (req, res, next) => {
         if (user) {
           bcrypt.compare(pass, user.pass)
             .then(doMatch => {
+              console.log("first 1")
               const userData = {
                 _id: user._id,
                 email: user.email
               }
+              const userDataInString = JSON.stringify(userData)
+              const tempSecreteKey = secretKey()
+              const encryptData = encrypt(userDataInString, tempSecreteKey)
+              const encData = {
+                enc: encryptData
+              }
+              // console.log("encryptData", encryptData)
               if (doMatch) {
-                jwt.sign(userData, this.secretKey, { expiresIn: "3000s" }, (err, token) => {
+                jwt.sign(encData, process.env.secretKey, { expiresIn: "3000s" }, (err, token) => {
                   if (err) {
                     return res.send({ err: err })
                   }

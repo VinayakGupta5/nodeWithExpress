@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
-const { secretKey } = require('../controllers/admin/AuthController')
+const { decrypt, secretKey } = require('../Global/Global')
 
 module.exports = (req, res, next) => {
   const bearerHeader = req.headers['authorization']
@@ -9,14 +9,15 @@ module.exports = (req, res, next) => {
   else {
     const token = bearerHeader.split(" ")[1]
     if (token) {
-      jwt.verify(token, secretKey, (err, userData) => {
+      jwt.verify(token, process.env.secretKey, (err, userData) => {
         if (err) {
           return res.send({ err: err })
         }
         else {
-          req.userData = userData
+          const tempSecretKey = secretKey()
+          const dcryptData = decrypt(userData.enc, tempSecretKey)
+          req.userData = JSON.parse(dcryptData)
           next()
-          // return res.send({ data: userData })
         }
       })
     }
