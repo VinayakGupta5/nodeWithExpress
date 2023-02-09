@@ -1,11 +1,11 @@
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken');
+const connectToDb = require('../../conn/connFunction');
 const { encrypt, decrypt, secretKey } = require('../../Global/Global');
 const Users = require('../../models/AuthModel')
 
 
 exports.Login = (req, res, next) => {
-  console.log("first")
   const email = req.body.email;
   const pass = req.body.pass;
   const emailValidation = email.includes('@')
@@ -16,50 +16,61 @@ exports.Login = (req, res, next) => {
     return res.send({ message: "password can not be empty!" })
   }
   else {
-    return Users.findOne({ email: email })
-      .then(user => {
-        if (user) {
-          bcrypt.compare(pass, user.pass)
-            .then(doMatch => {
-              console.log("first 1")
-              const userData = {
-                _id: user._id,
-                email: user.email
-              }
-              const userDataInString = JSON.stringify(userData)
-              const tempSecreteKey = secretKey()
-              const encryptData = encrypt(userDataInString, tempSecreteKey)
-              const encData = {
-                enc: encryptData
-              }
-              // console.log("encryptData", encryptData)
-              if (doMatch) {
-                jwt.sign(encData, process.env.secretKey, { expiresIn: "3000s" }, (err, token) => {
-                  if (err) {
-                    return res.send({ err: err })
-                  }
-                  else {
-                    return res.send({
-                      token: token,
-                      profileData: userData
-                    })
-                  }
-                })
+    const databaseName = `mongodb+srv://${process.env.mongoUserName}:${process.env.mongoPass}@swindia1.17wlqvp.mongodb.net/SwilMain?retryWrites=true&w=majority`;
+    (async () => {
+      const connection = await connectToDb(databaseName)
+        .then(result => {
+          return Users.findOne({ email: email })
+            .then(user => {
+              if (user) {
+                bcrypt.compare(pass, user.pass)
+                  .then(doMatch => {
+                    const userData = {
+                      _id: user._id,
+                      email: user.email,
+                      connectString: user.connectString
+                    }
+                    const userDataInString = JSON.stringify(userData)
+                    const tempSecreteKey = secretKey()
+                    const encryptData = encrypt(userDataInString, tempSecreteKey)
+                    const encData = {
+                      enc: encryptData
+                    }
+                    // console.log("encryptData", encryptData)
+                    if (doMatch) {
+                      jwt.sign(encData, process.env.secretKey, { expiresIn: "3000s" }, (err, token) => {
+                        if (err) {
+                          return res.send({ err: err })
+                        }
+                        else {
+                          return res.send({
+                            token: token,
+                            profileData: {
+                              _id: userData._id,
+                              email: userData.email
+                            }
+                          })
+                        }
+                      })
+                    }
+                    else {
+                      return res.send({ message: "password does not match" })
+                    }
+                  })
               }
               else {
-                return res.send({ message: "password does not match" })
+                return res.send({ message: "Email not found!" })
               }
             })
-        }
-        else {
-          return res.send({ message: "Email not found!" })
-        }
-      })
+        });
+    })();
+
   }
 }
 
 exports.Signup = (req, res, next) => {
   const email = req.body.email;
+  const databaseName = email.split('@')[0]
   const pass = req.body.pass;
   const confimPass = req.body.confimPass;
   const websiteName = req.body.websiteName;
@@ -88,7 +99,8 @@ exports.Signup = (req, res, next) => {
               const user = new Users({
                 email: email,
                 pass: hashpass,
-                websiteName: websiteName
+                websiteName: websiteName,
+                connectString: `mongodb+srv://${process.env.mongoUserName}:${process.env.mongoPass}@swindia1.17wlqvp.mongodb.net/${databaseName}?retryWrites=true&w=majority`
               })
               user.save()
                 .then(userCreate => {

@@ -69,30 +69,39 @@ exports.postMultipleProducts = (req, res, next) => {
   var existingDoc = []
   var notExistDoc = []
   const postsData = req.body
+  const databaseName = req.userData.connectString
 
-  const Ids = postsData.map((post) => {
-    return post.PKID
-  })
 
-  Product.find({ 'PKID': { $in: Ids } }, function (err, existingDocFounded) {
-    existingDoc = existingDocFounded
-    postsData.forEach((post) => {
-      var findDoc = existingDocFounded.find((doc) => doc.PKID === post.PKID)
-      if (!findDoc) {
-        notExistDoc.push(post)
-      }
-    })
-    Product.insertMany(notExistDoc)
+  const Ids = postsData.map((post) => post.PKID)
+  console.log("Ids", Ids);
+
+  async function mongoConnect () {
+    const connection = await connectToDb(databaseName)
+
       .then(result => {
-        res.send({
-          existingProd: existingDoc,
-          successfullyAdded: result
-        })
+        Product.find({ 'PKID': { $in: Ids } }, function (err, existingDocFounded) {
+          existingDoc = existingDocFounded
+          postsData.forEach((post) => {
+            var findDoc = existingDocFounded.find((doc) => doc.PKID === post.PKID)
+            if (!findDoc) {
+              notExistDoc.push(post)
+            }
+          })
+          Product.insertMany(notExistDoc)
+            .then(result => {
+              res.send({
+                existingProd: existingDoc,
+                successfullyAdded: result
+              })
+            })
+            .catch(err => {
+              res.send(err)
+            })
+        });
+
       })
-      .catch(err => {
-        res.send(err)
-      })
-  });
+  }
+  mongoConnect()
 
 }
 
