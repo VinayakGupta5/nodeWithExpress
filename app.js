@@ -1,6 +1,6 @@
 require('dotenv').config();
 const express = require('express')
-const adminRoutes = require('./routes/admin/admin')
+const adminRoutes = require('./routes/admin/adminRouter')
 const authRoutes = require('./routes/admin/AuthRouter')
 const cors = require('cors')
 const isAuth = require('./middleware/isAuth');

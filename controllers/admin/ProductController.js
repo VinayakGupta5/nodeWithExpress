@@ -37,7 +37,6 @@ exports.getAllProducts = (req, res, next) => {
   mongoConnect();
 }
 
-
 exports.postMultipleProducts = (req, res, next) => {
   var existingDoc = []
   var notExistDoc = []
@@ -89,8 +88,6 @@ exports.postMultipleProducts = (req, res, next) => {
   }
   mongoConnect()
 }
-
-
 
 exports.postProduct = (req, res, next) => {
   Product.findOne({ PKID: req.body.PKID })
@@ -157,8 +154,6 @@ exports.postProduct = (req, res, next) => {
 
 }
 
-
-
 exports.getOneProductById = (req, res, next) => {
   const databaseName = req.userData.connectString
 
@@ -192,8 +187,6 @@ exports.getOneProductById = (req, res, next) => {
   }
   mongoConnect()
 }
-
-
 
 exports.updateProduct = (req, res, next) => {
   const databaseName = req.userData.connectString
@@ -295,7 +288,7 @@ exports.deleteProduct = (req, res, next) => {
               console.log("now run")
             }
             mongooseDiscon();
-            
+
             return res.send({
               status: 'success',
               message: "Deleted Successfully!",
@@ -355,9 +348,9 @@ exports.getProductsPerPage = (req, res, next) => {
 }
 
 exports.checkProductsExist = (req, res, next) => {
-  const databaseName = req.userData.connectString
   var existProdIds = []
 
+  const databaseName = req.userData.connectString
   async function mongoConnect() {
     const connection = await connectToDb(databaseName)
       .then((result) => {
@@ -389,4 +382,29 @@ exports.checkProductsExist = (req, res, next) => {
 
   mongoConnect();
 
+}
+
+exports.getProductsByNameSearch = (req, res, next) => {
+  const search = req.query.search
+  // console.log("search", search)
+  var condition = search ? { NameToDisplay: { $regex: new RegExp(search), $options: "i" } } : {};
+  
+  const databaseName = req.userData.connectString
+  async function mongoConnect() {
+    const connection = await connectToDb(databaseName)
+      .then((result) => {
+        Product.find(condition)
+          .then(data => {
+            res.send(data);
+          })
+          .catch(err => {
+            res.status(500).send({
+              message:
+                err.message || "Some error occurred while retrieving tutorials."
+            });
+          });
+      })
+  }
+
+  mongoConnect()
 }

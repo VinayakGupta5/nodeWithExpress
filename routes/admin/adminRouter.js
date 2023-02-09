@@ -13,5 +13,6 @@ router.post('/updateProduct', adminController.updateProduct)
 router.delete('/deleteProduct/:_id', adminController.deleteProduct)
 router.get('/getProductsPerPage/', adminController.getProductsPerPage)
 router.post('/checkProductsExist/', adminController.checkProductsExist)
+router.get('/searchProdByName/', adminController.getProductsByNameSearch)
 
 module.exports = router
