@@ -22,7 +22,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/api/auth', authRoutes)
-app.use('/admin', isAuth, adminRoutes)
+app.use('/api/admin', isAuth, adminRoutes)
 
 app.listen(port, () => {
   console.log("listen server on http://localhost:" + port)
