@@ -3,12 +3,10 @@ const express = require('express')
 const adminRoutes = require('./routes/admin/admin')
 const authRoutes = require('./routes/admin/AuthRouter')
 const cors = require('cors')
-const connectToDb = require('./conn/connFunction');
 const isAuth = require('./middleware/isAuth');
-const crypto = require('crypto')
+
 
 const port = 1234
-
 
 const app = express()
 app.use(cors())
@@ -25,18 +23,6 @@ app.use((req, res, next) => {
 
 app.use('/api/auth', authRoutes)
 app.use('/admin', isAuth, adminRoutes)
-
-
-// const databaseName = 'test';
-// const databaseName = 'SwilMain';
-// const databaseName = `mongodb+srv://${process.env.mongoUserName}:${process.env.mongoPass}@swindia1.17wlqvp.mongodb.net/SwilMain?retryWrites=true&w=majority`;
-
-// (async () => {
-//   const connection = await connectToDb(databaseName)
-//     .then(result => {
-//       console.log("connect database successfully")
-//     });
-// })();
 
 app.listen(port, () => {
   console.log("listen server on http://localhost:" + port)

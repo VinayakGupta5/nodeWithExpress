@@ -1,5 +1,97 @@
-const connectToDb = require('../../conn/connFunction')
+const connectToDb = require('../../conn/connectMongoose')
 const Product = require('../../models/Product')
+const mongooseDisconnect = require('../../conn/disconnectMongoose')
+
+exports.getAllProducts = (req, res, next) => {
+  const databaseName = req.userData.connectString
+
+  async function mongoConnect() {
+    const connection = await connectToDb(databaseName)
+      .then((result) => {
+        Product.find()
+          .then(products => {
+            async function mongooseDiscon() {
+              try {
+                await mongooseDisconnect();
+              } catch (err) {
+                console.error('Error disconnecting from MongoDB:', err);
+                return;
+              }
+
+              console.log("now run")
+
+            }
+            mongooseDiscon();
+
+            return res.send({
+              status: 'success',
+              message: "",
+              data: products
+            })
+          })
+          .catch(err => {
+            return res.send(err)
+          })
+      })
+  }
+  mongoConnect();
+}
+
+
+exports.postMultipleProducts = (req, res, next) => {
+  var existingDoc = []
+  var notExistDoc = []
+  const postsData = req.body
+  const databaseName = req.userData.connectString
+
+
+  const Ids = postsData.map((post) => post.PKID)
+  console.log("Ids", Ids);
+
+  async function mongoConnect() {
+    const connection = await connectToDb(databaseName)
+      .then(result => {
+        Product.find({ 'PKID': { $in: Ids } }, function (err, existingDocFounded) {
+          existingDoc = existingDocFounded
+          postsData.forEach((post) => {
+            var findDoc = existingDocFounded.find((doc) => doc.PKID === post.PKID)
+            if (!findDoc) {
+              notExistDoc.push(post)
+            }
+          })
+          Product.insertMany(notExistDoc)
+            .then(result => {
+              async function mongooseDiscon() {
+                try {
+                  await mongooseDisconnect();
+                } catch (err) {
+                  console.error('Error disconnecting from MongoDB:', err);
+                  return;
+                }
+                console.log("now run")
+              }
+              mongooseDiscon();
+              res.send({
+                status: 'success',
+                message: "",
+                data: {
+                  existingProd: existingDoc,
+                  successfullyAdded: result
+                }
+              })
+            })
+            .catch(err => {
+              res.send(err)
+            })
+        });
+
+      })
+  }
+  mongoConnect()
+}
+
+
+
 exports.postProduct = (req, res, next) => {
   Product.findOne({ PKID: req.body.PKID })
     .then(result => {
@@ -65,78 +157,46 @@ exports.postProduct = (req, res, next) => {
 
 }
 
-exports.postMultipleProducts = (req, res, next) => {
-  var existingDoc = []
-  var notExistDoc = []
-  const postsData = req.body
+
+
+exports.getOneProductById = (req, res, next) => {
   const databaseName = req.userData.connectString
 
-
-  const Ids = postsData.map((post) => post.PKID)
-  console.log("Ids", Ids);
-
-  async function mongoConnect () {
+  async function mongoConnect() {
     const connection = await connectToDb(databaseName)
-
-      .then(result => {
-        Product.find({ 'PKID': { $in: Ids } }, function (err, existingDocFounded) {
-          existingDoc = existingDocFounded
-          postsData.forEach((post) => {
-            var findDoc = existingDocFounded.find((doc) => doc.PKID === post.PKID)
-            if (!findDoc) {
-              notExistDoc.push(post)
+      .then((result) => {
+        Product.findById(req.params._id)
+          .then(product => {
+            if (product) {
+              async function mongooseDiscon() {
+                try {
+                  await mongooseDisconnect();
+                } catch (err) {
+                  console.error('Error disconnecting from MongoDB:', err);
+                  return;
+                }
+                console.log("now run")
+              }
+              mongooseDiscon();
+              return res.send({
+                status: 'success',
+                message: "",
+                data: product
+              })
+            }
+            else {
+              return res.send({ message: "product not found!" })
             }
           })
-          Product.insertMany(notExistDoc)
-            .then(result => {
-              res.send({
-                existingProd: existingDoc,
-                successfullyAdded: result
-              })
-            })
-            .catch(err => {
-              res.send(err)
-            })
-        });
-
       })
   }
   mongoConnect()
-
 }
 
-exports.getOneProductById = (req, res, next) => {
-  Product.findById(req.params._id)
-    .then(product => {
-      if (product) {
-        return res.send(product)
-      }
-      else {
-        return res.send({ message: "product not found!" })
-      }
-    })
-}
 
-exports.getAllProducts = (req, res, next) => {
-  // const uri = "mongodb+srv://swildev:UDUGzXP8nNfhA3sR@swindia1.17wlqvp.mongodb.net/test?retryWrites=true&w=majority"
-  //   // const uri = "mongodb+srv://swildev:UDUGzXP8nNfhA3sR@swindia1.17wlqvp.mongodb.net/SwilMain?retryWrites=true&w=majority"
-  //   (async () => {
-  //     const connection = await connectToDb(uri)
-  //       .then(result => {
-  Product.find()
-    .then(products => {
-      res.send(products)
-    })
-    .catch(err => {
-      res.send(err)
-    })
-  // });
-  // })();
-
-
-}
 
 exports.updateProduct = (req, res, next) => {
+  const databaseName = req.userData.connectString
   const updateProduct =
   {
     PKID: req.body.PKID,
@@ -185,30 +245,75 @@ exports.updateProduct = (req, res, next) => {
     Images: req.body.Images,
     active: req.body.active
   }
-  Product.findByIdAndUpdate(req.body._id, updateProduct)
-    .then(result => {
-      res.send({ message: "Updated Successfully" })
-    })
-    .catch(err => {
-      res.send(err)
-    })
 
+  async function mongoConnect() {
+    const connection = await connectToDb(databaseName)
+      .then((result) => {
+        Product.findByIdAndUpdate(req.body._id, updateProduct)
+          .then(result => {
+            async function mongooseDiscon() {
+              try {
+                await mongooseDisconnect();
+              } catch (err) {
+                console.error('Error disconnecting from MongoDB:', err);
+                return;
+              }
+              console.log("now run")
+            }
+            mongooseDiscon();
 
+            return res.send(
+              {
+                status: 'success',
+                message: "Updated Successfully",
+                data: []
+              }
+            )
+          })
+          .catch(err => {
+            return res.send(err)
+          })
+      })
+  }
+  mongoConnect()
 }
 
 exports.deleteProduct = (req, res, next) => {
+  const databaseName = req.userData.connectString
+  async function mongoConnect() {
+    const connection = await connectToDb(databaseName)
+      .then((result) => {
+        Product.findByIdAndDelete(req.params._id)
+          .then(result => {
+            async function mongooseDiscon() {
+              try {
+                await mongooseDisconnect();
+              } catch (err) {
+                console.error('Error disconnecting from MongoDB:', err);
+                return;
+              }
+              console.log("now run")
+            }
+            mongooseDiscon();
+            
+            return res.send({
+              status: 'success',
+              message: "Deleted Successfully!",
+              data: result
+            })
+          })
+          .catch(err => {
+            return res.send(err)
+          })
+      })
+  }
 
-  // Product.deleteOne({ PKID: req.params.PKID })
-  Product.findByIdAndDelete(req.params._id)
-    .then(result => {
-      return res.send(result)
-    })
-    .catch(err => {
-      return res.send(err)
-    })
+  mongoConnect()
+
 }
 
 exports.getProductsPerPage = (req, res, next) => {
+  const databaseName = req.userData.connectString
   var page = req.query.page
   var items_per_page = req.query.noOfItems
   if (page === 'undefined') {
@@ -218,30 +323,70 @@ exports.getProductsPerPage = (req, res, next) => {
     items_per_page = 20
   }
 
-  const databaseName = 'test';
-  // const databaseName = 'SwilMain';
-  (async () => {
+  async function mongoConnect() {
     const connection = await connectToDb(databaseName)
-      .then(result => {
+      .then((result) => {
         Product.find()
           .skip((page - 1) * items_per_page)
           .limit(items_per_page)
           .then(products => {
-            res.send(products)
+            async function mongooseDiscon() {
+              try {
+                await mongooseDisconnect();
+              } catch (err) {
+                console.error('Error disconnecting from MongoDB:', err);
+                return;
+              }
+              console.log("now run")
+            }
+            mongooseDiscon();
+            res.send({
+              status: 'success',
+              message: "",
+              data: products
+            })
           })
           .catch(err => {
             res.send(err)
           })
       });
-  })();
+  }
+  mongoConnect();
 }
 
 exports.checkProductsExist = (req, res, next) => {
+  const databaseName = req.userData.connectString
   var existProdIds = []
-  Product.find({ 'PKID': { $in: req.body } }, function (err, existingDocFounded) {
-    existingDocFounded.forEach(pro => {
-      existProdIds.push(pro.PKID)
-    })
-    res.send({ PKID: existProdIds })
-  })
+
+  async function mongoConnect() {
+    const connection = await connectToDb(databaseName)
+      .then((result) => {
+        Product.find({ 'PKID': { $in: req.body } }, function (err, existingDocFounded) {
+          existingDocFounded.forEach(pro => {
+            existProdIds.push(pro.PKID)
+          })
+          async function mongooseDiscon() {
+            try {
+              await mongooseDisconnect();
+            } catch (err) {
+              console.error('Error disconnecting from MongoDB:', err);
+              return;
+            }
+
+            console.log("now run")
+
+          }
+          mongooseDiscon();
+
+          return res.send({
+            status: 'success',
+            message: "",
+            data: { PKID: existProdIds }
+          })
+        })
+      })
+  }
+
+  mongoConnect();
+
 }
