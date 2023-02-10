@@ -131,7 +131,7 @@ const productSchema = new Schema({
 
   },
   Category: {
-    type: String,
+    type: Array,
 
   },
   CategoryGroup: {
