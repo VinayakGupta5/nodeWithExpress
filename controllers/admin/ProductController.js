@@ -355,7 +355,7 @@ exports.checkProductsExist = (req, res, next) => {
     async function mongoConnect() {
       const connection = await connectToDb(databaseName)
         .then(async (result) => {
-          await Product.find({ PKID: { $in: ids} })
+          await Product.find({ PKID: { $in: ids } })
             .then(result1 => {
               // console.log("result",result1)
               // console.log("existingDocFounded", existingDocFounded)
@@ -420,4 +420,24 @@ exports.getProductsByNameSearch = (req, res, next) => {
   }
 
   mongoConnect()
+}
+
+
+exports.filterProducts = (req, res, next) => {
+  const catergorySearch = req.body.category;
+  const minPrice = req.body.minPrice
+  const maxPrice = req.body.maxPrice
+  console.log("catergorySearch", catergorySearch)
+  Product.find({
+    price: { $lt: maxPrice },
+    category: { $in: [catergorySearch] }
+  })
+    .then((products) => {
+      console.log("products", products)
+      res.send(products)
+
+    })
+    .catch(err => {
+      console.log(err)
+    })
 }
