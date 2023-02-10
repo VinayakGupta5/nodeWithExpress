@@ -9,7 +9,7 @@ const connectToDb = async (dbName) => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
-    console.log("mongoose connect success")
+  
   return connection;
 };
 

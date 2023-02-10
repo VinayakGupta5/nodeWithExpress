@@ -5,6 +5,6 @@ async function mongooseDiscon() {
     console.error('Error disconnecting from MongoDB:', err);
     return;
   }
-  console.log("now run")
+  // console.log("now run")
 }
 mongooseDiscon()

@@ -110,9 +110,9 @@ exports.Login = (req, res, next) => {
                     const encData = {
                       enc: encryptData
                     }
-                    // console.log("encryptData", encryptData)
+                   
                     if (doMatch) {
-                      jwt.sign(encData, process.env.secretKey, { expiresIn: "3000s" }, (err, token) => {
+                      jwt.sign(encData, process.env.secretKey, { expiresIn: "43200s" }, (err, token) => {
                         if (err) {
                           return res.send({ err: err })
                         }
@@ -125,7 +125,7 @@ exports.Login = (req, res, next) => {
                               return;
                             }
 
-                            console.log("now run")
+                            // console.log("now run")
 
                           }
                           mongooseDiscon();
