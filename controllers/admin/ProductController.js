@@ -1,5 +1,5 @@
 const connectToDb = require('../../conn/connectMongoose')
-const Product = require('../../models/Product')
+const Product = require('../../models/ProductModel')
 const mongooseDisconnect = require('../../conn/disconnectMongoose')
 
 exports.getAllProducts = (req, res, next) => {
@@ -408,7 +408,20 @@ exports.getProductsByNameSearch = (req, res, next) => {
       .then((result) => {
         Product.find(condition)
           .then(data => {
-            res.send(data);
+
+            async function mongooseDiscon() {
+              try {
+                await mongooseDisconnect();
+              } catch (err) {
+                console.error('Error disconnecting from MongoDB:', err);
+                return;
+              }
+              // console.log("now run")
+
+            }
+            mongooseDiscon();
+
+            return res.send(data);
           })
           .catch(err => {
             res.status(500).send({
@@ -418,26 +431,42 @@ exports.getProductsByNameSearch = (req, res, next) => {
           });
       })
   }
-
   mongoConnect()
 }
 
 
 exports.filterProducts = (req, res, next) => {
-  const catergorySearch = req.body.category;
+  const catergorySearch = req.body.Category;
   const minPrice = req.body.minPrice
   const maxPrice = req.body.maxPrice
-  console.log("catergorySearch", catergorySearch)
-  Product.find({
-    price: { $lt: maxPrice },
-    category: { $in: [catergorySearch] }
-  })
-    .then((products) => {
-      console.log("products", products)
-      res.send(products)
 
-    })
-    .catch(err => {
-      console.log(err)
-    })
+
+  const databaseName = req.userData.connectString
+  async function mongoConnect() {
+    const connection = await connectToDb(databaseName)
+      .then((result) => {
+        Product.find({
+          // price: { $lt: maxPrice },
+          Category: { $in: catergorySearch }
+        })
+          .then((products) => {
+            async function mongooseDiscon() {
+              try {
+                await mongooseDisconnect();
+              } catch (err) {
+                return res.send(err);
+              }
+              // console.log("now run")
+            }
+            mongooseDiscon();
+            return res.send(products)
+
+          })
+          .catch(err => {
+            return console.log(err)
+          })
+      })
+  }
+
+  mongoConnect()
 }

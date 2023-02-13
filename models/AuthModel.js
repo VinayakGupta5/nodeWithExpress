@@ -13,7 +13,6 @@ const userSchema = new Schema({
   },
   websiteName: {
     type: String,
-    required: true
   },
   connectString: {
     type: String
