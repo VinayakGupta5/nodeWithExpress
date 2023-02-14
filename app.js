@@ -30,7 +30,7 @@ app.use((req, res, next) => {
 app.use('/api/auth', authRoutes)
 app.use('/api/admin', isAuth, adminRoutes)
 app.use('/api/customer', customerAuthRouter)
-app.use('/api/customer',isAuth, customerRouter)
+app.use('/api/customer', isAuth, customerRouter)
 
 
 

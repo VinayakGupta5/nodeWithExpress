@@ -165,8 +165,8 @@ const productSchema = new Schema({
   Images: {
     type: String,
   },
-  active:{
-    type:Boolean
+  active: {
+    type: Boolean
   }
 })
 

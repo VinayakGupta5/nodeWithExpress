@@ -53,7 +53,7 @@ exports.ProfileUpdate = (req, res, next) => {
   async function mongoConnect() {
     const connection = await connectToDb(databaseName)
       .then((result) => {
-        Customer.updateOne(req.body._id,profileUpdate)
+        Customer.updateOne(req.body._id, profileUpdate)
           .then((profileUpdated) => {
             async function mongooseDiscon() {
               try {

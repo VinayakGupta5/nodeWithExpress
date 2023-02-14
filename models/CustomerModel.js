@@ -6,8 +6,8 @@ const customerSchema = new Schema({
   PKID: {
     type: Number,
   },
-  UserId:{
-    type:String
+  UserId: {
+    type: String
   },
   Party: {
     type: String,

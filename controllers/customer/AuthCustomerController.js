@@ -129,7 +129,7 @@ exports.Signup = (req, res, next) => {
                           Mobile: "",
                           Fax: "",
                           Status: "",
-                          Email: userCreate.email ,
+                          Email: userCreate.email,
                           Dob: "",
                           PaymentMode: "",
                           Contact: "",
@@ -146,25 +146,25 @@ exports.Signup = (req, res, next) => {
                         })
                         profile.save()
                           .then(profile1 => {
-                        async function mongooseDiscon() {
-                          try {
-                            await mongooseDisconnect();
-                          } catch (err) {
-                            console.error('Error disconnecting from MongoDB:', err);
-                            return;
-                          }
-                          return res.send({
-                            status: 'success',
-                            message: "Successfully created",
-                            data: {
-                              _id: userCreate._id,
-                              email: userCreate.email,
-                              Party: profile1.Party
+                            async function mongooseDiscon() {
+                              try {
+                                await mongooseDisconnect();
+                              } catch (err) {
+                                console.error('Error disconnecting from MongoDB:', err);
+                                return;
+                              }
+                              return res.send({
+                                status: 'success',
+                                message: "Successfully created",
+                                data: {
+                                  _id: userCreate._id,
+                                  email: userCreate.email,
+                                  Party: profile1.Party
+                                }
+                              })
                             }
+                            mongooseDiscon();
                           })
-                        }
-                        mongooseDiscon();
-                        })
                       })
                       .catch(err => {
                         return res.send({ err: err })
