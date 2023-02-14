@@ -44,32 +44,41 @@ exports.profileById = (req, res, next) => {
 }
 
 exports.ProfileUpdate = (req, res, next) => {
-  const profile = new Customer({
+  console.log("req.body", req.body)
+  const profileUpdate = {
     Party: req.body.name,
-    PKID: null,
-    Customer: "",
-    Vendor: "",
-    Address: "",
-    District: "",
-    Country: "",
-    Pincode: "",
-    Phone: "",
-    Mobile: "",
-    Fax: "",
-    Status: "",
-    Email: req.body.email ,
-    Dob: "",
-    PaymentMode: "",
-    Contact: "",
-    Station: "",
-    State: "",
-    Locality: "",
-    Carrier: "",
-    Account: "",
-    Bank: "",
-    No: "",
-    Images: "",
-    ImageStatus: "",
-    UserName: ""
-  })
+    // Email: req.body.Email,
+  }
+  const databaseName = req.userData.connectString
+  async function mongoConnect() {
+    const connection = await connectToDb(databaseName)
+      .then((result) => {
+        Customer.updateOne(req.body._id,profileUpdate)
+          .then((profileUpdated) => {
+            async function mongooseDiscon() {
+              try {
+                await mongooseDisconnect();
+              } catch (err) {
+                return res.send(err);
+              }
+              // console.log("now run")
+            }
+            mongooseDiscon();
+            return res.send({
+              status: 'success',
+              msg: '',
+              data: profileUpdated
+            })
+          })
+          .catch((err) => {
+            return res.send({
+              status: 'failed',
+              msg: '',
+              data: err
+            })
+          })
+      })
+  }
+
+  mongoConnect()
 } 

@@ -241,7 +241,7 @@ exports.updateProduct = (req, res, next) => {
   async function mongoConnect() {
     const connection = await connectToDb(databaseName)
       .then((result) => {
-        Product.findByIdAndUpdate(req.body._id, updateProduct)
+        Product.findByIdAndUpdate(req.params._id, updateProduct)
           .then(result => {
             async function mongooseDiscon() {
               try {
