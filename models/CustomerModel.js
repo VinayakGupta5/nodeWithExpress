@@ -5,7 +5,9 @@ const Schema = mongoose.Schema;
 const customerSchema = new Schema({
   PKID: {
     type: Number,
-    required: true
+  },
+  UserId:{
+    type:String
   },
   Party: {
     type: String,

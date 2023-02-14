@@ -5,6 +5,7 @@ const authRoutes = require('./routes/admin/AuthRouter')
 const cors = require('cors')
 const isAuth = require('./middleware/isAuth');
 const customerAuthRouter = require('./routes/customer/AuthCustomerRouter')
+const customerRouter = require('./routes/customer/CustomerRouter')
 
 
 const port = 1234
@@ -29,6 +30,8 @@ app.use((req, res, next) => {
 app.use('/api/auth', authRoutes)
 app.use('/api/admin', isAuth, adminRoutes)
 app.use('/api/customer', customerAuthRouter)
+app.use('/api/customer', isAuth, customerRouter)
+
 
 
 app.listen(port, () => {

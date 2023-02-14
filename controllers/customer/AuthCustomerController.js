@@ -1,5 +1,6 @@
 const connectToDb = require('../../conn/connectMongoose');
 const Users = require('../../models/AuthModel')
+const Customer = require('../../models/CustomerModel')
 const jwt = require('jsonwebtoken');
 const mongooseDisconnect = require('../../conn/disconnectMongoose');
 const { secretKey, encrypt } = require('../../Global/Global');
@@ -28,7 +29,7 @@ exports.websiteVerify = (req, res, next) => {
               const encData = {
                 enc: encryptData
               }
-              jwt.sign(encData, process.env.secretKey, { expiresIn: "300s" }, (err, token) => {
+              jwt.sign(encData, process.env.secretKey, { expiresIn: "300000s" }, (err, token) => {
                 if (err) {
                   return res.send({ err: err })
                 }
@@ -97,7 +98,6 @@ exports.Signup = (req, res, next) => {
                   message: "Email already exist!",
                   user: {
                     _id: userByemail._id,
-
                     email: userByemail.email,
                     websiteName: userByemail.websiteName,
                     // connectString:userByemail.connectString
@@ -114,6 +114,38 @@ exports.Signup = (req, res, next) => {
                     })
                     user.save()
                       .then(userCreate => {
+                        console.log("userCreate", userCreate.email)
+                        const profile = new Customer({
+                          Party: name,
+                          UserId: userCreate._id,
+                          PKID: null,
+                          Customer: "",
+                          Vendor: "",
+                          Address: "",
+                          District: "",
+                          Country: "",
+                          Pincode: "",
+                          Phone: "",
+                          Mobile: "",
+                          Fax: "",
+                          Status: "",
+                          Email: userCreate.email ,
+                          Dob: "",
+                          PaymentMode: "",
+                          Contact: "",
+                          Station: "",
+                          State: "",
+                          Locality: "",
+                          Carrier: "",
+                          Account: "",
+                          Bank: "",
+                          No: "",
+                          Images: "",
+                          ImageStatus: "",
+                          UserName: ""
+                        })
+                        profile.save()
+                          .then(profile1 => {
                         async function mongooseDiscon() {
                           try {
                             await mongooseDisconnect();
@@ -127,11 +159,12 @@ exports.Signup = (req, res, next) => {
                             data: {
                               _id: userCreate._id,
                               email: userCreate.email,
-                              name: userCreate.name
+                              Party: profile1.Party
                             }
                           })
                         }
                         mongooseDiscon();
+                        })
                       })
                       .catch(err => {
                         return res.send({ err: err })
