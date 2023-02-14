@@ -483,6 +483,15 @@ exports.GetCustomers = (req, res, next) => {
         Customer.find()
           .then(customers => {
             console.log(customers)
+            async function mongooseDiscon() {
+              try {
+                await mongooseDisconnect();
+              } catch (err) {
+                return res.send(err);
+              }
+              // console.log("now run")
+            }
+            mongooseDiscon();
             return res.send({
               status: 'success',
               message: '',
