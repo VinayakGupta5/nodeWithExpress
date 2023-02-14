@@ -1,6 +1,7 @@
 const connectToDb = require('../../conn/connectMongoose')
 const Product = require('../../models/ProductModel')
 const mongooseDisconnect = require('../../conn/disconnectMongoose')
+const Customer = require('../../models/CustomerModel')
 
 exports.getAllProducts = (req, res, next) => {
   const databaseName = req.userData.connectString
@@ -468,5 +469,34 @@ exports.filterProducts = (req, res, next) => {
       })
   }
 
+  mongoConnect()
+}
+
+exports.GetCustomers = (req, res, next) => {
+
+  const databaseName = req.userData.connectString
+  console.log("database", databaseName)
+  async function mongoConnect() {
+    const connection = await connectToDb(databaseName)
+      .then((result) => {
+        console.log("first")
+        Customer.find()
+          .then(customers => {
+            console.log(customers)
+            return res.send({
+              status: 'success',
+              message: '',
+              data: customers
+            })
+          })
+          .catch((err) => {
+            return res.send({
+              status: 'success',
+              message: '',
+              data: err
+            })
+          })
+      })
+  }
   mongoConnect()
 }
