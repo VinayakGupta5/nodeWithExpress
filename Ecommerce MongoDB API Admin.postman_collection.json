@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "d62425a6-c03f-4dc0-95db-f74aa9e02626",
+		"_postman_id": "95ca59a4-eefa-4594-8d13-95d57b9f51f0",
 		"name": "Ecommerce MongoDB API Admin",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "23466157"
+		"_exporter_id": "24120403"
 	},
 	"item": [
 		{
@@ -505,6 +505,102 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "CreatePromotion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Diwali\",\r\n    \"description\": \"Diwali festival for big discounts\",\r\n    \"startDate\": \"12-12-2022\",\r\n    \"endDate\": \"22-12-2022\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1234/api/promotion/createPromotion",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"api",
+						"promotion",
+						"createPromotion"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllPromotion",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Diwali\",\r\n    \"description\":\"Diwali festival for big discounts\",\r\n    \"startDate\":\"12-12-2022\",\r\n    \"EndDate\":\"22-12-2022\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1234/api/promotion/GetAllPromotion",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"api",
+						"promotion",
+						"GetAllPromotion"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetPromotionById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Diwali\",\r\n    \"description\":\"Diwali festival for big discounts\",\r\n    \"startDate\":\"12-12-2022\",\r\n    \"EndDate\":\"22-12-2022\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1234/api/promotion/GetAllPromotion",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"api",
+						"promotion",
+						"GetAllPromotion"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"auth": {
@@ -512,7 +608,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbmMiOiJiZWM0NjMwNTIzMGNjODZkYzRkNWVjNmNkMzNhNDUxNzM1MTQ2MzhjMzc2N2JhN2JiYjA3YTAzNDE3MjFlYjQ4YzkxZTc4MmRiMTRiMjlmMmQ2OTQyOWVlNjE3MmNmMjgzZDNmZTc3Nzk2ZjE1NWYxYjMxNzgxYzRkZjMwMjc3ODA3NmUxNGQ4YmViMjYwM2RiZDZjMDI0NGNhODE1NTVkNjBhMzZjMWQxYzQ5ZGM1Yzc5ZWU4M2ZhOTBhMTNhYTk2ZmE3MzQ4NGU4N2E5ZDE2NjdhOTU3OWZkMzQ0YTY1MWU1MmVkYzhlYTQ0M2IxMTJlMGJlOGE1MmIxYTQwNGZhMzQ1MDVmMWJkYWFkYmVhYjM1OWYzNGNhYTJmNzAzZmFiOGNlZjM1MjAzMzA2YWM0MWU1ODExNmQxZTU5ZDMzMDJlODZjM2I3YTM2OTU1M2ZjNmY3NzE5YzkzMTdkNDQ2NTMyMDRmZWY0NTlmYzgxZjhlYmE1Y2NmOTY3Mjk0MTc0YmIwYWQyODNmMjYwMDk2YWIxNTcwZmZlZGEyODI2OCIsImlhdCI6MTY3NjM3NjU0MiwiZXhwIjoxNjc2NDE5NzQyfQ.luKHWAUE8dJ40pjlmrkcM3BfjmkQUKWkqpVJX23-uFg",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbmMiOiI2ODdmMWRkNWNhNjk0OWFiNGJiNTVmM2IzZWYwMjVjZTIxNDRlYjBmOGVhODU1MGM1ZGYxNjRmZmU4NmU0MWI0NzliYzA2ODE5YzE2NGVkODZhY2FiNWUyNjQ3ZmNlOWYxOTYyMjZkNjcwMjFiOGNkNTc5ZmQ5YzlkNTNhOGRkNmRlYjVhYWE5ODEyZGE5MjJlOTRmYWFlOWFlNzk0MDU0NjUzYTk1MzZjOGEzYTIwMDJiY2I4ODA4ZDMwNGRhMDJkNjlmMjhjNWUwZDUxNTgwMjRhNDc1ZWRmYjEwYTFiOGE5ZGIyOGU1MzcwMjg2NTMzMGU3MjFkM2EwZmJiMjU3OTMwNjhiNTRhMWYyYjRiNDA1NTY2MjQ1OTZjYjc5YWNkNTQ3ZjI4MzIwMDRmYzJkZDQ4Y2FhOWY2NGZmODI0NTNiZDY3MTQ4NjJjMDIzYThiMzdiODlkMjA1Y2QzN2U3OTQ2NjEzMWFkZmRkNDZjZDc4MWIzZWRkYTBhMTBlMmFjMDczODY5MmJjZmNmYjk4NGNhOTNkOWViYjg1NjliOSIsImlhdCI6MTY3NjU0ODY1NSwiZXhwIjoxNjc2NTkxODU1fQ.34A8eW5Gn1Jk0B2IMaR3w-_56H62u2wDJyRyWwoW2B4",
 				"type": "string"
 			}
 		]
