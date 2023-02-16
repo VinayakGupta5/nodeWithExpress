@@ -1,14 +1,13 @@
 const Promotion = require('../../models/PromotionModel')
 const connectToDb = require('../../conn/connectMongoose')
+const mongooseDisconnect = require('../../conn/disconnectMongoose')
 
 exports.CreatePromotion = (req, res, next) => {
 
     const name = req.body.name
     const description = req.body.description
-
     const startDateParts = req.body.startDate.split('-');
     const startDate = new Date(startDateParts[2], startDateParts[1] - 1, startDateParts[0]);
-
     const endDateParts = req.body.endDate.split('-');
     const endDate = new Date(endDateParts[2], endDateParts[1] - 1, endDateParts[0]);
 
@@ -26,10 +25,27 @@ exports.CreatePromotion = (req, res, next) => {
             .then((result) => {
                 promotion.save()
                     .then(prom => {
-                        return res.send(prom)
+                        async function mongooseDiscon() {
+                            try {
+                              await mongooseDisconnect();
+                            } catch (err) {
+                              return res.send(err);
+                            }
+                            // console.log("now run")
+                          }
+                          mongooseDiscon();
+                        return res.send({
+                            status: 'success',
+                            msg: '',
+                            data: prom
+                        })
                     })
                     .catch(err => {
-                        return res.send(err)
+                        return res.send({
+                            status: 'success',
+                            msg: '',
+                            data: err
+                        })
                     })
             })
     }
@@ -46,6 +62,15 @@ exports.GetAllPromotions = (req, res, body) => {
             .then((result) => {
                 Promotion.find()
                     .then(promotions => {
+                        async function mongooseDiscon() {
+                            try {
+                              await mongooseDisconnect();
+                            } catch (err) {
+                              return res.send(err);
+                            }
+                            // console.log("now run")
+                          }
+                          mongooseDiscon();
                         return res.send(promotions)
                     })
                     .catch(err => {
@@ -67,6 +92,15 @@ exports.GetPromotionById = (req, res, body) => {
             .then((result) => {
                 Promotion.findById(id)
                     .then(promotions => {
+                        async function mongooseDiscon() {
+                            try {
+                              await mongooseDisconnect();
+                            } catch (err) {
+                              return res.send(err);
+                            }
+                            // console.log("now run")
+                          }
+                          mongooseDiscon();
                         return res.send(promotions)
                     })
                     .catch(err => {
