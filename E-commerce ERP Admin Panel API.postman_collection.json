@@ -1,0 +1,234 @@
+{
+	"info": {
+		"_postman_id": "1eb6660d-2685-4126-8ca0-6a097b675fda",
+		"name": "E-commerce ERP Admin Panel API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23466157"
+	},
+	"item": [
+		{
+			"name": "Get Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://test.swilerp.com/LMSAPI/api/auth/Login?Email=sreegopal@gmail.com&Password=admin",
+					"protocol": "https",
+					"host": [
+						"test",
+						"swilerp",
+						"com"
+					],
+					"path": [
+						"LMSAPI",
+						"api",
+						"auth",
+						"Login"
+					],
+					"query": [
+						{
+							"key": "Email",
+							"value": "sreegopal@gmail.com"
+						},
+						{
+							"key": "Password",
+							"value": "admin"
+						}
+					]
+				},
+				"description": "1. This api is used to get token for all api.\n2. This api have different **baseUrl** then others"
+			},
+			"response": []
+		},
+		{
+			"name": "GetInitialProduct List",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/master/product/List?pageNo=1&pageSize=1&Search=",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"master",
+						"product",
+						"List"
+					],
+					"query": [
+						{
+							"key": "pageNo",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "1"
+						},
+						{
+							"key": "Search",
+							"value": ""
+						}
+					]
+				},
+				"description": "1. This api for get Initial product list or we say pick random products from database to show on screen"
+			},
+			"response": []
+		},
+		{
+			"name": "GetProduct By Id",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/master/Product/getbyid?UserID=10000001&id=498&pageNo=1&pageSize=1&RoleId=8",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"master",
+						"Product",
+						"getbyid"
+					],
+					"query": [
+						{
+							"key": "UserID",
+							"value": "10000001"
+						},
+						{
+							"key": "id",
+							"value": "498"
+						},
+						{
+							"key": "pageNo",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "1"
+						},
+						{
+							"key": "RoleId",
+							"value": "8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product Category",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/master/ProductCategory/list?UserID=1&pageNo=1&pageSize=-1&RoleId=8",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"master",
+						"ProductCategory",
+						"list"
+					],
+					"query": [
+						{
+							"key": "UserID",
+							"value": "1"
+						},
+						{
+							"key": "pageNo",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "-1"
+						},
+						{
+							"key": "RoleId",
+							"value": "8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "master/customer/list",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://test.swilerp.com/ERPAPI/api/master/customer/list?pageNo=1&pageSize=200&search=",
+					"protocol": "https",
+					"host": [
+						"test",
+						"swilerp",
+						"com"
+					],
+					"path": [
+						"ERPAPI",
+						"api",
+						"master",
+						"customer",
+						"list"
+					],
+					"query": [
+						{
+							"key": "pageNo",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "200"
+						},
+						{
+							"key": "search",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJDbGllbnRVc2VySUQiOiIxMDAwMDIxOSIsIkNsaWVudFVzZXJOYW1lIjoiYWRtaW4iLCJEQlR5cGUiOiIiLCJDbGllbnRSZWdJRCI6IjEwMDAwMTQ3IiwiT3RoZXIiOiLDk8Olw7LDtsOlw7I9MjAuMTkyLjMuMTg0LDE0MzNcXMOTw5HDjMOFw5jDkMOSw4XDk8OTMDE7w4TDocO0w6HDosOhw7PDpT3Dk8OSw4XDhcOHw4_DkMOBw4w7w5XDs8Olw7Igw6nDpD3Ds8O3w6nDrMOlw7LDsMO1w7PDpcOyOyDDkMOhw7PDs8O3w6_DssOkPcOTw7fDqcOsw4nDrsOkw6nDoTEyMzQ1Njc4OTvDlMOyw7XDs8O0w5PDpcOyw7bDpcOyw4PDpcOyw7TDqcOmw6nDo8Ohw7TDpT3DlMOyw7XDpTsiLCJVc2VySUQiOiIxIiwiVmVyc2lvbiI6IjMuMi4xNC4wMyIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IiIsImV4cCI6MTY3NjMyODk4MiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo3Mjk5IiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo3Mjk5In0.YhWVPzob3vPme3uu8rrckh3HeWBgkgn8CRAx12sYTGk",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://test.swilerp.com/ERPAPI",
+			"type": "string"
+		}
+	]
+}

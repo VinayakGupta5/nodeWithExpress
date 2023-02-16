@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "d62425a6-c03f-4dc0-95db-f74aa9e02626",
-		"name": "Ecommerce MongoDB API",
+		"name": "Ecommerce MongoDB API Admin",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "23466157"
 	},
@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\":\"shr@gmail.com\",\r\n    \"pass\":\"12345\",\r\n    \"confimPass\":\"12345\",\r\n    \"websiteName\":\"abc\"\r\n}",
+					"raw": "{\r\n    \"email\":\"omesh@gmail.com\",\r\n    \"pass\":\"12345\",\r\n    \"confimPass\":\"12345\",\r\n    \"websiteName\":\"www.omesh.com\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -43,7 +43,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\":\"shr@gmail.com\",\r\n    \"pass\":\"12345\"\r\n}",
+					"raw": "{\r\n    \"email\":\"omesh@gmail.com\",\r\n    \"pass\":\"12345\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -162,7 +162,7 @@
 					]
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/admin/getProduct/63e4bf62ecc51bd3c6917940",
+					"raw": "http://localhost:1234/api/admin/getProduct/63eb72cedba125f4d6c26ef9",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -172,7 +172,7 @@
 						"api",
 						"admin",
 						"getProduct",
-						"63e4bf62ecc51bd3c6917940"
+						"63eb72cedba125f4d6c26ef9"
 					]
 				}
 			},
@@ -225,7 +225,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "[1048, 4594, 4412, 4408, 4409, 4410, 4411, 5184, 4622, 3502]",
+					"raw": "[1048, 10000003, 10000004, 10000005, 10000006, 10000007, 10001869, 10001892, 10000008, 10001898]",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -318,7 +318,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n        \"_id\": \"63e4bf62ecc51bd3c6917940\",\r\n        \"PKID\": 498,\r\n        \"NameToDisplay\": \"shoess\",\r\n        \"Brand\": null,\r\n        \"Strength\": \"14 *10    \",\r\n        \"Unit1\": \"Strip     \",\r\n        \"ProdConv1\": 14,\r\n        \"Unit2\": \"*10       \",\r\n        \"SellLoose\": false,\r\n        \"ProdConv2\": 14,\r\n        \"Unit3\": \"0\",\r\n        \"IsExpiryApplied\": true,\r\n        \"IsMfgDateApplied\": false,\r\n        \"IsUniqueIDapplied\": false,\r\n        \"IsColorApplied\": false,\r\n        \"IsBarCodeApplied\": true,\r\n        \"Description\": \"\",\r\n        \"FkprodCatgId\": 9,\r\n        \"MRP\": 90.94,\r\n        \"Barcode\": 0,\r\n        \"Weight\": 0,\r\n        \"Height\": 0,\r\n        \"Width\": 0,\r\n        \"Length\": 0,\r\n        \"WeightUnit\": null,\r\n        \"HeightUnit\": null,\r\n        \"Status\": \"C\",\r\n        \"BestBefore\": 0,\r\n        \"BestBeforeUnit\": \"0\",\r\n        \"Skudefinition\": null,\r\n        \"HSNCode\": \"30049099(GST12)\",\r\n        \"GroupName\": \"MICRO LABS SYNAPSE            \",\r\n        \"MfgGroupName\": null,\r\n        \"GroupAlias\": null,\r\n        \"MfgGroupAlias\": null,\r\n        \"Category\": \"N_A  [PG2,SG2]\",\r\n        \"CatgSKU\": null,\r\n        \"Generic1\": null,\r\n        \"Generic2\": null,\r\n        \"BoxSize\": null,\r\n        \"Schedule\": null,\r\n        \"Remarks\": null,\r\n        \"Images\": null,\r\n        \"active\": true,\r\n        \"__v\": 0\r\n    }",
+					"raw": "{\r\n                \"PKID\": 498,\r\n                \"NameToDisplay\": \"slash\",\r\n                \"Brand\": null,\r\n                \"Strength\": \"14 *10    \",\r\n                \"Unit1\": \"Strip     \",\r\n                \"ProdConv1\": 14,\r\n                \"Unit2\": \"*10       \",\r\n                \"SellLoose\": false,\r\n                \"ProdConv2\": 14,\r\n                \"Unit3\": \"0\",\r\n                \"IsExpiryApplied\": true,\r\n                \"IsMfgDateApplied\": false,\r\n                \"IsUniqueIDapplied\": false,\r\n                \"IsColorApplied\": false,\r\n                \"IsBarCodeApplied\": true,\r\n                \"Description\": \"\",\r\n                \"FkprodCatgId\": 9,\r\n                \"MRP\": 90.94,\r\n                \"Barcode\": 0,\r\n                \"Weight\": 0,\r\n                \"Height\": 0,\r\n                \"Width\": 0,\r\n                \"Length\": 0,\r\n                \"WeightUnit\": null,\r\n                \"HeightUnit\": null,\r\n                \"Status\": \"C\",\r\n                \"BestBefore\": 0,\r\n                \"BestBeforeUnit\": \"0\",\r\n                \"Skudefinition\": null,\r\n                \"HSNCode\": \"30049099(GST12)\",\r\n                \"GroupName\": \"MICRO LABS SYNAPSE            \",\r\n                \"MfgGroupName\": null,\r\n                \"GroupAlias\": null,\r\n                \"MfgGroupAlias\": null,\r\n                \"Category\": [\r\n                    \"N_A  [PG2,SG2]\"\r\n                ],\r\n                \"CatgSKU\": null,\r\n                \"Generic1\": null,\r\n                \"Generic2\": null,\r\n                \"BoxSize\": null,\r\n                \"Schedule\": null,\r\n                \"Remarks\": null,\r\n                \"Images\": null,\r\n                \"active\": true,\r\n                \"_id\": \"63eb72cedba125f4d6c26ef9\",\r\n                \"__v\": 0\r\n            }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -326,7 +326,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/admin/updateProduct",
+					"raw": "http://localhost:1234/api/admin/updateProduct/63eb72cedba125f4d6c26ef9",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -335,7 +335,8 @@
 					"path": [
 						"api",
 						"admin",
-						"updateProduct"
+						"updateProduct",
+						"63eb72cedba125f4d6c26ef9"
 					]
 				}
 			},
@@ -450,6 +451,60 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "filterProducts",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Category\":[\"General\",\"Electronics\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1234/api/admin/filterProd",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"api",
+						"admin",
+						"filterProd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetCustomers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:1234/api/admin/getCustomers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"api",
+						"admin",
+						"getCustomers"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"auth": {
@@ -457,7 +512,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbmMiOiJhYWY3MWQyYzY4MmFkMDE4Yjk3MzUyMDkxZjkzNGQ3MGNjYzYwZjdkNzIzYjIxZDhlNThkODFjY2MwZjRhNmQ5NTQzMzk0ZGU5NGNhM2RhNDQyYThhZjk0MWViYzc4NjgzZmI2NDQwNzdmYzNiOWQ5MGVjOTAzZmQ0ZTdjMjg4ZWE4MTdlN2M2YzhhYTgxZTNmOWE3ZjYzYjhiYTgyZGRjNTcwMzNiMGE2MmYwMjZkMTEwYTk2ZjcxMWU3YWUyMzY0YjgyNmQ0ZWYxZjY2OTcwODFlYjQ3NjZhNDNhYjFhYTljNDMyMWQxZmY1NzkyYTZjZTM0ZGRjZmM2YjVlNDUwNGI5MmFlMGNkYjgwYjg1ZjgxMmMxMWNkZTNjZTQ2YzM5ZGEyYzJjM2U1NTYwMzQ4MGY1ODE3OTQ0MGU5ZjE0NmFjMDNkMTlkNWFkODhjMjg4YThiZTlhMzhjZjE0ODY4OWI0YzQwY2E1NjQzNGM0ZDg3YjM3MzdjMmM3ODI4YmY1OWMzMGIyZTc0ZTI0MDc3YmZlZTU5ZThiOTUyOWE1YiIsImlhdCI6MTY3NjAwNDI1OSwiZXhwIjoxNjc2MDQ3NDU5fQ.DWrkidQHymqHxW7nL1TAbq2ApVvQdG82Q6ng2YG0FLo",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbmMiOiJiZWM0NjMwNTIzMGNjODZkYzRkNWVjNmNkMzNhNDUxNzM1MTQ2MzhjMzc2N2JhN2JiYjA3YTAzNDE3MjFlYjQ4YzkxZTc4MmRiMTRiMjlmMmQ2OTQyOWVlNjE3MmNmMjgzZDNmZTc3Nzk2ZjE1NWYxYjMxNzgxYzRkZjMwMjc3ODA3NmUxNGQ4YmViMjYwM2RiZDZjMDI0NGNhODE1NTVkNjBhMzZjMWQxYzQ5ZGM1Yzc5ZWU4M2ZhOTBhMTNhYTk2ZmE3MzQ4NGU4N2E5ZDE2NjdhOTU3OWZkMzQ0YTY1MWU1MmVkYzhlYTQ0M2IxMTJlMGJlOGE1MmIxYTQwNGZhMzQ1MDVmMWJkYWFkYmVhYjM1OWYzNGNhYTJmNzAzZmFiOGNlZjM1MjAzMzA2YWM0MWU1ODExNmQxZTU5ZDMzMDJlODZjM2I3YTM2OTU1M2ZjNmY3NzE5YzkzMTdkNDQ2NTMyMDRmZWY0NTlmYzgxZjhlYmE1Y2NmOTY3Mjk0MTc0YmIwYWQyODNmMjYwMDk2YWIxNTcwZmZlZGEyODI2OCIsImlhdCI6MTY3NjM3NjU0MiwiZXhwIjoxNjc2NDE5NzQyfQ.luKHWAUE8dJ40pjlmrkcM3BfjmkQUKWkqpVJX23-uFg",
 				"type": "string"
 			}
 		]
