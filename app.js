@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express')
 const adminRoutes = require('./routes/admin/adminRouter')
 const authRoutes = require('./routes/admin/AuthRouter')
+const promotionRoutes = require('./routes/admin/PromotionRouter')
 const cors = require('cors')
 const isAuth = require('./middleware/isAuth');
 const customerAuthRouter = require('./routes/customer/AuthCustomerRouter')
@@ -29,6 +30,9 @@ app.use((req, res, next) => {
 
 app.use('/api/auth', authRoutes)
 app.use('/api/admin', isAuth, adminRoutes)
+app.use('/api/promotion', isAuth, promotionRoutes)
+
+
 app.use('/api/customer', customerAuthRouter)
 app.use('/api/customer', isAuth, customerRouter)
 
