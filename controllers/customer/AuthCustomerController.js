@@ -10,7 +10,7 @@ const databaseName = `mongodb+srv://${process.env.mongoUserName}:${process.env.m
 
 exports.websiteVerify = (req, res, next) => {
   const websiteName = req.body.websiteName
-  console.log("websiterName", websiteName)
+  console.log("websiterName", req.body)
 
   async function mongoConnect() {
     const connection = await connectToDb(databaseName)
@@ -21,7 +21,6 @@ exports.websiteVerify = (req, res, next) => {
               const userData = {
                 _id: user._id,
                 websiteName: user.websiteName,
-                connectString: user.connectString
               }
               const userDataInString = JSON.stringify(userData);
               const tempSecreteKey = secretKey();
