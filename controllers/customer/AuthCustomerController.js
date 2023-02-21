@@ -5,16 +5,32 @@ const jwt = require('jsonwebtoken');
 const mongooseDisconnect = require('../../conn/disconnectMongoose');
 const { secretKey, encrypt } = require('../../Global/Global');
 const bcrypt = require('bcryptjs')
+const mongoose = require('mongoose')
 
-const databaseName = `mongodb+srv://${process.env.mongoUserName}:${process.env.mongoPass}@swindia1.17wlqvp.mongodb.net/SwilMain?retryWrites=true&w=majority`;
+const mainDatabase = `mongodb+srv://${process.env.mongoUserName}:${process.env.mongoPass}@swindia1.17wlqvp.mongodb.net/SwilMain?retryWrites=true&w=majority`;
 
 exports.websiteVerify = (req, res, next) => {
   const websiteName = req.body.websiteName
   console.log("websiterName", req.body)
 
   async function mongoConnect() {
-    const connection = await connectToDb(databaseName)
+    const connection = await connectToDb(mainDatabase)
       .then((result) => {
+
+        if (mongoose.connection.readyState === 0) {
+          console.log("disconnect")
+        }
+        if (mongoose.connection.readyState === 1) {
+          console.log("connected")
+        }
+        if (mongoose.connection.readyState === 2) {
+          console.log("connecting")
+        }
+        if (mongoose.connection.readyState === 3) {
+          console.log("disconnecting")
+        }
+
+
         return Users.findOne({ websiteName: websiteName })
           .then(user => {
             if (user) {
@@ -35,25 +51,28 @@ exports.websiteVerify = (req, res, next) => {
                 else {
                   async function mongooseDiscon() {
                     try {
-                      await mongooseDisconnect();
+                      await mongooseDisconnect()
+                        .then((result) => {
+                          console.log("result", result)
+                        });
                     } catch (err) {
                       console.error('Error disconnecting from MongoDB:', err);
                       return;
                     }
-                    // console.log("now run")
+                    console.log("after disconnecting from MongoDB")
+                    return res.send({
+                      status: 'success',
+                      message: "website verified",
+                      data: {
+                        token: token,
+                        profileData: {
+                          _id: userData._id,
+                          websiteName: userData.websiteName
+                        }
+                      }
+                    })
                   }
                   mongooseDiscon();
-                  return res.send({
-                    status: 'success',
-                    message: "website verified",
-                    data: {
-                      token: token,
-                      profileData: {
-                        _id: userData._id,
-                        websiteName: userData.websiteName
-                      }
-                    }
-                  })
                 }
               })
             }
@@ -67,7 +86,7 @@ exports.websiteVerify = (req, res, next) => {
 }
 
 exports.Signup = (req, res, next) => {
-  const email = req.body.email.toLowerCase();
+  const email = req.body.email.toLowerCase()
   const name = req.body.name;
   const pass = req.body.pass;
   const confimPass = req.body.confirmPass;
