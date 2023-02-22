@@ -1,6 +1,5 @@
 const express = require('express')
-const isAuth = require('../../middleware/isAuth')
-const adminController = require('../../controllers/admin/ProductController')
+const adminController = require('../../controllers/admin/ProductAdminController')
 
 
 const router = express.Router()
@@ -15,6 +14,5 @@ router.get('/getProductsPerPage', adminController.getProductsPerPage)
 router.post('/checkProductsExist', adminController.checkProductsExist)
 router.get('/searchProdByName', adminController.getProductsByNameSearch)
 router.post('/filterProd', adminController.filterProducts)
-router.get('/getCustomers', adminController.GetCustomers)
 
 module.exports = router

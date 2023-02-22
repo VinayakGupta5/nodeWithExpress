@@ -1,15 +1,17 @@
 require('dotenv').config();
 const express = require('express')
-const adminRoutes = require('./routes/admin/adminRouter')
-const authRoutes = require('./routes/admin/AuthRouter')
-const promotionRoutes = require('./routes/admin/PromotionRouter')
-const cors = require('cors')
+const ProductAdminRouter = require('./routes/admin/ProductAdminRouter')
+const AuthAdminRouter = require('./routes/admin/AuthAdminRouter')
+const PromotionAdminRouter = require('./routes/admin/PromotionAdminRouter')
+
 const isAuth = require('./middleware/isAuth');
 const customerAuthRouter = require('./routes/customer/AuthCustomerRouter')
 const customerRouter = require('./routes/customer/CustomerRouter')
+const customerAdminRouter = require('./routes/admin/CustomerAdminRouter')
 
 
-const port = 1234
+const cors = require('cors');
+const port = 1234;
 
 
 const app = express()
@@ -28,14 +30,14 @@ app.use((req, res, next) => {
 });
 
 
-app.use('/api/auth', authRoutes)
-app.use('/api/admin', isAuth, adminRoutes)
-app.use('/api/promotion', isAuth, promotionRoutes)
+app.use('/api/auth', AuthAdminRouter)
+app.use('/api/admin', isAuth, ProductAdminRouter)
+app.use('/api/admin', isAuth, customerAdminRouter)
+app.use('/api/admin', isAuth, PromotionAdminRouter)
 
 
 app.use('/api/customer', customerAuthRouter)
 app.use('/api/customer', isAuth, customerRouter)
-
 
 
 app.listen(port, () => {
