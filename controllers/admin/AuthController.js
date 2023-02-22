@@ -120,69 +120,79 @@ exports.Login = (req, res, next) => {
     return res.send({ message: "password can not be empty!" })
   }
   else {
-    async function mongoConnect() {
-      const connection = await connectToDb(databaseName)
-        .then((result) => {
-          return Users.findOne({ email: email })
-            .then(user => {
-              if (user) {
-                bcrypt.compare(pass, user.pass)
-                  .then(doMatch => {
-                    const userData = {
-                      _id: user._id,
-                      email: user.email,
-                      connectString: user.connectString
-                    }
-                    const userDataInString = JSON.stringify(userData);
-                    const tempSecreteKey = secretKey();
-                    const encryptData = encrypt(userDataInString, tempSecreteKey);
-                    const encData = {
-                      enc: encryptData
-                    }
+    async function mongooseDiscon() {
+      try {
+        await mongooseDisconnect();
+      } catch (err) {
+        console.error('Error disconnecting from MongoDB:', err);
+        return;
+      }
+      async function mongoConnect() {
+        const connection = await connectToDb(databaseName)
+          .then((result) => {
+            return Users.findOne({ email: email })
+              .then(user => {
+                if (user) {
+                  bcrypt.compare(pass, user.pass)
+                    .then(doMatch => {
+                      const userData = {
+                        _id: user._id,
+                        email: user.email,
+                        connectString: user.connectString
+                      }
+                      const userDataInString = JSON.stringify(userData);
+                      const tempSecreteKey = secretKey();
+                      const encryptData = encrypt(userDataInString, tempSecreteKey);
+                      const encData = {
+                        enc: encryptData
+                      }
 
-                    if (doMatch) {
-                      jwt.sign(encData, process.env.secretKey, { expiresIn: "43200s" }, (err, token) => {
-                        if (err) {
-                          return res.send({ err: err })
-                        }
-                        else {
-                          async function mongooseDiscon() {
-                            try {
-                              await mongooseDisconnect();
-                            } catch (err) {
-                              console.error('Error disconnecting from MongoDB:', err);
-                              return;
-                            }
-
-                            // console.log("now run")
-
+                      if (doMatch) {
+                        jwt.sign(encData, process.env.secretKey, { expiresIn: "43200s" }, (err, token) => {
+                          if (err) {
+                            return res.send({ err: err })
                           }
-                          mongooseDiscon();
-                          res.send({
-                            status: 'success',
-                            message: "Successfully Login",
-                            data: {
-                              token: token,
-                              profileData: {
-                                _id: userData._id,
-                                email: userData.email
+                          else {
+                            async function mongooseDiscon() {
+                              try {
+                                await mongooseDisconnect();
+                              } catch (err) {
+                                console.error('Error disconnecting from MongoDB:', err);
+                                return;
                               }
+
+                              // console.log("now run")
+
                             }
-                          })
-                        }
-                      })
-                    }
-                    else {
-                      return res.send({ message: "password does not match" })
-                    }
-                  })
-              }
-              else {
-                return res.send({ message: "Email not found!" })
-              }
-            })
-        });
+                            mongooseDiscon();
+                            res.send({
+                              status: 'success',
+                              message: "Successfully Login",
+                              data: {
+                                token: token,
+                                profileData: {
+                                  _id: userData._id,
+                                  email: userData.email
+                                }
+                              }
+                            })
+                          }
+                        })
+                      }
+                      else {
+                        return res.send({ message: "password does not match" })
+                      }
+                    })
+                }
+                else {
+                  return res.send({ message: "Email not found!" })
+                }
+              })
+          });
+      }
+      mongoConnect()
     }
-    mongoConnect()
+    mongooseDiscon();
+
   }
 }

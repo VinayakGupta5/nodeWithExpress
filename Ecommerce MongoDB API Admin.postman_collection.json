@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "95ca59a4-eefa-4594-8d13-95d57b9f51f0",
+		"_postman_id": "b407b52c-adde-474f-9a81-14c1a1910aac",
 		"name": "Ecommerce MongoDB API Admin",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "24120403"
+		"_exporter_id": "23466157"
 	},
 	"item": [
 		{
@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\":\"omesh@gmail.com\",\r\n    \"pass\":\"12345\",\r\n    \"confimPass\":\"12345\",\r\n    \"websiteName\":\"www.omesh.com\"\r\n}",
+					"raw": "{\r\n    \"email\":\"omesh2@gmail.com\",\r\n    \"pass\":\"12345\",\r\n    \"confimPass\":\"12345\",\r\n    \"websiteName\":\"www.omesh2.com\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -43,7 +43,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\":\"omesh@gmail.com\",\r\n    \"pass\":\"12345\"\r\n}",
+					"raw": "{\r\n    \"email\":\"omesh1@gmail.com\",\r\n    \"pass\":\"12345\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -119,60 +119,6 @@
 						"api",
 						"admin",
 						"addManyProduct"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "get product by id",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "title",
-							"value": "hi",
-							"type": "text",
-							"disabled": true
-						},
-						{
-							"key": "price",
-							"value": "12",
-							"type": "text",
-							"disabled": true
-						},
-						{
-							"key": "description",
-							"value": "This is a boy",
-							"type": "text",
-							"disabled": true
-						},
-						{
-							"key": "imageUrl",
-							"value": "aa",
-							"type": "text",
-							"disabled": true
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:1234/api/admin/getProduct/63eb72cedba125f4d6c26ef9",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "1234",
-					"path": [
-						"api",
-						"admin",
-						"getProduct",
-						"63eb72cedba125f4d6c26ef9"
 					]
 				}
 			},
@@ -286,7 +232,7 @@
 					]
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/admin/getProductsPerPage?page=1&noOfItems=2",
+					"raw": "http://localhost:1234/api/admin/getProductsPerPage?page=1&noOfItems=1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -304,8 +250,62 @@
 						},
 						{
 							"key": "noOfItems",
-							"value": "2"
+							"value": "1"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get product by id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "hi",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "price",
+							"value": "12",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "description",
+							"value": "This is a boy",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "imageUrl",
+							"value": "aa",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:1234/api/admin/getProduct/63f5bc209d36a62495bd5963",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"api",
+						"admin",
+						"getProduct",
+						"63f5bc209d36a62495bd5963"
 					]
 				}
 			},
@@ -318,7 +318,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n                \"PKID\": 498,\r\n                \"NameToDisplay\": \"slash\",\r\n                \"Brand\": null,\r\n                \"Strength\": \"14 *10    \",\r\n                \"Unit1\": \"Strip     \",\r\n                \"ProdConv1\": 14,\r\n                \"Unit2\": \"*10       \",\r\n                \"SellLoose\": false,\r\n                \"ProdConv2\": 14,\r\n                \"Unit3\": \"0\",\r\n                \"IsExpiryApplied\": true,\r\n                \"IsMfgDateApplied\": false,\r\n                \"IsUniqueIDapplied\": false,\r\n                \"IsColorApplied\": false,\r\n                \"IsBarCodeApplied\": true,\r\n                \"Description\": \"\",\r\n                \"FkprodCatgId\": 9,\r\n                \"MRP\": 90.94,\r\n                \"Barcode\": 0,\r\n                \"Weight\": 0,\r\n                \"Height\": 0,\r\n                \"Width\": 0,\r\n                \"Length\": 0,\r\n                \"WeightUnit\": null,\r\n                \"HeightUnit\": null,\r\n                \"Status\": \"C\",\r\n                \"BestBefore\": 0,\r\n                \"BestBeforeUnit\": \"0\",\r\n                \"Skudefinition\": null,\r\n                \"HSNCode\": \"30049099(GST12)\",\r\n                \"GroupName\": \"MICRO LABS SYNAPSE            \",\r\n                \"MfgGroupName\": null,\r\n                \"GroupAlias\": null,\r\n                \"MfgGroupAlias\": null,\r\n                \"Category\": [\r\n                    \"N_A  [PG2,SG2]\"\r\n                ],\r\n                \"CatgSKU\": null,\r\n                \"Generic1\": null,\r\n                \"Generic2\": null,\r\n                \"BoxSize\": null,\r\n                \"Schedule\": null,\r\n                \"Remarks\": null,\r\n                \"Images\": null,\r\n                \"active\": true,\r\n                \"_id\": \"63eb72cedba125f4d6c26ef9\",\r\n                \"__v\": 0\r\n            }",
+					"raw": "{\r\n    \"_id\": \"63f5bc209d36a62495bd5963\",\r\n    \"PKID\": 498,\r\n    \"NameToDisplay\": \"shoe\",\r\n    \"Brand\": null,\r\n    \"Strength\": \"14 *10    \",\r\n    \"Unit1\": \"Strip     \",\r\n    \"ProdConv1\": 14,\r\n    \"Unit2\": \"*10       \",\r\n    \"SellLoose\": false,\r\n    \"ProdConv2\": 14,\r\n    \"Unit3\": \"0\",\r\n    \"IsExpiryApplied\": true,\r\n    \"IsMfgDateApplied\": false,\r\n    \"IsUniqueIDapplied\": false,\r\n    \"IsColorApplied\": false,\r\n    \"IsBarCodeApplied\": true,\r\n    \"Description\": \"\",\r\n    \"FkprodCatgId\": 9,\r\n    \"MRP\": 90.94,\r\n    \"Barcode\": 0,\r\n    \"Weight\": 0,\r\n    \"Height\": 0,\r\n    \"Width\": 0,\r\n    \"Length\": 0,\r\n    \"WeightUnit\": null,\r\n    \"HeightUnit\": null,\r\n    \"Status\": \"C\",\r\n    \"BestBefore\": 0,\r\n    \"BestBeforeUnit\": \"0\",\r\n    \"Skudefinition\": null,\r\n    \"HSNCode\": \"30049099(GST12)\",\r\n    \"GroupName\": \"MICRO LABS SYNAPSE            \",\r\n    \"MfgGroupName\": null,\r\n    \"GroupAlias\": null,\r\n    \"MfgGroupAlias\": null,\r\n    \"Category\": [\r\n        \"N_A  [PG2,SG2]\"\r\n    ],\r\n    \"CatgSKU\": null,\r\n    \"Generic1\": null,\r\n    \"Generic2\": null,\r\n    \"BoxSize\": null,\r\n    \"Schedule\": null,\r\n    \"Remarks\": null,\r\n    \"Images\": null,\r\n    \"active\": true,\r\n    \"__v\": 0\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -326,7 +326,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/admin/updateProduct/63eb72cedba125f4d6c26ef9",
+					"raw": "http://localhost:1234/api/admin/updateProduct/63f5bc209d36a62495bd5963",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -336,7 +336,7 @@
 						"api",
 						"admin",
 						"updateProduct",
-						"63eb72cedba125f4d6c26ef9"
+						"63f5bc209d36a62495bd5963"
 					]
 				}
 			},
@@ -431,7 +431,7 @@
 					]
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/admin/searchProdByName?search=ba",
+					"raw": "http://localhost:1234/api/admin/searchProdByName?search=sho",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -445,7 +445,7 @@
 					"query": [
 						{
 							"key": "search",
-							"value": "ba"
+							"value": "sho"
 						}
 					]
 				}
@@ -454,15 +454,12 @@
 		},
 		{
 			"name": "filterProducts",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n   \"Category\":[\"General\",\"Electronics\"]\r\n}",
+					"raw": "{\r\n   \"Category\":[\"Fashion\"]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -480,6 +477,133 @@
 						"api",
 						"admin",
 						"filterProd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreatePromotion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Diwali\",\r\n    \"description\": \"Diwali festival for big discounts\",\r\n    \"startDate\": \"12-12-2022\",\r\n    \"endDate\": \"22-12-2022\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1234/api/admin/createPromotion",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"api",
+						"admin",
+						"createPromotion"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllPromotion",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Diwali\",\r\n    \"description\":\"Diwali festival for big discounts\",\r\n    \"startDate\":\"12-12-2022\",\r\n    \"EndDate\":\"22-12-2022\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1234/api/admin/GetAllPromotion",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"api",
+						"admin",
+						"GetAllPromotion"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetPromotionById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Diwali\",\r\n    \"description\":\"Diwali festival for big discounts\",\r\n    \"startDate\":\"12-12-2022\",\r\n    \"EndDate\":\"22-12-2022\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1234/api/admin/GetPromotionById/63f5bc829d36a62495bd596e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"api",
+						"admin",
+						"GetPromotionById",
+						"63f5bc829d36a62495bd596e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateCustomer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"AttributeList\": null,\r\n        \"FKOldCustomerID\": null,\r\n        \"FKOldVendorID\": null,\r\n        \"PKID\": 588,\r\n        \"Party\": \"bhumi\",\r\n        \"Customer\": \"bhumi bharti\",\r\n        \"pCustomer\": null,\r\n        \"Vendor\": null,\r\n        \"Alias\": \"NVP2\",\r\n        \"Address\": \"1659  SRINAGAR  PANCHASAYAR NARENDRAPUR  KOLKATA- 700 094\",\r\n        \"pAddress\": null,\r\n        \"FkstationId\": null,\r\n        \"pFkstationId\": null,\r\n        \"FklocalityId\": null,\r\n        \"FkmasterCustomerId\": null,\r\n        \"District\": \"KOLKATA\",\r\n        \"Country\": \"Not Define\",\r\n        \"FkcarrierId\": null,\r\n        \"Pincode\": \"700 094\",\r\n        \"Phone\": null,\r\n        \"Mobile\": \"9330624199\",\r\n        \"Fax\": null,\r\n        \"Status\": \"F\",\r\n        \"FKPostingID\": 0,\r\n        \"Email\": \"newvivekanandapharmacy2019@gmail.com                                                                \",\r\n        \"EmailCC\": null,\r\n        \"Website\": null,\r\n        \"CreditDays\": 25,\r\n        \"CreditLimit\": 0.0000,\r\n        \"SupplyDays\": null,\r\n        \"PaymentDays\": null,\r\n        \"FkbankId\": null,\r\n        \"page\": null,\r\n        \"licence\": null,\r\n        \"Dob\": null,\r\n        \"Dow\": null,\r\n        \"PaymentMode\": \"R\",\r\n        \"SeriesPrefix\": null,\r\n        \"DiscDate\": null,\r\n        \"Contact\": \"RC\",\r\n        \"IsDefaulter\": false,\r\n        \"PaymentModeDesc\": \"Credit\",\r\n        \"Station\": \"KOLKATA\",\r\n        \"State\": \"West Bengal\",\r\n        \"Locality\": \"KOLKATA\",\r\n        \"Carrier\": \"\",\r\n        \"Account\": null,\r\n        \"Bank\": null,\r\n        \"No\": \"License 1\",\r\n        \"StatusDesc\": \"InActive\",\r\n        \"OverDueDays\": 20,\r\n        \"PriceListCount\": 0,\r\n        \"FKStateID\": 0,\r\n        \"FkcustCatgId\": null,\r\n        \"CustCategory\": null,\r\n        \"FKReferByIDPD\": null,\r\n        \"FKReferByVendorIDPD\": null,\r\n        \"ReferByPD\": null,\r\n        \"FKReferByID\": null,\r\n        \"FKReferByVendorID\": null,\r\n        \"ReferBy\": \"RAJU CHATTERJEE\",\r\n        \"RateHikeBy\": 0.0,\r\n        \"ProdCatgFilter\": null,\r\n        \"Points\": null,\r\n        \"PointExpDate\": null,\r\n        \"FKAreaID\": 0,\r\n        \"FKDistrictID\": null,\r\n        \"Gstno\": \"19CCIPS0372R1ZQ\",\r\n        \"pGstno\": null,\r\n        \"Gstdate\": null,\r\n        \"GSTVDate\": null,\r\n        \"Composition\": false,\r\n        \"CompIdate\": null,\r\n        \"CompVdate\": null,\r\n        \"Distance\": null,\r\n        \"LocationList\": null,\r\n        \"Area\": \"**             \",\r\n        \"StmtPeriod\": 0,\r\n        \"RGRegNo\": null,\r\n        \"ApplyPromotion\": false,\r\n        \"ApplyDiscount\": false,\r\n        \"OldCustomer\": null,\r\n        \"Remarks\": null,\r\n        \"Images\": null,\r\n        \"ImageStatus\": false,\r\n        \"FKUserID\": 1,\r\n        \"UserName\": \"admin\",\r\n        \"DATE_MODIFIED\": \"2022-12-06T15:42:42.623\",\r\n        \"FKCreatedByID\": 0,\r\n        \"CreatedByUser\": null,\r\n        \"CreationDate\": \"0001-01-01T00:00:00\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1234/api/admin/createCustomer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"api",
+						"admin",
+						"createCustomer"
 					]
 				}
 			},
@@ -507,13 +631,35 @@
 			"response": []
 		},
 		{
-			"name": "CreatePromotion",
+			"name": "getcustomerById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:1234/api/admin/getcustomerById/63f5bce09d36a62495bd5973",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"api",
+						"admin",
+						"getcustomerById",
+						"63f5bce09d36a62495bd5973"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updatecustomer",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Diwali\",\r\n    \"description\": \"Diwali festival for big discounts\",\r\n    \"startDate\": \"12-12-2022\",\r\n    \"endDate\": \"22-12-2022\"\r\n}",
+					"raw": "{\r\n    \"_id\": \"63f5bce09d36a62495bd5973\",\r\n    \"PKID\": 588,\r\n    \"Party\": \"bhumi\",\r\n    \"Customer\": \"bhumi bharti\",\r\n    \"Vendor\": null,\r\n    \"Address\": \"1659  SRINAGAR  PANCHASAYAR NARENDRAPUR  KOLKATA- 700 094\",\r\n    \"District\": \"KOLKATA\",\r\n    \"Country\": \"Not Define\",\r\n    \"Pincode\": \"700 094\",\r\n    \"Phone\": null,\r\n    \"Mobile\": \"9330624199\",\r\n    \"Fax\": null,\r\n    \"Status\": \"F\",\r\n    \"Email\": \"newvivekanandapharmacy2019@gmail.com                                                                \",\r\n    \"Dob\": null,\r\n    \"PaymentMode\": \"R\",\r\n    \"Contact\": \"RC\",\r\n    \"Station\": \"KOLKATA\",\r\n    \"State\": \"West Bengal\",\r\n    \"Locality\": \"KOLKATA\",\r\n    \"Carrier\": \"\",\r\n    \"Account\": null,\r\n    \"Bank\": null,\r\n    \"Images\": null,\r\n    \"__v\": 0\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -521,7 +667,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/promotion/createPromotion",
+					"raw": "http://localhost:1234/api/admin/updatecustomer/63f5bce09d36a62495bd5973",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -529,74 +675,9 @@
 					"port": "1234",
 					"path": [
 						"api",
-						"promotion",
-						"createPromotion"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GetAllPromotion",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"name\":\"Diwali\",\r\n    \"description\":\"Diwali festival for big discounts\",\r\n    \"startDate\":\"12-12-2022\",\r\n    \"EndDate\":\"22-12-2022\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:1234/api/promotion/GetAllPromotion",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "1234",
-					"path": [
-						"api",
-						"promotion",
-						"GetAllPromotion"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GetPromotionById",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"name\":\"Diwali\",\r\n    \"description\":\"Diwali festival for big discounts\",\r\n    \"startDate\":\"12-12-2022\",\r\n    \"EndDate\":\"22-12-2022\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:1234/api/promotion/GetAllPromotion",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "1234",
-					"path": [
-						"api",
-						"promotion",
-						"GetAllPromotion"
+						"admin",
+						"updatecustomer",
+						"63f5bce09d36a62495bd5973"
 					]
 				}
 			},
@@ -608,7 +689,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbmMiOiI2ODdmMWRkNWNhNjk0OWFiNGJiNTVmM2IzZWYwMjVjZTIxNDRlYjBmOGVhODU1MGM1ZGYxNjRmZmU4NmU0MWI0NzliYzA2ODE5YzE2NGVkODZhY2FiNWUyNjQ3ZmNlOWYxOTYyMjZkNjcwMjFiOGNkNTc5ZmQ5YzlkNTNhOGRkNmRlYjVhYWE5ODEyZGE5MjJlOTRmYWFlOWFlNzk0MDU0NjUzYTk1MzZjOGEzYTIwMDJiY2I4ODA4ZDMwNGRhMDJkNjlmMjhjNWUwZDUxNTgwMjRhNDc1ZWRmYjEwYTFiOGE5ZGIyOGU1MzcwMjg2NTMzMGU3MjFkM2EwZmJiMjU3OTMwNjhiNTRhMWYyYjRiNDA1NTY2MjQ1OTZjYjc5YWNkNTQ3ZjI4MzIwMDRmYzJkZDQ4Y2FhOWY2NGZmODI0NTNiZDY3MTQ4NjJjMDIzYThiMzdiODlkMjA1Y2QzN2U3OTQ2NjEzMWFkZmRkNDZjZDc4MWIzZWRkYTBhMTBlMmFjMDczODY5MmJjZmNmYjk4NGNhOTNkOWViYjg1NjliOSIsImlhdCI6MTY3NjU0ODY1NSwiZXhwIjoxNjc2NTkxODU1fQ.34A8eW5Gn1Jk0B2IMaR3w-_56H62u2wDJyRyWwoW2B4",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbmMiOiIyZGY1OTkzZGYzMTc2YjU2M2FjYWI5OWMzOWUwZDcyMDdjZDVkMzIyMzE4YjI1ZDVjMmM2MjEzMjUxYThiYTI0OTRkN2IwNmQ4Yjk4YjEzYjlkYWNjMzgyY2MyYjMyYzA4OGQyNTkzNDFhODI5ZGUyMTQ1ZTliY2UzZTc0OGZjNDNiYzExZWFjNDFiNDdlMzhmMTI1MmFiMTk1ZDM4ZTZlZjIwZWY3MjczYTJhNWMxYzZlMjFmZmUwMGUyMjNjZWM3NmZkZDc0M2YxOWY0YWU0OWUxYjI2NzgwOGJkMGUzMTA2MzliNmQwNTY0ZjkzYzc4YzU3N2ZjOWVkM2VhYzViMWI3YTFlMzA4NGI5YTdjMWFiODI0ZGFhNjYyNzU5MGM1OTBlMDIyZjUxYzU3ZTY2OWY2YzE3NzlkYzlkZWE4YTBkNGM4MjJlMmYwNWJjMmNmMTI1NDM2YTI5ZWM3YzdhNjkwMmU0NGVkNjkyZDM2MGY1MzlkMWQ5YTZmYTRlZDc3ZTRlNmFlMTdjY2QzZGZkMzRhMWI4OGM0Mzg1NmU4ZSIsImlhdCI6MTY3NzA0ODgzNiwiZXhwIjoxNjc3MDkyMDM2fQ.l-ZF8OA-BoBU-LJRh4mfVC5GfL4I53Wf_XgLZgSPlDY",
 				"type": "string"
 			}
 		]
