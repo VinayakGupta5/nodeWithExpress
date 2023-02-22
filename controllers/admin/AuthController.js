@@ -34,76 +34,88 @@ exports.Signup = (req, res, next) => {
       return res.send({ message: "website Name should be written fully ex:- www.example.com" })
     }
     else {
-      async function mongoConnect() {
-        const connection = await connectToDb(databaseName)
-          .then((result) => {
-            Users.findOne({ email: email })
-              .then(userByemail => {
-                if (userByemail) {
-                  return res.send({
-                    message: "Email already exist!",
-                    user: {
-                      _id: userByemail._id,
-                      email: userByemail.email,
-                      websiteName: userByemail.websiteName,
-                      // connectString:userByemail.connectString
-                    }
-                  })
-                }
-                else {
-                  Users.findOne({ websiteName: websiteName })
-                    .then(userByWeb => {
-                      if (userByWeb) {
-                        return res.send({
-                          message: "Website Name already exist!",
-                          user: {
-                            _id: userByWeb._id,
-                            email: userByWeb.email,
-                            websiteName: userByWeb.websiteName
-                          }
-                        })
-                      }
-                      else {
-                        bcrypt.hash(pass, 12)
-                          .then(hashpass => {
-                            const user = new Users({
-                              email: email,
-                              pass: hashpass,
-                              websiteName: websiteName,
-                              connectString: `mongodb+srv://${process.env.mongoUserName}:${process.env.mongoPass}@swindia1.17wlqvp.mongodb.net/${databaseCreateName}?retryWrites=true&w=majority`
-                            })
-                            user.save()
-                              .then(userCreate => {
-                                async function mongooseDiscon() {
-                                  try {
-                                    await mongooseDisconnect();
-                                  } catch (err) {
-                                    console.error('Error disconnecting from MongoDB:', err);
-                                    return;
-                                  }
-                                  return res.send({
-                                    status: 'success',
-                                    message: "Successfully created",
-                                    data: {
-                                      _id: userCreate._id,
-                                      email: userCreate.email,
-                                      websiteName: userCreate.websiteName
-                                    }
-                                  })
-                                }
-                                mongooseDiscon();
-                              })
-                              .catch(err => {
-                                res.send({ err: err })
-                              })
-                          })
+      async function mongooseDiscon() {
+        try {
+          await mongooseDisconnect();
+        } catch (err) {
+          console.error('Error disconnecting from MongoDB:', err);
+          return;
+        }
+
+        async function mongoConnect() {
+          const connection = await connectToDb(databaseName)
+            .then((result) => {
+              Users.findOne({ email: email })
+                .then(userByemail => {
+                  if (userByemail) {
+                    return res.send({
+                      message: "Email already exist!",
+                      user: {
+                        _id: userByemail._id,
+                        email: userByemail.email,
+                        websiteName: userByemail.websiteName,
+                        // connectString:userByemail.connectString
                       }
                     })
-                }
-              })
-          })
+                  }
+                  else {
+                    Users.findOne({ websiteName: websiteName })
+                      .then(userByWeb => {
+                        if (userByWeb) {
+                          return res.send({
+                            message: "Website Name already exist!",
+                            user: {
+                              _id: userByWeb._id,
+                              email: userByWeb.email,
+                              websiteName: userByWeb.websiteName
+                            }
+                          })
+                        }
+                        else {
+                          bcrypt.hash(pass, 12)
+                            .then(hashpass => {
+                              const user = new Users({
+                                email: email,
+                                pass: hashpass,
+                                websiteName: websiteName,
+                                connectString: `mongodb+srv://${process.env.mongoUserName}:${process.env.mongoPass}@swindia1.17wlqvp.mongodb.net/${databaseCreateName}?retryWrites=true&w=majority`
+                              })
+                              user.save()
+                                .then(userCreate => {
+                                  async function mongooseDiscon() {
+                                    try {
+                                      await mongooseDisconnect();
+                                    } catch (err) {
+                                      console.error('Error disconnecting from MongoDB:', err);
+                                      return;
+                                    }
+                                    return res.send({
+                                      status: 'success',
+                                      message: "Successfully created",
+                                      data: {
+                                        _id: userCreate._id,
+                                        email: userCreate.email,
+                                        websiteName: userCreate.websiteName
+                                      }
+                                    })
+                                  }
+                                  mongooseDiscon();
+                                })
+                                .catch(err => {
+                                  res.send({ err: err })
+                                })
+                            })
+                        }
+                      })
+                  }
+                })
+            })
+        }
+        mongoConnect()
+
       }
-      mongoConnect()
+      mongooseDiscon();
+
     }
   }
 }
@@ -193,6 +205,5 @@ exports.Login = (req, res, next) => {
       mongoConnect()
     }
     mongooseDiscon();
-
   }
 }
