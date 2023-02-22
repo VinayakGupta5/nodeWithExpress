@@ -109,3 +109,39 @@ exports.CreateCustomer = (req, res, next) => {
   }
   mongoConnect()
 }
+
+exports.UpdateCustomer = (req, res, next) => {
+  const id = req.params._id
+  const customer = req.body
+  async function mongoConnect() {
+    await connectToDb(req.userData.connectString)
+    .then((result) => {
+        Customer.findByIdAndUpdate(id, customer)
+        .then(customer => {
+            console.log(customer)
+            async function mongooseDiscon() {
+              try {
+                await mongooseDisconnect();
+              } catch (err) {
+                return res.send(err);
+              }
+              // console.log("now run")
+            }
+            mongooseDiscon();
+            return res.send({
+              status:'success',
+              message: '',
+              data: customer
+            })
+          })
+        .catch((err) => {
+            return res.send({
+              status: 'error',
+              message: '',
+              data: err
+            })
+          })
+      })
+  }
+  mongoConnect()
+}
