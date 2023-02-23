@@ -1,7 +1,6 @@
 const connectToDb = require('../../conn/connectMongoose')
 const Product = require('../../models/ProductModel')
 const mongooseDisconnect = require('../../conn/disconnectMongoose')
-const Customer = require('../../models/CustomerModel')
 
 exports.getAllProducts = (req, res, next) => {
   const databaseName = req.userData.connectString
@@ -190,6 +189,7 @@ exports.getOneProductById = (req, res, next) => {
 
 exports.updateProduct = (req, res, next) => {
   const databaseName = req.userData.connectString
+  var _id = req.body._id
   const updateProduct =
   {
     PKID: req.body.PKID,
@@ -242,7 +242,7 @@ exports.updateProduct = (req, res, next) => {
   async function mongoConnect() {
     const connection = await connectToDb(databaseName)
       .then((result) => {
-        Product.findByIdAndUpdate(req.params._id, updateProduct)
+        Product.findByIdAndUpdate(_id, updateProduct)
           .then(result => {
             async function mongooseDiscon() {
               try {
