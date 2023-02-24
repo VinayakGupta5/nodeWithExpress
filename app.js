@@ -3,6 +3,7 @@ const express = require('express')
 const ProductAdminRouter = require('./routes/admin/ProductAdminRouter')
 const AuthAdminRouter = require('./routes/admin/AuthAdminRouter')
 const PromotionAdminRouter = require('./routes/admin/PromotionAdminRouter')
+const CategoryAdminRouter = require('./routes/admin/CategoryAdminRouter')
 
 const isAuth = require('./middleware/isAuth');
 const customerAuthRouter = require('./routes/customer/AuthCustomerRouter')
@@ -34,6 +35,7 @@ app.use('/api/auth', AuthAdminRouter)
 app.use('/api/admin', isAuth, ProductAdminRouter)
 app.use('/api/admin', isAuth, customerAdminRouter)
 app.use('/api/admin', isAuth, PromotionAdminRouter)
+app.use('/api/admin', isAuth, CategoryAdminRouter)
 
 
 app.use('/api/customer', customerAuthRouter)
