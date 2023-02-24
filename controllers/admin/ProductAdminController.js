@@ -422,12 +422,17 @@ exports.getProductsByNameSearch = (req, res, next) => {
             }
             mongooseDiscon();
 
-            return res.send(data);
+            return res.send({
+              status: "success",
+              msg: '',
+              data: data
+            });
           })
           .catch(err => {
             res.status(500).send({
-              message:
-                err.message || "Some error occurred while retrieving tutorials."
+              status: "success",
+              msg: err,
+              data: []
             });
           });
       })
