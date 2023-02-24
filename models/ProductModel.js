@@ -168,6 +168,11 @@ const productSchema = new Schema({
   active: {
     type: Boolean
   }
+}, {
+  capped: {
+    size: 52428800, // Maximum size in bytes (16 MB)
+    max: 10000 // Maximum number of documents in the collection
+  }
 })
 
-module.exports = mongoose.model('Product', productSchema)
+module.exports = mongoose.model('Product', productSchema)  
