@@ -1,7 +1,6 @@
 const Category = require('../../models/CategoryModel')
 const connectToDb = require('../../conn/connectMongoose')
 
-
 exports.CreateMainCategory = async (req, res, next) => {
 
   const databaseName = req.userData.connectString
@@ -26,6 +25,8 @@ exports.CreateMainCategory = async (req, res, next) => {
 
   mongoConnect()
 }
+
+
 exports.CreateSubCategory = async (req, res) => {
 
   const databaseName = req.userData.connectString
@@ -62,8 +63,9 @@ exports.CreateSubCategory = async (req, res) => {
 
   mongoConnect()
 }
-exports.getCategory = async (req, res, next) => {
 
+
+exports.getCategory = async (req, res, next) => {
   const databaseName = req.userData.connectString
   async function mongoConnect() {
     await connectToDb(databaseName)
