@@ -5,16 +5,18 @@ const Customer = require('../../models/CustomerModel')
 exports.GetCustomers = (req, res, next) => {
 
   const databaseName = req.userData.connectString
+  console.log("databaseName",databaseName)
 
   async function mongoConnect() {
     await connectToDb(databaseName)
       .then((result) => {
         Customer.find()
           .then(customers => {
+            console.log("CUSTOMERS", customers)
             return res.send({
               status: 'success',
               message: '',
-              data: customers
+              data: customers 
             })
           })
           .catch((err) => {
