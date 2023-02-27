@@ -6,23 +6,10 @@ exports.getAllProducts = (req, res, next) => {
   const databaseName = req.userData.connectString
 
   async function mongoConnect() {
-    const connection = await connectToDb(databaseName)
+    await connectToDb(databaseName)
       .then((result) => {
         Product.find()
           .then(products => {
-            async function mongooseDiscon() {
-              try {
-                await mongooseDisconnect();
-              } catch (err) {
-                console.error('Error disconnecting from MongoDB:', err);
-                return;
-              }
-
-              // console.log("now run")
-
-            }
-            mongooseDiscon();
-
             return res.send({
               status: 'success',
               message: "",
@@ -47,7 +34,7 @@ exports.postMultipleProducts = (req, res, next) => {
   const Ids = postsData.map((post) => post.PKID)
 
   async function mongoConnect() {
-    const connection = await connectToDb(databaseName)
+    await connectToDb(databaseName)
       .then(result => {
         Product.find({ 'PKID': { $in: Ids } }, function (err, existingDocFounded) {
           existingDoc = existingDocFounded
@@ -59,17 +46,7 @@ exports.postMultipleProducts = (req, res, next) => {
           })
           Product.insertMany(notExistDoc)
             .then(result => {
-              async function mongooseDiscon() {
-                try {
-                  await mongooseDisconnect();
-                } catch (err) {
-                  console.error('Error disconnecting from MongoDB:', err);
-                  return;
-                }
-                // console.log("now run")
-              }
-              mongooseDiscon();
-              res.send({
+              return res.send({
                 status: 'success',
                 message: "",
                 data: {
@@ -79,7 +56,7 @@ exports.postMultipleProducts = (req, res, next) => {
               })
             })
             .catch(err => {
-              res.send(err)
+              return res.send(err)
             })
         });
 
@@ -89,89 +66,85 @@ exports.postMultipleProducts = (req, res, next) => {
 }
 
 exports.postProduct = (req, res, next) => {
-  Product.findOne({ PKID: req.body.PKID })
-    .then(result => {
-      if (result) {
-        res.send({ message: "This product is already exist as per PKID!" })
-      }
-      else {
-        const product = new Product({
-          PKID: req.body.PKID,
-          NameToDisplay: req.body.NameToDisplay,
-          Brand: req.body.Brand,
-          Strength: req.body.Strength,
-          Unit1: req.body.Unit1,
-          ProdConv1: req.body.ProdConv1,
-          Unit2: req.body.Unit2,
-          SellLoose: req.body.SellLoose,
-          ProdConv2: req.body.ProdConv2,
-          Unit3: req.body.Unit3,
-          IsExpiryApplied: req.body.IsExpiryApplied,
-          IsMfgDateApplied: req.body.IsMfgDateApplied,
-          IsUniqueIDapplied: req.body.IsUniqueIDapplied,
-          IsColorApplied: req.body.IsColorApplied,
-          IsBarCodeApplied: req.body.IsBarCodeApplied,
-          Description: req.body.Description,
-          FkprodCatgId: req.body.FkprodCatgId,
-          MRP: req.body.MRP,
-          Barcode: req.body.Barcode,
-          Weight: req.body.Weight,
-          Height: req.body.Height,
-          Width: req.body.Width,
-          Length: req.body.Length,
-          WeightUnit: req.body.WeightUnit,
-          HeightUnit: req.body.HeightUnit,
-          Status: req.body.Status,
-          Image: req.body.Image,
-          BestBefore: req.body.BestBefore,
-          BestBeforeUnit: req.body.BestBeforeUnit,
-          Skudefinition: req.body.Skudefinition,
-          HSNCode: req.body.HSNCode,
-          MfgGroupName: req.body.MfgGroupName,
-          GroupName: req.body.GroupName,
-          GroupAlias: req.body.GroupAlias,
-          MfgGroupAlias: req.body.MfgGroupAlias,
-          Category: req.body.Category,
-          CategoryGroup: req.body.CategoryGroup,
-          CatgSKU: req.body.CatgSKU,
-          Generic1: req.body.Generic1,
-          Generic2: req.body.Generic2,
-          BoxSize: req.body.BoxSize,
-          Schedule: req.body.Schedule,
-          Remarks: req.body.Remarks,
-          Images: req.body.Images,
-        })
-        product.save()
-          .then(result => {
-            res.send(result)
-          })
-          .catch(err => {
-            res.send(err)
-          })
-      }
-    })
 
+  async function mongoConnect() {
+    await connectToDb(databaseName)
+      .then(result => {
+        Product.findOne({ PKID: req.body.PKID })
+          .then(result => {
+            if (result) {
+              res.send({ message: "This product is already exist as per PKID!" })
+            }
+            else {
+              const product = new Product({
+                PKID: req.body.PKID,
+                NameToDisplay: req.body.NameToDisplay,
+                Brand: req.body.Brand,
+                Strength: req.body.Strength,
+                Unit1: req.body.Unit1,
+                ProdConv1: req.body.ProdConv1,
+                Unit2: req.body.Unit2,
+                SellLoose: req.body.SellLoose,
+                ProdConv2: req.body.ProdConv2,
+                Unit3: req.body.Unit3,
+                IsExpiryApplied: req.body.IsExpiryApplied,
+                IsMfgDateApplied: req.body.IsMfgDateApplied,
+                IsUniqueIDapplied: req.body.IsUniqueIDapplied,
+                IsColorApplied: req.body.IsColorApplied,
+                IsBarCodeApplied: req.body.IsBarCodeApplied,
+                Description: req.body.Description,
+                FkprodCatgId: req.body.FkprodCatgId,
+                MRP: req.body.MRP,
+                Barcode: req.body.Barcode,
+                Weight: req.body.Weight,
+                Height: req.body.Height,
+                Width: req.body.Width,
+                Length: req.body.Length,
+                WeightUnit: req.body.WeightUnit,
+                HeightUnit: req.body.HeightUnit,
+                Status: req.body.Status,
+                Image: req.body.Image,
+                BestBefore: req.body.BestBefore,
+                BestBeforeUnit: req.body.BestBeforeUnit,
+                Skudefinition: req.body.Skudefinition,
+                HSNCode: req.body.HSNCode,
+                MfgGroupName: req.body.MfgGroupName,
+                GroupName: req.body.GroupName,
+                GroupAlias: req.body.GroupAlias,
+                MfgGroupAlias: req.body.MfgGroupAlias,
+                Category: req.body.Category,
+                CategoryGroup: req.body.CategoryGroup,
+                CatgSKU: req.body.CatgSKU,
+                Generic1: req.body.Generic1,
+                Generic2: req.body.Generic2,
+                BoxSize: req.body.BoxSize,
+                Schedule: req.body.Schedule,
+                Remarks: req.body.Remarks,
+                Images: req.body.Images,
+              })
+              product.save()
+                .then(result => {
+                  return res.send(result)
+                })
+                .catch(err => {
+                  return res.send(err)
+                })
+            }
+          })
+      })
+  }
+  mongoConnect()
 }
 
 exports.getOneProductById = (req, res, next) => {
   const databaseName = req.userData.connectString
 
   async function mongoConnect() {
-    const connection = await connectToDb(databaseName)
+    await connectToDb(databaseName)
       .then((result) => {
         Product.findById(req.params._id)
           .then(product => {
             if (product) {
-              async function mongooseDiscon() {
-                try {
-                  await mongooseDisconnect();
-                } catch (err) {
-                  console.error('Error disconnecting from MongoDB:', err);
-                  return;
-                }
-                // console.log("now run")
-              }
-              mongooseDiscon();
               return res.send({
                 status: 'success',
                 message: "",
@@ -240,21 +213,10 @@ exports.updateProduct = (req, res, next) => {
   }
 
   async function mongoConnect() {
-    const connection = await connectToDb(databaseName)
+    await connectToDb(databaseName)
       .then((result) => {
         Product.findByIdAndUpdate(_id, updateProduct)
           .then(result => {
-            async function mongooseDiscon() {
-              try {
-                await mongooseDisconnect();
-              } catch (err) {
-                console.error('Error disconnecting from MongoDB:', err);
-                return;
-              }
-              // console.log("now run")
-            }
-            mongooseDiscon();
-
             return res.send(
               {
                 status: 'success',
@@ -274,21 +236,10 @@ exports.updateProduct = (req, res, next) => {
 exports.deleteProduct = (req, res, next) => {
   const databaseName = req.userData.connectString
   async function mongoConnect() {
-    const connection = await connectToDb(databaseName)
+    await connectToDb(databaseName)
       .then((result) => {
         Product.findByIdAndDelete(req.params._id)
           .then(result => {
-            async function mongooseDiscon() {
-              try {
-                await mongooseDisconnect();
-              } catch (err) {
-                console.error('Error disconnecting from MongoDB:', err);
-                return;
-              }
-              // console.log("now run")
-            }
-            mongooseDiscon();
-
             return res.send({
               status: 'success',
               message: "Deleted Successfully!",
@@ -300,9 +251,7 @@ exports.deleteProduct = (req, res, next) => {
           })
       })
   }
-
   mongoConnect()
-
 }
 
 exports.getProductsPerPage = (req, res, next) => {
@@ -317,30 +266,20 @@ exports.getProductsPerPage = (req, res, next) => {
   }
 
   async function mongoConnect() {
-    const connection = await connectToDb(databaseName)
+    await connectToDb(databaseName)
       .then((result) => {
         Product.find()
           .skip((page - 1) * items_per_page)
           .limit(items_per_page)
           .then(products => {
-            async function mongooseDiscon() {
-              try {
-                await mongooseDisconnect();
-              } catch (err) {
-                console.error('Error disconnecting from MongoDB:', err);
-                return;
-              }
-              // console.log("now run")
-            }
-            mongooseDiscon();
-            res.send({
+            return res.send({
               status: 'success',
               message: "",
               data: products
             })
           })
           .catch(err => {
-            res.send(err)
+            return res.send(err)
           })
       });
   }
@@ -352,51 +291,27 @@ exports.checkProductsExist = (req, res, next) => {
   const databaseName = req.userData.connectString
   const ids = req.body
 
-  try {
-    async function mongoConnect() {
-      const connection = await connectToDb(databaseName)
-        .then(async (result) => {
-          await Product.find({ PKID: { $in: ids } })
-            .then(result1 => {
-              // console.log("result",result1)
-              // console.log("existingDocFounded", existingDocFounded)
-              const existProdIds = result1?.map(pro => pro.PKID);
-              console.log("existProdIds", existProdIds)
-
-
-              async function mongooseDiscon() {
-                try {
-                  await mongooseDisconnect();
-                } catch (err) {
-                  console.error('Error disconnecting from MongoDB:', err);
-                  return;
-                }
-                // console.log("now run")
-
-
-              }
-              mongooseDiscon();
-              return res.send({
-                status: 'success',
-                message: "",
-                data: { PKID: existProdIds }
-              })
+  async function mongoConnect() {
+    await connectToDb(databaseName)
+      .then(async (result) => {
+        await Product.find({ PKID: { $in: ids } })
+          .then(result1 => {
+            const existProdIds = result1?.map(pro => pro.PKID);
+            return res.send({
+              status: 'success',
+              message: "",
+              data: { PKID: existProdIds }
             })
-            .catch(err => {
-              return res.send({
-                status: "failed",
-                err: err
-              })
+          })
+          .catch(err => {
+            return res.send({
+              status: "failed",
+              err: err
             })
-        })
-    }
-    mongoConnect();
-
+          })
+      })
   }
-  catch (err) {
-    return res.send(err)
-  }
-
+  mongoConnect();
 }
 
 exports.getProductsByNameSearch = (req, res, next) => {
@@ -405,23 +320,10 @@ exports.getProductsByNameSearch = (req, res, next) => {
 
   const databaseName = req.userData.connectString
   async function mongoConnect() {
-    const connection = await connectToDb(databaseName)
+    await connectToDb(databaseName)
       .then((result) => {
         Product.find(condition)
           .then(data => {
-
-            async function mongooseDiscon() {
-              try {
-                await mongooseDisconnect();
-              } catch (err) {
-                console.error('Error disconnecting from MongoDB:', err);
-                return;
-              }
-              // console.log("now run")
-
-            }
-            mongooseDiscon();
-
             return res.send({
               status: "success",
               msg: '',
@@ -429,7 +331,7 @@ exports.getProductsByNameSearch = (req, res, next) => {
             });
           })
           .catch(err => {
-            res.status(500).send({
+           return res.status(500).send({
               status: "success",
               msg: err,
               data: []
@@ -456,15 +358,6 @@ exports.filterProducts = (req, res, next) => {
           Category: { $in: catergorySearch }
         })
           .then((products) => {
-            async function mongooseDiscon() {
-              try {
-                await mongooseDisconnect();
-              } catch (err) {
-                return res.send(err);
-              }
-              // console.log("now run")
-            }
-            mongooseDiscon();
             return res.send(products)
 
           })

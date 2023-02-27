@@ -75,24 +75,15 @@ exports.Signup = (req, res, next) => {
                             })
                             user.save()
                               .then(userCreate => {
-                                async function mongooseDiscon() {
-                                  try {
-                                    await mongooseDisconnect();
-                                  } catch (err) {
-                                    console.error('Error disconnecting from MongoDB:', err);
-                                    return;
+                                return res.send({
+                                  status: 'success',
+                                  message: "Successfully created",
+                                  data: {
+                                    _id: userCreate._id,
+                                    email: userCreate.email,
+                                    websiteName: userCreate.websiteName
                                   }
-                                  return res.send({
-                                    status: 'success',
-                                    message: "Successfully created",
-                                    data: {
-                                      _id: userCreate._id,
-                                      email: userCreate.email,
-                                      websiteName: userCreate.websiteName
-                                    }
-                                  })
-                                }
-                                mongooseDiscon();
+                                })
                               })
                               .catch(err => {
                                 res.send({ err: err })
@@ -104,23 +95,7 @@ exports.Signup = (req, res, next) => {
               })
           })
       }
-
-      if (mongoose.connection.readyState === 1) {
-        async function mongooseDiscon() {
-          try {
-            await mongooseDisconnect();
-          } catch (err) {
-            console.error('Error disconnecting from MongoDB:', err);
-            return;
-          }
-          mongoConnect()
-        }
-        mongooseDiscon();
-      }
-      else {
-        mongoConnect()
-      }
-
+      mongoConnect()
     }
   }
 }
@@ -163,19 +138,7 @@ exports.Login = (req, res, next) => {
                           return res.send({ err: err })
                         }
                         else {
-                          async function mongooseDiscon() {
-                            try {
-                              await mongooseDisconnect();
-                            } catch (err) {
-                              console.error('Error disconnecting from MongoDB:', err);
-                              return;
-                            }
-
-                            // console.log("now run")
-
-                          }
-                          mongooseDiscon();
-                          res.send({
+                          return res.send({
                             status: 'success',
                             message: "Successfully Login",
                             data: {
@@ -200,21 +163,6 @@ exports.Login = (req, res, next) => {
             })
         });
     }
-
-    if (mongoose.connection.readyState === 1) {
-      async function mongooseDiscon() {
-        try {
-          await mongooseDisconnect();
-        } catch (err) {
-          console.error('Error disconnecting from MongoDB:', err);
-          return;
-        }
-        mongoConnect()
-      }
-      mongooseDiscon();
-    }
-    else {
-      mongoConnect()
-    }
+    mongoConnect()
   }
 }

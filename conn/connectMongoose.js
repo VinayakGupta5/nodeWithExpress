@@ -4,6 +4,11 @@ mongoose.set('strictQuery', false)
 
 const connectToDb = (dbName) => {
   return new Promise(async (resolve, reject) => {
+    console.log("dbName", dbName.split('/')[3].split('?')[0])
+
+    console.log("mongoose state: ", mongoose.connection.readyState )
+    console.log("mongoose name: ", mongoose.connection.name )
+
     if (mongoose.connection.readyState === 0) {
       await mongoose.connect(
         dbName,
@@ -18,7 +23,6 @@ const connectToDb = (dbName) => {
         })
     }
     else if (mongoose.connection.readyState === 1) {
-      // If the state is "connected," log a message to the console
       console.log('Already connected to MongoDB!');
       resolve()
     } else if (mongoose.connection.readyState === 2) {
@@ -35,3 +39,18 @@ const connectToDb = (dbName) => {
 };
 
 module.exports = connectToDb;
+
+
+
+// async function mongooseDiscon() {
+//   try {
+//     await mongooseDisconnect();
+//   } catch (err) {
+//     console.error('Error disconnecting from MongoDB:', err);
+//     return;
+//   }
+
+//   // console.log("now run")
+
+// }
+// mongooseDiscon();

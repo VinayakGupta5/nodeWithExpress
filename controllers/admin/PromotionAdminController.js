@@ -21,19 +21,10 @@ exports.CreatePromotion = (req, res, next) => {
     })
 
     async function mongoConnect() {
-        const connection = await connectToDb(databaseName)
+        await connectToDb(databaseName)
             .then((result) => {
                 promotion.save()
                     .then(prom => {
-                        async function mongooseDiscon() {
-                            try {
-                              await mongooseDisconnect();
-                            } catch (err) {
-                              return res.send(err);
-                            }
-                            // console.log("now run")
-                          }
-                          mongooseDiscon();
                         return res.send({
                             status: 'success',
                             msg: '',
@@ -58,19 +49,10 @@ exports.GetAllPromotions = (req, res, body) => {
     const databaseName = req.userData.connectString
 
     async function mongoConnect() {
-        const connection = await connectToDb(databaseName)
+        await connectToDb(databaseName)
             .then((result) => {
                 Promotion.find()
                     .then(promotions => {
-                        async function mongooseDiscon() {
-                            try {
-                              await mongooseDisconnect();
-                            } catch (err) {
-                              return res.send(err);
-                            }
-                            // console.log("now run")
-                          }
-                          mongooseDiscon();
                         return res.send(promotions)
                     })
                     .catch(err => {
@@ -88,19 +70,10 @@ exports.GetPromotionById = (req, res, body) => {
     const databaseName = req.userData.connectString
 
     async function mongoConnect() {
-        const connection = await connectToDb(databaseName)
+        await connectToDb(databaseName)
             .then((result) => {
                 Promotion.findById(id)
                     .then(promotions => {
-                        async function mongooseDiscon() {
-                            try {
-                              await mongooseDisconnect();
-                            } catch (err) {
-                              return res.send(err);
-                            }
-                            // console.log("now run")
-                          }
-                          mongooseDiscon();
                         return res.send(promotions)
                     })
                     .catch(err => {

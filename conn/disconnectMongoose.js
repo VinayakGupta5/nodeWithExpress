@@ -7,7 +7,7 @@ module.exports = () => {
         if (err) {
           return reject(new error_1.MongoServerClosedError(err));
         }
-        console.log("DISCONNECT")
+        console.log("DISCONNECTed")
         resolve("DISCONNECT");
       });
     } else if (mongoose.connection.readyState === 3) {

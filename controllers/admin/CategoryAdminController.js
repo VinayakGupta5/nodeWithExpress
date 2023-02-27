@@ -9,9 +9,7 @@ exports.CreateMainCategory = async (req, res, next) => {
       .then(async (result) => {
         try {
           const { name, parent } = req.body;
-          console.log("name", name)
-          console.log("parent", parent)
-
+          
           const category = new Category({ name, parent });
 
           await category.save();
@@ -36,11 +34,7 @@ exports.CreateSubCategory = async (req, res) => {
         try {
           const { name, parentId } = req.body;
 
-          console.log("name", name)
-          console.log("parentId", parentId)
-
           const parentCategory = await Category.findById(parentId);
-          console.log("parentCategory", parentCategory)
 
           if (!parentCategory) {
             throw new Error('Parent category not found');
@@ -79,7 +73,6 @@ exports.getCategory = async (req, res, next) => {
         }
       })
   }
-
   mongoConnect()
 }
 

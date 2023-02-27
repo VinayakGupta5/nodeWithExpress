@@ -11,26 +11,11 @@ const mainDatabase = `mongodb+srv://${process.env.mongoUserName}:${process.env.m
 
 exports.websiteVerify = (req, res, next) => {
   const websiteName = req.body.websiteName
-  console.log("websiterName", req.body)
+  // console.log("websiterName", req.body)
 
   async function mongoConnect() {
-    const connection = await connectToDb(mainDatabase)
+   await connectToDb(mainDatabase)
       .then((result) => {
-
-        if (mongoose.connection.readyState === 0) {
-          console.log("disconnect")
-        }
-        if (mongoose.connection.readyState === 1) {
-          console.log("connected")
-        }
-        if (mongoose.connection.readyState === 2) {
-          console.log("connecting")
-        }
-        if (mongoose.connection.readyState === 3) {
-          console.log("disconnecting")
-        }
-
-
         return Users.findOne({ websiteName: websiteName })
           .then(user => {
             if (user) {
@@ -49,30 +34,17 @@ exports.websiteVerify = (req, res, next) => {
                   return res.send({ err: err })
                 }
                 else {
-                  async function mongooseDiscon() {
-                    try {
-                      await mongooseDisconnect()
-                        .then((result) => {
-                          console.log("result", result)
-                        });
-                    } catch (err) {
-                      console.error('Error disconnecting from MongoDB:', err);
-                      return;
-                    }
-                    console.log("after disconnecting from MongoDB")
-                    return res.send({
-                      status: 'success',
-                      message: "website verified",
-                      data: {
-                        token: token,
-                        profileData: {
-                          _id: userData._id,
-                          websiteName: userData.websiteName
-                        }
+                  return res.send({
+                    status: 'success',
+                    message: "website verified",
+                    data: {
+                      token: token,
+                      profileData: {
+                        _id: userData._id,
+                        websiteName: userData.websiteName
                       }
-                    })
-                  }
-                  mongooseDiscon();
+                    }
+                  })
                 }
               })
             }
@@ -107,7 +79,7 @@ exports.Signup = (req, res, next) => {
   }
   else {
     async function mongoConnect() {
-      const connection = await connectToDb(databaseName)
+    await connectToDb(databaseName)
         .then((result) => {
           Users.findOne({ email: email })
             .then(userByemail => {
@@ -132,7 +104,7 @@ exports.Signup = (req, res, next) => {
                     })
                     user.save()
                       .then(userCreate => {
-                        console.log("userCreate", userCreate.email)
+                        // console.log("userCreate", userCreate.email)
                         const profile = new Customer({
                           Party: name,
                           UserId: userCreate._id,
@@ -164,24 +136,15 @@ exports.Signup = (req, res, next) => {
                         })
                         profile.save()
                           .then(profile1 => {
-                            async function mongooseDiscon() {
-                              try {
-                                await mongooseDisconnect();
-                              } catch (err) {
-                                console.error('Error disconnecting from MongoDB:', err);
-                                return;
+                            return res.send({
+                              status: 'success',
+                              message: "Successfully created",
+                              data: {
+                                _id: userCreate._id,
+                                email: userCreate.email,
+                                Party: profile1.Party
                               }
-                              return res.send({
-                                status: 'success',
-                                message: "Successfully created",
-                                data: {
-                                  _id: userCreate._id,
-                                  email: userCreate.email,
-                                  Party: profile1.Party
-                                }
-                              })
-                            }
-                            mongooseDiscon();
+                            })
                           })
                       })
                       .catch(err => {
@@ -235,17 +198,8 @@ exports.Login = (req, res, next) => {
                           return res.send({ err: err })
                         }
                         else {
-                          async function mongooseDiscon() {
-                            try {
-                              await mongooseDisconnect();
-                            } catch (err) {
-                              console.error('Error disconnecting from MongoDB:', err);
-                              return;
-                            }
-                            // console.log("now run")
-                          }
-                          mongooseDiscon();
-                          res.send({
+                    
+                        return  res.send({
                             status: 'success',
                             message: "Successfully Login",
                             data: {
