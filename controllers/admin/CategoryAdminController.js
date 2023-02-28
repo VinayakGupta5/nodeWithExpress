@@ -9,7 +9,7 @@ exports.CreateMainCategory = async (req, res, next) => {
       .then(async (result) => {
         try {
           const { name, parent } = req.body;
-          
+
           const category = new Category({ name, parent });
 
           await category.save();
@@ -48,7 +48,7 @@ exports.CreateSubCategory = async (req, res) => {
 
           await parentCategory.save();
 
-          res.status(201).json(subcategory);
+          res.status(201).send(subcategory);
         } catch (err) {
           res.status(400).json({ error: err.message });
         }
@@ -60,16 +60,25 @@ exports.CreateSubCategory = async (req, res) => {
 
 
 exports.getCategory = async (req, res, next) => {
+
+  console.log("get category---------")
   const databaseName = req.userData.connectString
   async function mongoConnect() {
     await connectToDb(databaseName)
       .then(async (result) => {
         try {
           const categories = await Category.find().populate('children').populate('children').populate('children');
-          res.json(categories);
+          return res.send({
+            status: 'success',
+            msg: '',
+            data: categories
+          });
         } catch (err) {
-          console.error(err);
-          res.status(500).json({ error: 'Server error' });
+          return res.status(500).json({
+            status: 'success',
+            msg: '',
+            data: err
+          });
         }
       })
   }
