@@ -8,5 +8,6 @@ router.post('/CreateSubCategory', categoryAdminController.CreateSubCategory)
 router.get('/getCategory', categoryAdminController.getCategory)
 router.post('/deleteCategory/:_id', categoryAdminController.deleteCategory)
 router.post('/updateCategory', categoryAdminController.updateCategory)
+router.get('/getCategoryById/:_id', categoryAdminController.getCategoryById)
 
 module.exports = router;

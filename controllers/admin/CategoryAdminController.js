@@ -160,7 +160,7 @@ exports.updateCategory = (req, res, next) => {
   async function mongoConnect() {
     await connectToDb(databaseName)
       .then(async (result) => {
-        Category.findByIdAndUpdate(id,{ name})
+        Category.findByIdAndUpdate(id, { name })
           .then(updateCategory => {
             return res.status(200).send({
               status: 'success',
@@ -180,6 +180,57 @@ exports.updateCategory = (req, res, next) => {
   }
 
   mongoConnect()
+}
+
+exports.getCategoryById = (req, res, next) => {
+  const id = req.params._id;
+  console.log("id: " + id)
+  const databaseName = req.userData.connectString;
+  async function mongoConnect() {
+    await connectToDb(databaseName)
+      .then(async (result) => {
+        Category.findById(id)
+          .populate({
+            path: 'children',
+            populate: {
+              path: 'children',
+              populate: {
+                path: 'children',
+                populate: {
+                  path: 'children',
+                  populate: { path: 'children' }
+                }
+              }
+            }
+          })
+          .then((result) => {
+            if (result) {
+              return res.status(200).send({
+                status: 'success',
+                msg: '',
+                data: result
+              })
+            }
+            else {
+              return res.status(200).send({
+                status: '',
+                msg: 'this category is not exist',
+                data: []
+              })
+            }
+          })
+      })
+      .catch((error) => {
+        return res.status(500).send({
+          status: 'failed',
+          msg: '',
+          data: error
+        })
+      })
+  }
+
+  mongoConnect()
+
 }
 
 
