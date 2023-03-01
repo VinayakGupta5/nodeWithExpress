@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\":\"omesh2@gmail.com\",\r\n    \"pass\":\"12345\",\r\n    \"confimPass\":\"12345\",\r\n    \"websiteName\":\"www.omesh2.com\"\r\n}",
+					"raw": "{\r\n    \"email\":\"omesh3@gmail.com\",\r\n    \"pass\":\"12345\",\r\n    \"confimPass\":\"12345\",\r\n    \"websiteName\":\"www.omesh3.com\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -203,33 +203,8 @@
 				"method": "GET",
 				"header": [],
 				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "title",
-							"value": "hi",
-							"type": "text",
-							"disabled": true
-						},
-						{
-							"key": "price",
-							"value": "12",
-							"type": "text",
-							"disabled": true
-						},
-						{
-							"key": "description",
-							"value": "This is a boy",
-							"type": "text",
-							"disabled": true
-						},
-						{
-							"key": "imageUrl",
-							"value": "aa",
-							"type": "text",
-							"disabled": true
-						}
-					]
+					"mode": "raw",
+					"raw": ""
 				},
 				"url": {
 					"raw": "http://localhost:1234/api/admin/getProductsPerPage?page=1&noOfItems=1",
@@ -318,7 +293,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"_id\": \"63f5bc209d36a62495bd5963\",\r\n    \"PKID\": 498,\r\n    \"NameToDisplay\": \"shoe\",\r\n    \"Brand\": null,\r\n    \"Strength\": \"14 *10    \",\r\n    \"Unit1\": \"Strip     \",\r\n    \"ProdConv1\": 14,\r\n    \"Unit2\": \"*10       \",\r\n    \"SellLoose\": false,\r\n    \"ProdConv2\": 14,\r\n    \"Unit3\": \"0\",\r\n    \"IsExpiryApplied\": true,\r\n    \"IsMfgDateApplied\": false,\r\n    \"IsUniqueIDapplied\": false,\r\n    \"IsColorApplied\": false,\r\n    \"IsBarCodeApplied\": true,\r\n    \"Description\": \"\",\r\n    \"FkprodCatgId\": 9,\r\n    \"MRP\": 90.94,\r\n    \"Barcode\": 0,\r\n    \"Weight\": 0,\r\n    \"Height\": 0,\r\n    \"Width\": 0,\r\n    \"Length\": 0,\r\n    \"WeightUnit\": null,\r\n    \"HeightUnit\": null,\r\n    \"Status\": \"C\",\r\n    \"BestBefore\": 0,\r\n    \"BestBeforeUnit\": \"0\",\r\n    \"Skudefinition\": null,\r\n    \"HSNCode\": \"30049099(GST12)\",\r\n    \"GroupName\": \"MICRO LABS SYNAPSE            \",\r\n    \"MfgGroupName\": null,\r\n    \"GroupAlias\": null,\r\n    \"MfgGroupAlias\": null,\r\n    \"Category\": [\r\n        \"N_A  [PG2,SG2]\"\r\n    ],\r\n    \"CatgSKU\": null,\r\n    \"Generic1\": null,\r\n    \"Generic2\": null,\r\n    \"BoxSize\": null,\r\n    \"Schedule\": null,\r\n    \"Remarks\": null,\r\n    \"Images\": null,\r\n    \"active\": true,\r\n    \"__v\": 0\r\n}",
+					"raw": "{\r\n    \"_id\": \"63f5acc6fc46fccc18448604\",\r\n    \"PKID\": 498,\r\n    \"NameToDisplay\": \"shoee\",\r\n    \"active\": true,\r\n    \"__v\": 0\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -326,7 +301,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/admin/updateProduct/63f5bc209d36a62495bd5963",
+					"raw": "http://localhost:1234/api/admin/updateProduct",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -335,8 +310,7 @@
 					"path": [
 						"api",
 						"admin",
-						"updateProduct",
-						"63f5bc209d36a62495bd5963"
+						"updateProduct"
 					]
 				}
 			},
@@ -431,7 +405,7 @@
 					]
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/admin/searchProdByName?search=sho",
+					"raw": "http://localhost:1234/api/admin/searchProdByName?search=",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -445,7 +419,7 @@
 					"query": [
 						{
 							"key": "search",
-							"value": "sho"
+							"value": ""
 						}
 					]
 				}
@@ -586,7 +560,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": " {\r\n        \"AttributeList\": null,\r\n        \"FKOldCustomerID\": null,\r\n        \"FKOldVendorID\": null,\r\n        \"PKID\": 588,\r\n        \"Party\": \"bhumi\",\r\n        \"Customer\": \"bhumi bharti\",\r\n        \"pCustomer\": null,\r\n        \"Vendor\": null,\r\n        \"Alias\": \"NVP2\",\r\n        \"Address\": \"1659  SRINAGAR  PANCHASAYAR NARENDRAPUR  KOLKATA- 700 094\",\r\n        \"pAddress\": null,\r\n        \"FkstationId\": null,\r\n        \"pFkstationId\": null,\r\n        \"FklocalityId\": null,\r\n        \"FkmasterCustomerId\": null,\r\n        \"District\": \"KOLKATA\",\r\n        \"Country\": \"Not Define\",\r\n        \"FkcarrierId\": null,\r\n        \"Pincode\": \"700 094\",\r\n        \"Phone\": null,\r\n        \"Mobile\": \"9330624199\",\r\n        \"Fax\": null,\r\n        \"Status\": \"F\",\r\n        \"FKPostingID\": 0,\r\n        \"Email\": \"newvivekanandapharmacy2019@gmail.com                                                                \",\r\n        \"EmailCC\": null,\r\n        \"Website\": null,\r\n        \"CreditDays\": 25,\r\n        \"CreditLimit\": 0.0000,\r\n        \"SupplyDays\": null,\r\n        \"PaymentDays\": null,\r\n        \"FkbankId\": null,\r\n        \"page\": null,\r\n        \"licence\": null,\r\n        \"Dob\": null,\r\n        \"Dow\": null,\r\n        \"PaymentMode\": \"R\",\r\n        \"SeriesPrefix\": null,\r\n        \"DiscDate\": null,\r\n        \"Contact\": \"RC\",\r\n        \"IsDefaulter\": false,\r\n        \"PaymentModeDesc\": \"Credit\",\r\n        \"Station\": \"KOLKATA\",\r\n        \"State\": \"West Bengal\",\r\n        \"Locality\": \"KOLKATA\",\r\n        \"Carrier\": \"\",\r\n        \"Account\": null,\r\n        \"Bank\": null,\r\n        \"No\": \"License 1\",\r\n        \"StatusDesc\": \"InActive\",\r\n        \"OverDueDays\": 20,\r\n        \"PriceListCount\": 0,\r\n        \"FKStateID\": 0,\r\n        \"FkcustCatgId\": null,\r\n        \"CustCategory\": null,\r\n        \"FKReferByIDPD\": null,\r\n        \"FKReferByVendorIDPD\": null,\r\n        \"ReferByPD\": null,\r\n        \"FKReferByID\": null,\r\n        \"FKReferByVendorID\": null,\r\n        \"ReferBy\": \"RAJU CHATTERJEE\",\r\n        \"RateHikeBy\": 0.0,\r\n        \"ProdCatgFilter\": null,\r\n        \"Points\": null,\r\n        \"PointExpDate\": null,\r\n        \"FKAreaID\": 0,\r\n        \"FKDistrictID\": null,\r\n        \"Gstno\": \"19CCIPS0372R1ZQ\",\r\n        \"pGstno\": null,\r\n        \"Gstdate\": null,\r\n        \"GSTVDate\": null,\r\n        \"Composition\": false,\r\n        \"CompIdate\": null,\r\n        \"CompVdate\": null,\r\n        \"Distance\": null,\r\n        \"LocationList\": null,\r\n        \"Area\": \"**             \",\r\n        \"StmtPeriod\": 0,\r\n        \"RGRegNo\": null,\r\n        \"ApplyPromotion\": false,\r\n        \"ApplyDiscount\": false,\r\n        \"OldCustomer\": null,\r\n        \"Remarks\": null,\r\n        \"Images\": null,\r\n        \"ImageStatus\": false,\r\n        \"FKUserID\": 1,\r\n        \"UserName\": \"admin\",\r\n        \"DATE_MODIFIED\": \"2022-12-06T15:42:42.623\",\r\n        \"FKCreatedByID\": 0,\r\n        \"CreatedByUser\": null,\r\n        \"CreationDate\": \"0001-01-01T00:00:00\"\r\n    }",
+					"raw": "{\r\n    \"AttributeList\": null,\r\n    \"FKOldCustomerID\": null,\r\n    \"FKOldVendorID\": null,\r\n    \"PKID\": 588,\r\n    \"Party\": \"bhumi\",\r\n    \"Customer\": \"bhumi bharti\",\r\n    \"pCustomer\": null,\r\n    \"Vendor\": null,\r\n    \"Alias\": \"NVP2\",\r\n    \"Address\": \"1659  SRINAGAR  PANCHASAYAR NARENDRAPUR  KOLKATA- 700 094\",\r\n    \"pAddress\": null,\r\n    \"FkstationId\": null,\r\n    \"pFkstationId\": null,\r\n    \"FklocalityId\": null,\r\n    \"FkmasterCustomerId\": null,\r\n    \"District\": \"KOLKATA\",\r\n    \"Country\": \"Not Define\",\r\n    \"FkcarrierId\": null,\r\n    \"Pincode\": \"700 094\",\r\n    \"Phone\": null,\r\n    \"Mobile\": \"9330624199\",\r\n    \"Fax\": null,\r\n    \"Status\": \"F\",\r\n    \"FKPostingID\": 0,\r\n    \"Email\": \"newvivekanandapharmacy2019@gmail.com                                                                \",\r\n    \"EmailCC\": null,\r\n    \"Website\": null,\r\n    \"CreditDays\": 25,\r\n    \"CreditLimit\": 0.0000,\r\n    \"SupplyDays\": null,\r\n    \"PaymentDays\": null,\r\n    \"FkbankId\": null,\r\n    \"page\": null,\r\n    \"licence\": null,\r\n    \"Dob\": null,\r\n    \"Dow\": null,\r\n    \"PaymentMode\": \"R\",\r\n    \"SeriesPrefix\": null,\r\n    \"DiscDate\": null,\r\n    \"Contact\": \"RC\",\r\n    \"IsDefaulter\": false,\r\n    \"PaymentModeDesc\": \"Credit\",\r\n    \"Station\": \"KOLKATA\",\r\n    \"State\": \"West Bengal\",\r\n    \"Locality\": \"KOLKATA\",\r\n    \"Carrier\": \"\",\r\n    \"Account\": null,\r\n    \"Bank\": null,\r\n    \"No\": \"License 1\",\r\n    \"StatusDesc\": \"InActive\",\r\n    \"OverDueDays\": 20,\r\n    \"PriceListCount\": 0,\r\n    \"FKStateID\": 0,\r\n    \"FkcustCatgId\": null,\r\n    \"CustCategory\": null,\r\n    \"FKReferByIDPD\": null,\r\n    \"FKReferByVendorIDPD\": null,\r\n    \"ReferByPD\": null,\r\n    \"FKReferByID\": null,\r\n    \"FKReferByVendorID\": null,\r\n    \"ReferBy\": \"RAJU CHATTERJEE\",\r\n    \"RateHikeBy\": 0.0,\r\n    \"ProdCatgFilter\": null,\r\n    \"Points\": null,\r\n    \"PointExpDate\": null,\r\n    \"FKAreaID\": 0,\r\n    \"FKDistrictID\": null,\r\n    \"Gstno\": \"19CCIPS0372R1ZQ\",\r\n    \"pGstno\": null,\r\n    \"Gstdate\": null,\r\n    \"GSTVDate\": null,\r\n    \"Composition\": false,\r\n    \"CompIdate\": null,\r\n    \"CompVdate\": null,\r\n    \"Distance\": null,\r\n    \"LocationList\": null,\r\n    \"Area\": \"**             \",\r\n    \"StmtPeriod\": 0,\r\n    \"RGRegNo\": null,\r\n    \"ApplyPromotion\": false,\r\n    \"ApplyDiscount\": false,\r\n    \"OldCustomer\": null,\r\n    \"Remarks\": null,\r\n    \"Images\": null,\r\n    \"ImageStatus\": false,\r\n    \"FKUserID\": 1,\r\n    \"UserName\": \"admin\",\r\n    \"DATE_MODIFIED\": \"2022-12-06T15:42:42.623\",\r\n    \"FKCreatedByID\": 0,\r\n    \"CreatedByUser\": null,\r\n    \"CreationDate\": \"0001-01-01T00:00:00\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -636,7 +610,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:1234/api/admin/getcustomerById/63f5bce09d36a62495bd5973",
+					"raw": "http://localhost:1234/api/admin/getcustomerById/63f5b7dafa511afc8fa5302a",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -646,7 +620,7 @@
 						"api",
 						"admin",
 						"getcustomerById",
-						"63f5bce09d36a62495bd5973"
+						"63f5b7dafa511afc8fa5302a"
 					]
 				}
 			},
@@ -682,6 +656,159 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "createMainCategory",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"fashion\",\r\n    \"parent\":null\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1234/api/admin/CreateMainCategory",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"api",
+						"admin",
+						"CreateMainCategory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createSubCategory",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Samsung galaxy m30s 64 gb\",\r\n    \"parentId\":\"63fc49d596038291e67d124f\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1234/api/admin/CreateSubCategory",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"api",
+						"admin",
+						"CreateSubCategory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCategory",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1234/api/admin/getCategory",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"api",
+						"admin",
+						"getCategory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteCategory",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1234/api/admin/deleteCategory",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"api",
+						"admin",
+						"deleteCategory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateCategory",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1234/api/admin/deleteCategory",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"api",
+						"admin",
+						"deleteCategory"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"auth": {
@@ -689,7 +816,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbmMiOiIyZGY1OTkzZGYzMTc2YjU2M2FjYWI5OWMzOWUwZDcyMDdjZDVkMzIyMzE4YjI1ZDVjMmM2MjEzMjUxYThiYTI0OTRkN2IwNmQ4Yjk4YjEzYjlkYWNjMzgyY2MyYjMyYzA4OGQyNTkzNDFhODI5ZGUyMTQ1ZTliY2UzZTc0OGZjNDNiYzExZWFjNDFiNDdlMzhmMTI1MmFiMTk1ZDM4ZTZlZjIwZWY3MjczYTJhNWMxYzZlMjFmZmUwMGUyMjNjZWM3NmZkZDc0M2YxOWY0YWU0OWUxYjI2NzgwOGJkMGUzMTA2MzliNmQwNTY0ZjkzYzc4YzU3N2ZjOWVkM2VhYzViMWI3YTFlMzA4NGI5YTdjMWFiODI0ZGFhNjYyNzU5MGM1OTBlMDIyZjUxYzU3ZTY2OWY2YzE3NzlkYzlkZWE4YTBkNGM4MjJlMmYwNWJjMmNmMTI1NDM2YTI5ZWM3YzdhNjkwMmU0NGVkNjkyZDM2MGY1MzlkMWQ5YTZmYTRlZDc3ZTRlNmFlMTdjY2QzZGZkMzRhMWI4OGM0Mzg1NmU4ZSIsImlhdCI6MTY3NzA0ODgzNiwiZXhwIjoxNjc3MDkyMDM2fQ.l-ZF8OA-BoBU-LJRh4mfVC5GfL4I53Wf_XgLZgSPlDY",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbmMiOiJlN2U0NmMyZTBkNTkzZTI1YjNmMGEzNGZmODQyMmJhNGJhYzk3ODFjYTJlOTQ1ZmVmYzI5NGE1YjE3NTA5NGJkNjI5ZWE0MjI0Njk0MmMyN2Q2MzdmNjRjNDFhODljNTUzYzE4NzczN2JhNzk2YzQwMTZmNjZlYjM4ODEwYTk3Mjg4OTA4M2U2MjM4N2JmMTFhNWE4NDExMDRiODI0M2JmNTBlZWQxMWVjZWEyOGNmYTBjMGQzZWU1NWNhY2EzYTgyOTZmYjEwMjMwNjUwZjdkNjAzYWY2MGE4NTA3ZGQxMWMzYTFkOWEzZjE5NzgxNzEzNjJhZDRkYmE3ZGE5ZDgzNGY5OTY2ZjVmOTBmZDc0OTZlODY3MzMzODFlYTY3ZDMwM2JhYWQyZTVkZGQzZWI5ZDcxMjA4ZmRmM2NlMWVhMDExY2U3NDlhODIyZDY4N2I0NTU5MzNmM2VmZTA4YWVhZGZkYmFiNTkxNjRkNjAxZDZiMjljMmMyYzA3NzJlYTc1YTIzOThiYzYyNjBlM2E3MzE4NjBkZjI5ZDlmZTIwNiIsImlhdCI6MTY3NzY1MTIyMSwiZXhwIjoxNjc3Njk0NDIxfQ.TjWEFcyw7BSEswSwG4KPxKGLlbcflbgE8UVSFlNWh3A",
 				"type": "string"
 			}
 		]
