@@ -151,5 +151,36 @@ exports.deleteCategory = (req, res, next) => {
 }
 
 
+exports.updateCategory = (req, res, next) => {
+  const id = req.body._id
+  const name = req.body.name;
+  console.log("id: " + id)
+  console.log("name: " + name)
+  const databaseName = req.userData.connectString;
+  async function mongoConnect() {
+    await connectToDb(databaseName)
+      .then(async (result) => {
+        Category.findByIdAndUpdate(id,{ name})
+          .then(updateCategory => {
+            return res.status(200).send({
+              status: 'success',
+              msg: '',
+              data: updateCategory
+            })
+          })
+
+      })
+      .catch(err => {
+        return res.status(500).json({
+          status: 'failed',
+          msg: '',
+          data: err
+        })
+      })
+  }
+
+  mongoConnect()
+}
+
 
 
