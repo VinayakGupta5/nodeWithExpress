@@ -3,29 +3,52 @@ const connectToDb = require('../../conn/connectMongoose')
 
 exports.CreateMainCategory = async (req, res, next) => {
 
-  const { name, parent } = req.body;
+  const parent = req.body.parent;
+  const name = req.body.name.toLowerCase();
+  console.log("name", name)
 
   const databaseName = req.userData.connectString
   async function mongoConnect() {
     await connectToDb(databaseName)
       .then(async (result) => {
-        try {
 
-
-          const category = new Category({ name, parent });
-
-          await category.save()
-            .then(result => {
-              return res.status(201).send({
-                status: 'success',
-                msg: '',
-                data: result
+        const category = new Category({ name, parent });
+        Category.findOne({ name: name })
+          .then((found) => {
+            if (found) {
+              return res.status(400).json({
+                status: 'failed',
+                msg: 'Category already exists',
+                data: []
               });
-            })
+            }
+            else {
+              category.save()
+                .then(result => {
+                  return res.status(201).send({
+                    status: 'success',
+                    msg: '',
+                    data: result
+                  });
+                })
+                .catch((err) => {
+                  return res.status(400).json({
+                    status: 'failed',
+                    msg: err.message,
+                    data: []
+                  });
+                })
 
-        } catch (err) {
-          return res.status(400).json({ error: err.message });
-        }
+            }
+          })
+          .catch(err => {
+            return res.status(400).json({
+              status: 'failed',
+              msg: err.message,
+              data: []
+            });
+          })
+
       })
   }
 
@@ -35,36 +58,59 @@ exports.CreateMainCategory = async (req, res, next) => {
 
 exports.CreateSubCategory = async (req, res) => {
 
-  const { name, parentId } = req.body;
+  const parentId = req.body.parentId;
+  const name = req.body.name.toLowerCase();
+
+  const createSubCategory = () => {
+    Category.findById(parentId)
+      .then(mainCategory => {
+        console.log("mainCategory", mainCategory);
+        var category = Category({
+          name: name,
+          parent: parentId
+        })
+        category.save()
+          .then(categoryResult => {
+            mainCategory.children.push(categoryResult._id);
+            console.log("mainCategory", mainCategory);
+            mainCategory.save()
+              .then(mainCategoryUpdate => {
+                return res.status(201).send({
+                  status: 'success',
+                  msg: '',
+                  data: categoryResult
+                });
+              });
+          })
+      })
+  }
 
   const databaseName = req.userData.connectString
   async function mongoConnect() {
     await connectToDb(databaseName)
       .then(async (result) => {
-        Category.findById(parentId)
-          .then(mainCategory => {
-            console.log("mainCategory", mainCategory);
-            var category = Category({
-              name: name,
-              parent: parentId
-            })
-            category.save()
-              .then(categoryResult => {
-                mainCategory.children.push(categoryResult._id);
-                console.log("mainCategory", mainCategory);
-                mainCategory.save()
-                  .then(mainCategoryUpdate => {
-                    return res.status(201).send({
-                      status: 'success',
-                      msg: '',
-                      data: categoryResult
-                    });
-                  });
-              })
+        Category.findOne({ name: name })
+          .then((found) => {
+
+            if (found) {
+              if (found.parent.equals(parentId)) {
+                console.log("running",)
+                return res.status(400).json({
+                  status: 'failed',
+                  msg: 'Category already exists',
+                  data: []
+                });
+              }
+              else {
+                createSubCategory()
+              }
+            }
+            else {
+              createSubCategory()
+            }
           })
       })
   }
-
   mongoConnect()
 }
 
@@ -98,8 +144,8 @@ exports.getCategory = (req, res, next) => {
           });
         } catch (err) {
           return res.status(500).json({
-            status: 'success',
-            msg: '',
+            status: 'failed',
+            msg: err.message,
             data: err
           });
         }
@@ -131,7 +177,7 @@ exports.deleteCategory = (req, res, next) => {
             }
             else {
               return res.status(200).send({
-                status: '',
+                status: 'failed',
                 msg: 'this category is not exist',
                 data: []
               })
@@ -141,7 +187,7 @@ exports.deleteCategory = (req, res, next) => {
       .catch(err => {
         return res.status(500).json({
           status: 'failed',
-          msg: '',
+          msg: err.message,
           data: err
         })
       })
@@ -173,7 +219,7 @@ exports.updateCategory = (req, res, next) => {
       .catch(err => {
         return res.status(500).json({
           status: 'failed',
-          msg: '',
+          msg: err.message,
           data: err
         })
       })
@@ -213,25 +259,20 @@ exports.getCategoryById = (req, res, next) => {
             }
             else {
               return res.status(200).send({
-                status: '',
+                status: 'failed',
                 msg: 'this category is not exist',
                 data: []
               })
             }
           })
       })
-      .catch((error) => {
+      .catch((err) => {
         return res.status(500).send({
           status: 'failed',
-          msg: '',
-          data: error
+          msg: err.message,
+          data: err
         })
       })
   }
-
   mongoConnect()
-
 }
-
-
-
