@@ -8,14 +8,14 @@ exports.CreateMainCategory = async (req, res, next) => {
   console.log("name", name)
 
   if (name === '' || name === null || name === undefined) {
-    return res.status(400).send({
+    return res.status(200).send({
       status: 'failed',
       msg: 'Category name is required',
       data: []
     });
   }
   if (parent === '' || parent === undefined) {
-    return res.status(400).send({
+    return res.status(200).send({
       status: 'failed',
       msg: 'Parent category is required',
       data: []
@@ -31,7 +31,7 @@ exports.CreateMainCategory = async (req, res, next) => {
         Category.findOne({ name: name })
           .then((found) => {
             if (found) {
-              return res.status(400).send({
+              return res.status(200).send({
                 status: 'failed',
                 msg: 'Category already exists',
                 data: []
@@ -78,14 +78,14 @@ exports.CreateSubCategory = async (req, res) => {
 
 
   if (name === '' || name === null || name === undefined) {
-    return res.status(400).send({
+    return res.status(200).send({
       status: 'failed',
       msg: 'Category name is required',
       data: []
     });
   }
   if (parent === '' || parent === null || parent === undefined) {
-    return res.status(400).send({
+    return res.status(200).send({
       status: 'failed',
       msg: 'Parent category is required',
       data: []
@@ -126,7 +126,7 @@ exports.CreateSubCategory = async (req, res) => {
             if (found) {
               if (found.parent.equals(parentId)) {
                 console.log("running",)
-                return res.status(400).send({
+                return res.status(200).send({
                   status: 'failed',
                   msg: 'Category already exists',
                   data: []
@@ -190,7 +190,7 @@ exports.deleteCategory = (req, res, next) => {
   console.log("id: " + id);
 
   if (id === '' || id === undefined || id === null) {
-    return res.status(400).send({
+    return res.status(200).send({
       status: 'failed',
       msg: 'Category id is required',
       data: []
@@ -243,7 +243,7 @@ exports.updateCategory = (req, res, next) => {
   console.log("name: " + name)
 
   if (id === undefined || id === null || id === '') {
-    return res.status(400).send({
+    return res.status(200).send({
       status: 'failed',
       msg: 'Category id is required',
       data: []
@@ -251,7 +251,7 @@ exports.updateCategory = (req, res, next) => {
   }
 
   if (name === undefined || name === null || name === '') {
-    return res.status(400).send({
+    return res.status(200).send({
       status: 'failed',
       msg: 'Category name is required',
       data: []
@@ -289,7 +289,7 @@ exports.getCategoryById = (req, res, next) => {
   console.log("id: " + id)
 
   if (id === null || id === undefined || id === '') {
-    return res.status(400).send({
+    return res.status(200).send({
       status: 'failed',
       msg: 'Category id is required',
       data: []
