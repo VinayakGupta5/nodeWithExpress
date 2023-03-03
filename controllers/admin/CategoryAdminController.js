@@ -189,7 +189,7 @@ exports.deleteCategory = (req, res, next) => {
   const id = req.params._id;
   console.log("id: " + id);
 
-  if (id === '' || id === undefined) {
+  if (id === '' || id === undefined || id === null) {
     return res.status(400).send({
       status: 'failed',
       msg: 'Category id is required',
@@ -250,7 +250,7 @@ exports.updateCategory = (req, res, next) => {
     });
   }
 
-  if(name === undefined || name === null || name === '') {
+  if (name === undefined || name === null || name === '') {
     return res.status(400).send({
       status: 'failed',
       msg: 'Category name is required',
@@ -288,13 +288,13 @@ exports.getCategoryById = (req, res, next) => {
   const id = req.params._id;
   console.log("id: " + id)
 
-if(id === null || id === undefined || id === '') {
-  return res.status(400).send({
-    status: 'failed',
-    msg: 'Category id is required',
-    data: []
-  });
-}
+  if (id === null || id === undefined || id === '') {
+    return res.status(400).send({
+      status: 'failed',
+      msg: 'Category id is required',
+      data: []
+    });
+  }
 
   const databaseName = req.userData.connectString;
   async function mongoConnect() {
