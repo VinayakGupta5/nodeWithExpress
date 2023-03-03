@@ -84,7 +84,7 @@ exports.CreateSubCategory = async (req, res) => {
       data: []
     });
   }
-  if (parent === '' || parent === null || parent === undefined) {
+  if (parentId === '' || parentId === null || parentId === undefined) {
     return res.status(200).send({
       status: 'failed',
       msg: 'Parent category is required',
