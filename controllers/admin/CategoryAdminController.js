@@ -5,7 +5,7 @@ exports.CreateMainCategory = async (req, res, next) => {
 
   const parent = req.body.parent;
   const name = req.body.name.toLowerCase();
-  console.log("name", name)
+  console.log("name", name);
 
   if (name === '' || name === null || name === undefined) {
     return res.status(200).send({
@@ -134,7 +134,7 @@ exports.CreateSubCategory = async (req, res) => {
               else {
                 createSubCategory()
               }
-            } 
+            }
             else {
               createSubCategory()
             }
@@ -185,52 +185,44 @@ exports.getCategory = (req, res, next) => {
 }
 
 exports.deleteCategory = (req, res, next) => {
-  const id = req.params._id;
-  console.log("id: " + id);
+  // const id = req.params._id; 
+  const ids = req.body._ids;
 
-  if (id === '' || id === undefined || id === null) {
+  console.log("id: 1 " + ids);
+
+  if (ids === '' || ids === undefined || ids === null || ids.length <= 0) {
     return res.status(200).send({
       status: 'failed',
-      msg: 'Category id is required',
+      msg: 'Category ids is required',
       data: []
     });
   }
+
+  console.log("id: 2 " + ids);
 
   const databaseName = req.userData.connectString;
   async function mongoConnect() {
     await connectToDb(databaseName)
       .then(async (result) => {
-        Category.findById(id)
-          .then((result) => {
-            if (result) {
-              result.remove()
-                .then((deleteResult) => {
-                  return res.status(200).send({
-                    status: 'deleted',
-                    msg: '',
-                    data: deleteResult
-                  })
-                })
-
-            }
-            else {
-              return res.status(200).send({
-                status: 'failed',
-                msg: 'this category is not exist',
-                data: []
-              })
-            }
+        console.log("continue to delete")
+        await Category.deleteMany({ _id: { $in: ids } }).exec()
+          .then(result1 => {
+            // const existProdIds = result1?.map(pro => pro.PKID);
+            return res.send({
+              status: 'success',
+              message: "",
+              data: { _id: result1 }
+            })
+          })
+          .catch(err => {
+            return res.status(400).send({
+              status: "failed",
+              err: err
+            })
           })
       })
-      .catch(err => {
-        return res.status(500).send({
-          status: 'failed',
-          msg: err.message,
-          data: err
-        })
-      })
   }
-  mongoConnect()
+  mongoConnect();
 
 }
 
