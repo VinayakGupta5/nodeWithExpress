@@ -7,6 +7,21 @@ exports.CreateMainCategory = async (req, res, next) => {
   const name = req.body.name.toLowerCase();
   console.log("name", name)
 
+  if (name === '' || name === null || name === undefined) {
+    return res.status(400).send({
+      status: 'failed',
+      msg: 'Category name is required',
+      data: []
+    });
+  }
+  if (parent === '' || parent === undefined) {
+    return res.status(400).send({
+      status: 'failed',
+      msg: 'Parent category is required',
+      data: []
+    });
+  }
+
   const databaseName = req.userData.connectString
   async function mongoConnect() {
     await connectToDb(databaseName)
@@ -16,7 +31,7 @@ exports.CreateMainCategory = async (req, res, next) => {
         Category.findOne({ name: name })
           .then((found) => {
             if (found) {
-              return res.status(400).json({
+              return res.status(400).send({
                 status: 'failed',
                 msg: 'Category already exists',
                 data: []
@@ -32,7 +47,7 @@ exports.CreateMainCategory = async (req, res, next) => {
                   });
                 })
                 .catch((err) => {
-                  return res.status(400).json({
+                  return res.status(400).send({
                     status: 'failed',
                     msg: err.message,
                     data: []
@@ -42,7 +57,7 @@ exports.CreateMainCategory = async (req, res, next) => {
             }
           })
           .catch(err => {
-            return res.status(400).json({
+            return res.status(400).send({
               status: 'failed',
               msg: err.message,
               data: []
@@ -60,6 +75,22 @@ exports.CreateSubCategory = async (req, res) => {
 
   const parentId = req.body.parentId;
   const name = req.body.name.toLowerCase();
+
+
+  if (name === '' || name === null || name === undefined) {
+    return res.status(400).send({
+      status: 'failed',
+      msg: 'Category name is required',
+      data: []
+    });
+  }
+  if (parent === '' || parent === null || parent === undefined) {
+    return res.status(400).send({
+      status: 'failed',
+      msg: 'Parent category is required',
+      data: []
+    });
+  }
 
   const createSubCategory = () => {
     Category.findById(parentId)
@@ -95,7 +126,7 @@ exports.CreateSubCategory = async (req, res) => {
             if (found) {
               if (found.parent.equals(parentId)) {
                 console.log("running",)
-                return res.status(400).json({
+                return res.status(400).send({
                   status: 'failed',
                   msg: 'Category already exists',
                   data: []
@@ -143,7 +174,7 @@ exports.getCategory = (req, res, next) => {
             data: categories
           });
         } catch (err) {
-          return res.status(500).json({
+          return res.status(500).send({
             status: 'failed',
             msg: err.message,
             data: err
@@ -157,6 +188,14 @@ exports.getCategory = (req, res, next) => {
 exports.deleteCategory = (req, res, next) => {
   const id = req.params._id;
   console.log("id: " + id);
+
+  if (id === '' || id === undefined) {
+    return res.status(400).send({
+      status: 'failed',
+      msg: 'Category id is required',
+      data: []
+    });
+  }
 
   const databaseName = req.userData.connectString;
   async function mongoConnect() {
@@ -185,7 +224,7 @@ exports.deleteCategory = (req, res, next) => {
           })
       })
       .catch(err => {
-        return res.status(500).json({
+        return res.status(500).send({
           status: 'failed',
           msg: err.message,
           data: err
@@ -202,6 +241,23 @@ exports.updateCategory = (req, res, next) => {
   const name = req.body.name;
   console.log("id: " + id)
   console.log("name: " + name)
+
+  if (id === undefined || id === null || id === '') {
+    return res.status(400).send({
+      status: 'failed',
+      msg: 'Category id is required',
+      data: []
+    });
+  }
+
+  if(name === undefined || name === null || name === '') {
+    return res.status(400).send({
+      status: 'failed',
+      msg: 'Category name is required',
+      data: []
+    });
+  }
+
   const databaseName = req.userData.connectString;
   async function mongoConnect() {
     await connectToDb(databaseName)
@@ -217,7 +273,7 @@ exports.updateCategory = (req, res, next) => {
 
       })
       .catch(err => {
-        return res.status(500).json({
+        return res.status(500).send({
           status: 'failed',
           msg: err.message,
           data: err
@@ -231,6 +287,15 @@ exports.updateCategory = (req, res, next) => {
 exports.getCategoryById = (req, res, next) => {
   const id = req.params._id;
   console.log("id: " + id)
+
+if(id === null || id === undefined || id === '') {
+  return res.status(400).send({
+    status: 'failed',
+    msg: 'Category id is required',
+    data: []
+  });
+}
+
   const databaseName = req.userData.connectString;
   async function mongoConnect() {
     await connectToDb(databaseName)
