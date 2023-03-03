@@ -122,7 +122,6 @@ exports.CreateSubCategory = async (req, res) => {
       .then(async (result) => {
         Category.findOne({ name: name })
           .then((found) => {
-
             if (found) {
               if (found.parent.equals(parentId)) {
                 console.log("running",)
@@ -135,7 +134,7 @@ exports.CreateSubCategory = async (req, res) => {
               else {
                 createSubCategory()
               }
-            }
+            } 
             else {
               createSubCategory()
             }
