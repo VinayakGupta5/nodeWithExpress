@@ -560,7 +560,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"AttributeList\": null,\r\n    \"FKOldCustomerID\": null,\r\n    \"FKOldVendorID\": null,\r\n    \"PKID\": 588,\r\n    \"Party\": \"bhumi\",\r\n    \"Customer\": \"bhumi bharti\",\r\n    \"pCustomer\": null,\r\n    \"Vendor\": null,\r\n    \"Alias\": \"NVP2\",\r\n    \"Address\": \"1659  SRINAGAR  PANCHASAYAR NARENDRAPUR  KOLKATA- 700 094\",\r\n    \"pAddress\": null,\r\n    \"FkstationId\": null,\r\n    \"pFkstationId\": null,\r\n    \"FklocalityId\": null,\r\n    \"FkmasterCustomerId\": null,\r\n    \"District\": \"KOLKATA\",\r\n    \"Country\": \"Not Define\",\r\n    \"FkcarrierId\": null,\r\n    \"Pincode\": \"700 094\",\r\n    \"Phone\": null,\r\n    \"Mobile\": \"9330624199\",\r\n    \"Fax\": null,\r\n    \"Status\": \"F\",\r\n    \"FKPostingID\": 0,\r\n    \"Email\": \"newvivekanandapharmacy2019@gmail.com                                                                \",\r\n    \"EmailCC\": null,\r\n    \"Website\": null,\r\n    \"CreditDays\": 25,\r\n    \"CreditLimit\": 0.0000,\r\n    \"SupplyDays\": null,\r\n    \"PaymentDays\": null,\r\n    \"FkbankId\": null,\r\n    \"page\": null,\r\n    \"licence\": null,\r\n    \"Dob\": null,\r\n    \"Dow\": null,\r\n    \"PaymentMode\": \"R\",\r\n    \"SeriesPrefix\": null,\r\n    \"DiscDate\": null,\r\n    \"Contact\": \"RC\",\r\n    \"IsDefaulter\": false,\r\n    \"PaymentModeDesc\": \"Credit\",\r\n    \"Station\": \"KOLKATA\",\r\n    \"State\": \"West Bengal\",\r\n    \"Locality\": \"KOLKATA\",\r\n    \"Carrier\": \"\",\r\n    \"Account\": null,\r\n    \"Bank\": null,\r\n    \"No\": \"License 1\",\r\n    \"StatusDesc\": \"InActive\",\r\n    \"OverDueDays\": 20,\r\n    \"PriceListCount\": 0,\r\n    \"FKStateID\": 0,\r\n    \"FkcustCatgId\": null,\r\n    \"CustCategory\": null,\r\n    \"FKReferByIDPD\": null,\r\n    \"FKReferByVendorIDPD\": null,\r\n    \"ReferByPD\": null,\r\n    \"FKReferByID\": null,\r\n    \"FKReferByVendorID\": null,\r\n    \"ReferBy\": \"RAJU CHATTERJEE\",\r\n    \"RateHikeBy\": 0.0,\r\n    \"ProdCatgFilter\": null,\r\n    \"Points\": null,\r\n    \"PointExpDate\": null,\r\n    \"FKAreaID\": 0,\r\n    \"FKDistrictID\": null,\r\n    \"Gstno\": \"19CCIPS0372R1ZQ\",\r\n    \"pGstno\": null,\r\n    \"Gstdate\": null,\r\n    \"GSTVDate\": null,\r\n    \"Composition\": false,\r\n    \"CompIdate\": null,\r\n    \"CompVdate\": null,\r\n    \"Distance\": null,\r\n    \"LocationList\": null,\r\n    \"Area\": \"**             \",\r\n    \"StmtPeriod\": 0,\r\n    \"RGRegNo\": null,\r\n    \"ApplyPromotion\": false,\r\n    \"ApplyDiscount\": false,\r\n    \"OldCustomer\": null,\r\n    \"Remarks\": null,\r\n    \"Images\": null,\r\n    \"ImageStatus\": false,\r\n    \"FKUserID\": 1,\r\n    \"UserName\": \"admin\",\r\n    \"DATE_MODIFIED\": \"2022-12-06T15:42:42.623\",\r\n    \"FKCreatedByID\": 0,\r\n    \"CreatedByUser\": null,\r\n    \"CreationDate\": \"0001-01-01T00:00:00\"\r\n}",
+					"raw": " {\r\n        \"AttributeList\": null,\r\n        \"FKOldCustomerID\": null,\r\n        \"FKOldVendorID\": null,\r\n        \"PKID\": 588,\r\n        \"Party\": \"Shruti\",\r\n        \"Customer\": \"shruti bharti\",\r\n        \"pCustomer\": null,\r\n        \"Vendor\": null,\r\n        \"Alias\": \"NVP2\",\r\n        \"Address\": \"1659  SRINAGAR  PANCHASAYAR NARENDRAPUR  KOLKATA- 700 094\",\r\n        \"pAddress\": null,\r\n        \"FkstationId\": null,\r\n        \"pFkstationId\": null,\r\n        \"FklocalityId\": null,\r\n        \"FkmasterCustomerId\": null,\r\n        \"District\": \"KOLKATA\",\r\n        \"Country\": \"Not Define\",\r\n        \"FkcarrierId\": null,\r\n        \"Pincode\": \"700 094\",\r\n        \"Phone\": null,\r\n        \"Mobile\": \"9330624199\",\r\n        \"Fax\": null,\r\n        \"Status\": \"F\",\r\n        \"FKPostingID\": 0,\r\n        \"Email\": \"newvivekanandapharmacy2019@gmail.com                                                                \",\r\n        \"EmailCC\": null,\r\n        \"Website\": null,\r\n        \"CreditDays\": 25,\r\n        \"CreditLimit\": 0.0000,\r\n        \"SupplyDays\": null,\r\n        \"PaymentDays\": null,\r\n        \"FkbankId\": null,\r\n        \"page\": null,\r\n        \"licence\": null,\r\n        \"Dob\": null,\r\n        \"Dow\": null,\r\n        \"PaymentMode\": \"R\",\r\n        \"SeriesPrefix\": null,\r\n        \"DiscDate\": null,\r\n        \"Contact\": \"RC\",\r\n        \"IsDefaulter\": false,\r\n        \"PaymentModeDesc\": \"Credit\",\r\n        \"Station\": \"KOLKATA\",\r\n        \"State\": \"West Bengal\",\r\n        \"Locality\": \"KOLKATA\",\r\n        \"Carrier\": \"\",\r\n        \"Account\": null,\r\n        \"Bank\": null,\r\n        \"No\": \"License 1\",\r\n        \"StatusDesc\": \"InActive\",\r\n        \"OverDueDays\": 20,\r\n        \"PriceListCount\": 0,\r\n        \"FKStateID\": 0,\r\n        \"FkcustCatgId\": null,\r\n        \"CustCategory\": null,\r\n        \"FKReferByIDPD\": null,\r\n        \"FKReferByVendorIDPD\": null,\r\n        \"ReferByPD\": null,\r\n        \"FKReferByID\": null,\r\n        \"FKReferByVendorID\": null,\r\n        \"ReferBy\": \"RAJU CHATTERJEE\",\r\n        \"RateHikeBy\": 0.0,\r\n        \"ProdCatgFilter\": null,\r\n        \"Points\": null,\r\n        \"PointExpDate\": null,\r\n        \"FKAreaID\": 0,\r\n        \"FKDistrictID\": null,\r\n        \"Gstno\": \"19CCIPS0372R1ZQ\",\r\n        \"pGstno\": null,\r\n        \"Gstdate\": null,\r\n        \"GSTVDate\": null,\r\n        \"Composition\": false,\r\n        \"CompIdate\": null,\r\n        \"CompVdate\": null,\r\n        \"Distance\": null,\r\n        \"LocationList\": null,\r\n        \"Area\": \"**             \",\r\n        \"StmtPeriod\": 0,\r\n        \"RGRegNo\": null,\r\n        \"ApplyPromotion\": false,\r\n        \"ApplyDiscount\": false,\r\n        \"OldCustomer\": null,\r\n        \"Remarks\": null,\r\n        \"Images\": null,\r\n        \"ImageStatus\": false,\r\n        \"FKUserID\": 1,\r\n        \"UserName\": \"admin\",\r\n        \"DATE_MODIFIED\": \"2022-12-06T15:42:42.623\",\r\n        \"FKCreatedByID\": 0,\r\n        \"CreatedByUser\": null,\r\n        \"CreationDate\": \"0001-01-01T00:00:00\"\r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -633,7 +633,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"_id\": \"63f5bce09d36a62495bd5973\",\r\n    \"PKID\": 588,\r\n    \"Party\": \"bhumi\",\r\n    \"Customer\": \"bhumi bharti\",\r\n    \"Vendor\": null,\r\n    \"Address\": \"1659  SRINAGAR  PANCHASAYAR NARENDRAPUR  KOLKATA- 700 094\",\r\n    \"District\": \"KOLKATA\",\r\n    \"Country\": \"Not Define\",\r\n    \"Pincode\": \"700 094\",\r\n    \"Phone\": null,\r\n    \"Mobile\": \"9330624199\",\r\n    \"Fax\": null,\r\n    \"Status\": \"F\",\r\n    \"Email\": \"newvivekanandapharmacy2019@gmail.com                                                                \",\r\n    \"Dob\": null,\r\n    \"PaymentMode\": \"R\",\r\n    \"Contact\": \"RC\",\r\n    \"Station\": \"KOLKATA\",\r\n    \"State\": \"West Bengal\",\r\n    \"Locality\": \"KOLKATA\",\r\n    \"Carrier\": \"\",\r\n    \"Account\": null,\r\n    \"Bank\": null,\r\n    \"Images\": null,\r\n    \"__v\": 0\r\n}",
+					"raw": "{\r\n        \"_id\": \"63f5b7dafa511afc8fa5302a\",\r\n        \"PKID\": 588,\r\n        \"Party\": \" NEW\",\r\n        \"Customer\": null,\r\n        \"Vendor\": null,\r\n        \"Address\": \"1659  SRINAGAR  PANCHASAYAR NARENDRAPUR  KOLKATA- 700 094\",\r\n        \"District\": \"KOLKATA\",\r\n        \"Country\": \"Not Define\",\r\n        \"Pincode\": \"700 094\",\r\n        \"Phone\": null,\r\n        \"Mobile\": \"9330624199\",\r\n        \"Fax\": null,\r\n        \"Status\": \"F\",\r\n        \"Email\": \"newvivekanandapharmacy2019@gmail.com\",\r\n        \"Dob\": null,\r\n        \"PaymentMode\": \"R\",\r\n        \"Contact\": \"RC                            \",\r\n        \"Station\": \"KOLKATA        \",\r\n        \"State\": \"West Bengal         \",\r\n        \"Locality\": \"KOLKATA        \",\r\n        \"Carrier\": \"                              \",\r\n        \"Account\": null,\r\n        \"Bank\": null,\r\n        \"Images\": null,\r\n        \"__v\": 0\r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -641,7 +641,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/admin/updatecustomer/63f5bce09d36a62495bd5973",
+					"raw": "http://localhost:1234/api/admin/updatecustomer/63f5b7dafa511afc8fa5302a",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -651,7 +651,38 @@
 						"api",
 						"admin",
 						"updatecustomer",
-						"63f5bce09d36a62495bd5973"
+						"63f5b7dafa511afc8fa5302a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updatecustomer Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"_id\": \"63f5b7dafa511afc8fa5302a\",\r\n    \"PKID\": 588,\r\n    \"Party\": \" NEW b\",\r\n    \"Customer\": null,\r\n    \"Vendor\": null,\r\n    \"Address\": \"1659  SRINAGAR  PANCHASAYAR NARENDRAPUR  KOLKATA- 700 094\",\r\n    \"District\": \"KOLKATA\",\r\n    \"Country\": \"Not Define\",\r\n    \"Pincode\": \"700 094\",\r\n    \"Phone\": null,\r\n    \"Mobile\": \"9330624199\",\r\n    \"Fax\": null,\r\n    \"Status\": \"F\",\r\n    \"Email\": \"newvivekanandapharmacy2019@gmail.com\",\r\n    \"Dob\": null,\r\n    \"PaymentMode\": \"R\",\r\n    \"Contact\": \"RC                            \",\r\n    \"Station\": \"KOLKATA        \",\r\n    \"State\": \"West Bengal         \",\r\n    \"Locality\": \"KOLKATA        \",\r\n    \"Carrier\": \"                              \",\r\n    \"Account\": null,\r\n    \"Bank\": null,\r\n    \"Images\": null,\r\n    \"__v\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1234/api/admin/updatecustomer/63f5b7dafa511afc8fa5302a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"api",
+						"admin",
+						"updatecustomer",
+						"63f5b7dafa511afc8fa5302a"
 					]
 				}
 			},
@@ -664,7 +695,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\":\"fashion\",\r\n    \"parent\":null\r\n}",
+					"raw": "{\r\n    \"name\":\"home\",\r\n    \"parent\":null\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -694,7 +725,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\":\"Samsung galaxy m30s 64 gb\",\r\n    \"parentId\":\"63fc49d596038291e67d124f\"\r\n}",
+					"raw": "{\r\n    \"name\":\"Smartphone\",\r\n    \"parentId\":\"64008f6e1bbaf21655ce6791\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -753,11 +784,11 @@
 		{
 			"name": "deleteCategory",
 			"request": {
-				"method": "POST",
+				"method": "DELETE",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "",
+					"raw": "{\r\n    \"_ids\": [\r\n        \"6401a17953b57ec6182322b0\",\"6401a17053b57ec6182322a6\",\"6401a16853b57ec61823229c\"\r\n    ]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -787,7 +818,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "",
+					"raw": "{\r\n    \"_id\": \"63ff1378b6e3ebe0fdbacb53\",\r\n    \"name\": \"Samsung m30s 128\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -795,7 +826,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/admin/deleteCategory",
+					"raw": "http://localhost:1234/api/admin/updateCategory",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -804,7 +835,41 @@
 					"path": [
 						"api",
 						"admin",
-						"deleteCategory"
+						"updateCategory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCategoryById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1234/api/admin/getCategoryById/6400893145ba85decbc49b1b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"api",
+						"admin",
+						"getCategoryById",
+						"6400893145ba85decbc49b1b"
 					]
 				}
 			},
@@ -816,7 +881,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbmMiOiJlN2U0NmMyZTBkNTkzZTI1YjNmMGEzNGZmODQyMmJhNGJhYzk3ODFjYTJlOTQ1ZmVmYzI5NGE1YjE3NTA5NGJkNjI5ZWE0MjI0Njk0MmMyN2Q2MzdmNjRjNDFhODljNTUzYzE4NzczN2JhNzk2YzQwMTZmNjZlYjM4ODEwYTk3Mjg4OTA4M2U2MjM4N2JmMTFhNWE4NDExMDRiODI0M2JmNTBlZWQxMWVjZWEyOGNmYTBjMGQzZWU1NWNhY2EzYTgyOTZmYjEwMjMwNjUwZjdkNjAzYWY2MGE4NTA3ZGQxMWMzYTFkOWEzZjE5NzgxNzEzNjJhZDRkYmE3ZGE5ZDgzNGY5OTY2ZjVmOTBmZDc0OTZlODY3MzMzODFlYTY3ZDMwM2JhYWQyZTVkZGQzZWI5ZDcxMjA4ZmRmM2NlMWVhMDExY2U3NDlhODIyZDY4N2I0NTU5MzNmM2VmZTA4YWVhZGZkYmFiNTkxNjRkNjAxZDZiMjljMmMyYzA3NzJlYTc1YTIzOThiYzYyNjBlM2E3MzE4NjBkZjI5ZDlmZTIwNiIsImlhdCI6MTY3NzY1MTIyMSwiZXhwIjoxNjc3Njk0NDIxfQ.TjWEFcyw7BSEswSwG4KPxKGLlbcflbgE8UVSFlNWh3A",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbmMiOiJmNjUxNGUxNTg4ZDBkNmI3ZjhhNzBhYTFiM2M4YzEyZDA2M2IyMDI1ZDlmYmYzZDM2NTYzNmY5OWUxYTY3YzFhNzU2ZTkxNzcyZmRjYzI0MDY3MzE4N2E4ZDFmZDUwMGU5NTVjOTE3MGEzZDg4OWQ0YTE5NzBkYjJlYmUxODk5MmI3ODMzYTAyMDA0OWUzMWI0ZTc3ODMyYTUzZjI1N2Q3MzNlOWQ4NTE4YjU1Mjc2ZWY2MjIwNmRmNGI0ZTg0YWY1OWUzZjRjMmNiZjE5ZjlkODYwNjM3M2VlYTdkYTIxYTc4ZjlmZWRmYjFhMGY4Y2JlNWI0ODAxZTgxYmM1NjM1NjQzZmU2ZjAxZDI4NzU1YmRiYjk1OWE5MTQyZTc5OGU1NTMyMGRkOGZlN2NiMDk4MDZlZjViZTEwNWExNjBjYWFiMzBmZjdhMjg5MjUzZGQ3N2M5OWI2NGYzMzAyY2E4N2I5Y2Y5YTQ5OTU3NGFlMTBkMjUyNWJhNDRlZjAwZmNlMjQ1ZWI2NDU3MDY2ZjlkOGE3YjMzY2M0YmViZTY5YiIsImlhdCI6MTY3ODA4MjIxNSwiZXhwIjoxNjc4MTI1NDE1fQ.l2ebYHLmi8Wpk05GdyZA9pCisc_6QLD5ut3np2-hs4M",
 				"type": "string"
 			}
 		]

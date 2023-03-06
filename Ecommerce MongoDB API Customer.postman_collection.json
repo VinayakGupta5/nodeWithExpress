@@ -1,0 +1,208 @@
+{
+	"info": {
+		"_postman_id": "2b8da0ca-998f-49f2-b2ed-bd4596fcc99d",
+		"name": "Ecommerce MongoDB API Customer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23466157"
+	},
+	"item": [
+		{
+			"name": "customer/websiteVerify",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"websiteName\" :\"www.omesh.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1234/api/customer/websiteVerify",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"api",
+						"customer",
+						"websiteVerify"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Signup",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbmMiOiI4OTJkOTAzNjMxMzQxZWUxOWIzZGE1MWNiZjgwNDU1OTFhOWJlMjk1YzkwYjY0YTg1MWE2Mjc0MmE2NmY4YTQxNzAxMjllZTg2ZTE2MmE3N2VkNjg1ZDZjMDZlODRjMWM2YWJjNDE4YmJiNDRjOGZiMmYwN2ZhOTUwNWJhYTk3N2VlNDcxNjU3OGU3ZDk4ZDRiZWMwYWNkZjRmOWMyYWU4YzM1ZGJlMDQwYmE3OTFiYTMyZDY1MWNmZDEwNGNiNGZiNzcwMjEwYTg3ZTYwMmNkZGE2ZjU0MzlmNjI4OGUyZDRiZTc4MThmMGVjZTc0NGM1YjE5NzVjOWQ0ZmRhNmFlNzY4ZjgxODBmODcwZjIyZTE5MjkyYTRjZjFjNGViOTFlY2EzNjk0M2IzZDliYWYxYmE1Mzc0MmE3NzQzN2IzOTFiYTZkZGNiMTFlNWZhYjEzOTdhNGQyNGM5OGU5OGI1NTJhZTdiMzI4Mzk0MjQ5MWRiNWIyYTRlMGNhMjE2MzYzZjRhMjQ4OTllMzBhZTNmODA5NjZiNDVjOWY2NGJiMSIsImlhdCI6MTY3NjM3NTI0MywiZXhwIjoxNjc2Njc1MjQzfQ.tzZxlw_7nCOzh-IkMeK1y_7FaWf6_Y67O6Hx59GClA0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"omeshCustomer@gmail.com\",\r\n    \"name\": \"omesh Customer\",\r\n    \"pass\": \"abcd\",\r\n    \"confirmPass\": \"abcd\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1234/api/customer/CustomerSignup/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"api",
+						"customer",
+						"CustomerSignup",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbmMiOiIwNmRkOGJjMTY0OWMxZmFhMWJlNGU5ODhkNWFkNzFjZDQwOTY2YTY0YTc2ZjAzYzVjZDFmYWU1MDNjYTg5MTg5MzM0Y2Y1M2I5ZGM0MzdjNzAxMjY1YTI2NTA3OGYyYTc1NzYxYjJkOWUxOTk5MGVmMWEyZjc5ZjNkNjUyNzdhYjY3NDc5Y2Y5NmYxNDNhMzJmZTViZWViNWQ1YjUyMTliMWU1ZDMxMmQ5ZDFjMjg0ZGVmNTk2MjViYzVkOWMzZjU0MzUyMGEyMGQ1MDJhZDI1ODZlNTUyYTkyODQ5ZjQxZjRmMTI1MWNlZmQ3YmZhNzVkMmYwZTExMzkzODRmZTg4N2U4ZjE2ZjVhOWE2ZTRiY2MyOWIzZmM1ZWNiMzFhMzBkYjBiYTFiZjZkNTBlMjhhOWI5NjkxMmVkZDcyMGM2NDRlOTA1ZmFjZWNhY2YyNTlhMGQyZjBhYmI3OThiMGZmM2QzMDI2OTk5MzMxZThhYjU0MzU4YzUxOTJjM2M5NThmNTY4ZTg4ZjJlZmM1NmJlMTQwYzEzMDlhZjA4M2ZlZCIsImlhdCI6MTY3Njk1OTgwMCwiZXhwIjoxNjc3MjU5ODAwfQ.J67ljwtYAVlAWTYe0XNfDNkJCSRFhe3BfX04wKgkfX0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"omeshcustomer@gmail.com\",\r\n    \"pass\": \"abcd\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1234/api/customer/CustomerLogin/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"api",
+						"customer",
+						"CustomerLogin",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CustomerProfileById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:1234/api/customer/ProfileById/63eb74fc72a1b6e88df6d4f0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"api",
+						"customer",
+						"ProfileById",
+						"63eb74fc72a1b6e88df6d4f0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customer Profile Update",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"omesh1\",\r\n    \"Email\": \"abcedeeefe@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1234/api/customer/ProfileUpdateById/63eb74fc72a1b6e88df6d4f2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"api",
+						"customer",
+						"ProfileUpdateById",
+						"63eb74fc72a1b6e88df6d4f2"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbmMiOiI3ZDMzNDM3M2ZkNmNmNjZlMDU0ZTM2OTc5ZDMzMGExOTk2ZjdhYzc5YWZiNzBmMjIzYmY5NTY0MjZhZWUxNGM3YzViMjM2NjRkM2Q5NmQyNWQyMzI1MmE0NWVlZWI0ZGU0YTU0Nzk5YzFkNGE4MDJhYTI2NWZjMmU0ZDE1YmM0YWQxYzJmOGM2YTZlZDk3NmViZjczYzQ4ZWViNGQ3ODIwNWFjOTNmN2Q2YzUxMjM1ZGI5MGQxNzUwY2QzNjhlMGFiYzVmYjkyZjRkNTdiZTU2NDJjNGNjZTc1ZTljYWFkZTAxYjk4N2QxMDEwYjhhMGQzNTZiNTA0MDRiNGZmMGNhMjA0NGI1ZmZiNGQwYmQyOTAwODdmZjZkNzIwYWE0OThlYjg2NjQzNzJjOTUyZjg5OWFjZDdiYjk5ZWQ4NzNlZGVmOTMzMmViYjYzOTQxM2ZlZmUwZTlkNTdhMzE5ZGZiZWEzMTU0MmYyODk4ODFjZGI4MDg4YmE5NDNhMWRhNGI5N2M1Y2QzNDRlNmU1YWE3ZTRjNjZkZjk4NDgyOGE3YiIsImlhdCI6MTY3NjM3NTMxNiwiZXhwIjoxNjc2NDE4NTE2fQ.qHlVu6FunH4m2FvDT9UTGWBfEL0y5GO6sDYi8qqznuk",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
