@@ -223,7 +223,6 @@ exports.deleteCategory = (req, res, next) => {
       })
   }
   mongoConnect();
-
 }
 
 

@@ -331,7 +331,7 @@ exports.getProductsByNameSearch = (req, res, next) => {
             });
           })
           .catch(err => {
-           return res.status(500).send({
+            return res.status(500).send({
               status: "success",
               msg: err,
               data: []
@@ -348,10 +348,9 @@ exports.filterProducts = (req, res, next) => {
   const minPrice = req.body.minPrice
   const maxPrice = req.body.maxPrice
 
-
   const databaseName = req.userData.connectString
   async function mongoConnect() {
-    const connection = await connectToDb(databaseName)
+    await connectToDb(databaseName)
       .then((result) => {
         Product.find({
           // price: { $lt: maxPrice },
@@ -366,7 +365,6 @@ exports.filterProducts = (req, res, next) => {
           })
       })
   }
-
   mongoConnect()
 }
 
