@@ -4,20 +4,23 @@ const mongooseDisconnect = require('../../conn/disconnectMongoose')
 
 exports.CreatePromotion = (req, res, next) => {
 
-    const name = req.body.name
+    const title = req.body.title
     const description = req.body.description
-    const startDateParts = req.body.startDate.split('-');
-    const startDate = new Date(startDateParts[2], startDateParts[1] - 1, startDateParts[0]);
-    const endDateParts = req.body.endDate.split('-');
-    const endDate = new Date(endDateParts[2], endDateParts[1] - 1, endDateParts[0]);
+    const imageData = req.body.imageData
+    const contentType = req.body.contentType
+
+    // const startDateParts = req.body.startDate.split('-');
+    // const startDate = new Date(startDateParts[2], startDateParts[1] - 1, startDateParts[0]);
+    // const endDateParts = req.body.endDate.split('-');
+    // const endDate = new Date(endDateParts[2], endDateParts[1] - 1, endDateParts[0]);
 
     const databaseName = req.userData.connectString
 
     const promotion = new Promotion({
-        name: name,
+        title: title,
         description: description,
-        startDate: startDate,
-        endDate: endDate
+        imageData: Buffer.from(imageData, 'base64'),
+        contentType: contentType
     })
 
     async function mongoConnect() {
@@ -33,7 +36,7 @@ exports.CreatePromotion = (req, res, next) => {
                     })
                     .catch(err => {
                         return res.send({
-                            status: 'success',
+                            status: 'failed',
                             msg: '',
                             data: err
                         })
@@ -64,7 +67,7 @@ exports.GetAllPromotions = (req, res, body) => {
 }
 
 
-exports.GetPromotionById = (req, res, body) => {
+exports.GetPromotionById = (req, res, next) => {
     const id = req.params._id
 
     const databaseName = req.userData.connectString
@@ -82,4 +85,34 @@ exports.GetPromotionById = (req, res, body) => {
             })
     }
     mongoConnect()
+}
+
+exports.deletePromotion = (req, res, next) => {
+    const id = req.params._id
+    const databaseName = req.userData.connectString
+
+    async function mongoConnect() {
+        await connectToDb(databaseName)
+            .then((result) => {
+                Promotion.findByIdAndDelete(id)
+                    .then(deletePromotion => {
+                        return res.send(
+                            {
+                                status: 'success',
+                                msg: '',
+                                data: deletePromotion
+                            }
+                            )
+                    })
+                    .catch(err => {
+                        return res.send({
+                            status: 'failed',
+                            msg: '',
+                            data: err
+                        })
+                    })
+            })
+    }
+    mongoConnect()
+
 }
