@@ -14,14 +14,15 @@ exports.CreatePromotion = (req, res, next) => {
     var endDate = ''
 
     if (!(req.body.startDate === '')) {
-        const startDateParts = req.body.startDate.split('-');
-        startDate = new Date(startDateParts[2], startDateParts[1] - 1, startDateParts[0]);
-        
+        // const startDateParts = req.body.startDate.split('-');
+        // startDate = new Date(startDateParts[2], startDateParts[1] - 1, startDateParts[0]);
+        startDate = new Date(req.body.startDate);
     }
     if (!(req.body.endDate === '')) {
-        const endDateParts = req.body.endDate.split('-');
-        console.log("endDateParts", endDateParts)
-        endDate = new Date(endDateParts[2], endDateParts[1] - 1, endDateParts[0]);
+        // const endDateParts = req.body.endDate.split('-');
+        // console.log("endDateParts", endDateParts)
+        // endDate = new Date(endDateParts[2], endDateParts[1] - 1, endDateParts[0]);
+        endDate = new Date(req.body.endDate);
         console.log("endDate", endDate)
     }
 
