@@ -16,20 +16,20 @@ const promotionSchema = new Schema({
     },
     contentType: {
         type: String
-    }
-    // startDate: {
-    //     type: Date,
-    //     required: true
-    // },
-    // endDate: {
-    //     type: Date,
-    // },
-    // PriceDiscount: {
-    //     type: Number
-    // },
-    // PercentageDiscount: {
-    //     type: Number
-    // },
+    },
+    startDate: {
+        type: Date,
+        required: true
+    },
+    endDate: {
+        type: Date,
+    },
+    priceDiscount: {
+        type: Number
+    },
+    percentageDiscount: {
+        type: Number
+    },
     // promotionType: {
     //     type: String,
     // }
