@@ -6,7 +6,7 @@ exports.CreatePromotion = (req, res, next) => {
 
     const title = req.body.title
     const description = req.body.description
-    const imageData = req.body.imageData
+    var imageData = req.body.imageData
     const contentType = req.body.contentType
     const percentageDiscount = req.body.percentageDiscount
     const priceDiscount = req.body.priceDiscount
@@ -24,6 +24,9 @@ exports.CreatePromotion = (req, res, next) => {
         // endDate = new Date(endDateParts[2], endDateParts[1] - 1, endDateParts[0]);
         endDate = new Date(req.body.endDate);
         console.log("endDate", endDate)
+    }
+    if (imageData === null) {
+        imageData = ''
     }
 
 
