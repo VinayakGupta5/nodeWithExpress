@@ -19,7 +19,6 @@ const promotionSchema = new Schema({
     },
     startDate: {
         type: Date,
-        required: true
     },
     endDate: {
         type: Date,
