@@ -243,7 +243,7 @@ exports.updateProduct = (req, res, next) => {
               {
                 status: 'success',
                 message: "Updated Successfully",
-                data: []
+                data: result
               }
             )
           })
