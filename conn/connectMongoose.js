@@ -3,7 +3,7 @@ const mongooseDisconnect = require('./disconnectMongoose')
 
 mongoose.set('strictQuery', false)
 
-const mongooseConnect = async(dbName, resolve, reject) => {
+const mongooseConnect = async (dbName, resolve, reject) => {
   await mongoose.connect(
     dbName,
     {
@@ -28,7 +28,7 @@ const connectToDb = (dbName) => {
     console.log("dbNameConnected ", dbNameConnected)
 
     if (mongoose.connection.readyState === 0) {
-      mongooseConnect(dbName,resolve, reject)
+      mongooseConnect(dbName, resolve, reject)
     }
     else if (mongoose.connection.readyState === 1) {
       if (dbNameComing === dbNameConnected) {
@@ -37,7 +37,7 @@ const connectToDb = (dbName) => {
       }
       else {
         async function mongooseDiscon() {
-          try { 
+          try {
             await mongooseDisconnect();
           } catch (err) {
             console.error('Error disconnecting from MongoDB:', err);

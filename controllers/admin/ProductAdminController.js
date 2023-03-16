@@ -1,6 +1,6 @@
 const connectToDb = require('../../conn/connectMongoose')
 const Product = require('../../models/ProductModel')
-const mongooseDisconnect = require('../../conn/disconnectMongoose')
+const mongoose = require('mongoose')
 
 exports.getAllProducts = (req, res, next) => {
   const databaseName = req.userData.connectString
@@ -66,6 +66,7 @@ exports.postMultipleProducts = (req, res, next) => {
 }
 
 exports.postProduct = (req, res, next) => {
+  const databaseName = req.userData.connectString
 
   async function mongoConnect() {
     await connectToDb(databaseName)
@@ -214,8 +215,29 @@ exports.updateProduct = (req, res, next) => {
 
   async function mongoConnect() {
     await connectToDb(databaseName)
-      .then((result) => {
-        Product.findByIdAndUpdate(_id, updateProduct)
+      .then((result1) => {
+
+
+        // const connection = mongoose.connection;
+        // connection.db.collection('products').isCapped().then((result) => {
+        //   console.log("result",result); // true if collection is capped, false otherwise
+          
+        //   if (result) {
+        //     // If the collection is not capped, get its data size in bytes
+        //     connection.db.collection('products').stats((err, stats) => {
+        //       if (err) {
+        //         console.log(err);
+        //       } else {
+        //         console.log(`Data size in bytes: ${stats.maxSize}`);
+        //       }
+        //     });
+        //   }
+        // }).catch((err) => {
+        //   console.log(err);
+        // });
+
+
+        Product.findOneAndUpdate({_id:_id}, updateProduct, { upsert: true, new: true })
           .then(result => {
             return res.send(
               {
