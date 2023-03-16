@@ -14,9 +14,12 @@ const customerAdminRouter = require('./routes/admin/CustomerAdminRouter')
 const cors = require('cors');
 const port = 1234;
 
-
 const app = express()
-app.use(cors())
+app.use(cors({
+  methods: ['GET', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
+  origin: 'http://localhost:3000',
+  allowedHeaders: ['Authorization', 'Content-Type']
+}))
 
 
 app.use(express.static('public'));
@@ -25,8 +28,9 @@ app.use(express.urlencoded({ extended: true }))
 
 
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
-  res.header('Access-Control-Allow-Credentials', 'true');
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH, DELETE, OPTIONS");
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  // res.header('Access-Control-Allow-Credentials', 'true');
   next();
 });
 
