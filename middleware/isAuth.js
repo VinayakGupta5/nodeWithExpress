@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken')
 const { decrypt, secretKey } = require('../Global/Global')
 
 module.exports = (req, res, next) => {
+  console.log("req.bodydddddddddd", req.body)
   const bearerHeader = req.headers['authorization']
   if (typeof bearerHeader === 'undefined') {
     return res.send({ message: "please attach token!" })
