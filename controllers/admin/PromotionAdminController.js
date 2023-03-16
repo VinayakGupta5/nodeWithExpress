@@ -3,6 +3,7 @@ const connectToDb = require('../../conn/connectMongoose')
 const mongooseDisconnect = require('../../conn/disconnectMongoose')
 
 exports.CreatePromotion = (req, res, next) => {
+    console.log(req.body)
 
     const title = req.body.title
     const description = req.body.description
@@ -10,23 +11,42 @@ exports.CreatePromotion = (req, res, next) => {
     const contentType = req.body.contentType
     const percentageDiscount = req.body.percentageDiscount
     const priceDiscount = req.body.priceDiscount
-    var startDate = ''
-    var endDate = ''
+    var startDate = req.body.startDate
+    var endDate = req.body.endDate
 
-    if (!(req.body.startDate === '')) {
+    if (title === '' || typeof title === 'undefined') {
+        res.send({
+            status: 'failed',
+            msg: 'title should not be empty',
+            data: []
+        })
+    }
+    if (description === '' || typeof description === 'undefined') {
+        res.send({
+            status: 'failed',
+            msg: 'Description should not be empty',
+            data: []
+        })
+    }
+    if (priceDiscount === null || typeof priceDiscount === 'undefined') {
+        res.send({
+            status: 'failed',
+            msg: 'PriceDiscount should not be empty',
+            data: []
+        })
+    }
+ 
+    if (startDate === '' || typeof startDate === 'undefined') {
         // const startDateParts = req.body.startDate.split('-');
         // startDate = new Date(startDateParts[2], startDateParts[1] - 1, startDateParts[0]);
         startDate = new Date(req.body.startDate);
     }
-    if (!(req.body.endDate === '')) {
+    if (endDate === '' || typeof endDate === 'undefined') {
         // const endDateParts = req.body.endDate.split('-');
         // console.log("endDateParts", endDateParts)
         // endDate = new Date(endDateParts[2], endDateParts[1] - 1, endDateParts[0]);
         endDate = new Date(req.body.endDate);
         console.log("endDate", endDate)
-    }
-    if (imageData === null) {
-        imageData = ''
     }
 
 
