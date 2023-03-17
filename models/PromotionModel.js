@@ -29,6 +29,9 @@ const promotionSchema = new Schema({
     percentageDiscount: {
         type: Number
     },
+    category: {
+        type: Array
+    },
     // promotionType: {
     //     type: String,
     // }

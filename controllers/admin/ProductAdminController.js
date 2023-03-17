@@ -210,26 +210,26 @@ exports.updateProduct = (req, res, next) => {
     Schedule: req.body.Schedule,
     Remarks: req.body.Remarks,
     Images: req.body.Images,
-    active: req.body.active
+    active: req.body.active,
+    promotionId: req.body.promotionId
   }
 
-  if(updateProduct.NameToDisplay === '' || typeof updateProduct.NameToDisplay === 'undefined' ){
-   return res.send({
-      status:'failed',
-      msg:'Name To Display should not be empty'
+  if (updateProduct.NameToDisplay === '' || typeof updateProduct.NameToDisplay === 'undefined') {
+    return res.send({
+      status: 'failed',
+      msg: 'Name To Display should not be empty'
     })
   }
- 
+
 
   async function mongoConnect() {
     await connectToDb(databaseName)
       .then((result1) => {
 
-
         // const connection = mongoose.connection;
         // connection.db.collection('products').isCapped().then((result) => {
         //   console.log("result",result); // true if collection is capped, false otherwise
-          
+
         //   if (result) {
         //     // If the collection is not capped, get its data size in bytes
         //     connection.db.collection('products').stats((err, stats) => {
@@ -244,8 +244,7 @@ exports.updateProduct = (req, res, next) => {
         //   console.log(err);
         // });
 
-
-        Product.findOneAndUpdate({_id:_id}, updateProduct, { upsert: true, new: true })
+        Product.findOneAndUpdate({ _id: _id }, updateProduct, { upsert: true, new: true })
           .then(result => {
             return res.send(
               {
@@ -374,27 +373,76 @@ exports.getProductsByNameSearch = (req, res, next) => {
 
 
 exports.filterProducts = (req, res, next) => {
-  const catergorySearch = req.body.Category;
+  const categorySearch = req.body.Category;
   const minPrice = req.body.minPrice
   const maxPrice = req.body.maxPrice
+  const brands = req.body.brands
+
+  let filters = {};
+  if (categorySearch) {
+    filters.Category = { $in: categorySearch };
+  }
+  if (minPrice || maxPrice) {
+    filters.MRP = {};
+    if (minPrice) {
+      filters.MRP.$gt = minPrice;
+    }
+    if (maxPrice) {
+      filters.MRP.$lt = maxPrice;
+    }
+  }
+  if (brands && Array.isArray(brands) && brands.length > 0) {
+    filters.Brand = { $in: brands };
+  }
+
 
   const databaseName = req.userData.connectString
   async function mongoConnect() {
     await connectToDb(databaseName)
       .then((result) => {
-        Product.find({
-          // price: { $lt: maxPrice },
-          Category: { $in: catergorySearch }
-        })
-          .then((products) => {
-            return res.send(products)
 
+        Product.find(filters)
+          .then((filterProducts) => {
+            return res.send({
+              status: 'success',
+              msg: '',
+              data: filterProducts
+            })
           })
           .catch(err => {
-            return console.log(err)
+            return res.send({
+              status: 'failed',
+              msg: '',
+              data: err
+            })
           })
       })
   }
   mongoConnect()
 }
+
+exports.appliedPromotionOnProduct = (req, res, next) => {
+  const category = req.body.category
+  const promotionId = req.body.promotionId
+
+  const databaseName = req.userData.connectString
+  async function mongoConnect() {
+    await connectToDb(databaseName)
+      .then((result1) => {
+        const filter = { Category: { $in: category } };
+        const update = { $addToSet: { promotionId: { $each: promotionId } } };
+        Product.updateMany(filter, update)
+          .then((result) => {
+            return res.send({
+              status: 'success',
+              msg: "Products updated successfully",
+              data: [result]
+            });
+          })
+      })
+  }
+  mongoConnect()
+}
+
+
 

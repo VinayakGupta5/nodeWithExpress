@@ -14,5 +14,6 @@ router.get('/getProductsPerPage', adminController.getProductsPerPage)
 router.post('/checkProductsExist', adminController.checkProductsExist)
 router.get('/searchProdByName', adminController.getProductsByNameSearch)
 router.post('/filterProd', adminController.filterProducts)
+router.put('/product/promotion', adminController.appliedPromotionOnProduct)
 
 module.exports = router

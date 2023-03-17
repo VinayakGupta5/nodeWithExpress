@@ -12,6 +12,7 @@ exports.CreatePromotion = (req, res, next) => {
     let endDate = req.body.endDate;
     const percentageDiscount = req.body.percentageDiscount;
     const priceDiscount = req.body.priceDiscount;
+    const category = req.body.category
 
 
     if (title === '' || typeof title === 'undefined') {
@@ -81,7 +82,8 @@ exports.CreatePromotion = (req, res, next) => {
         startDate: startDate,
         endDate: endDate,
         priceDiscount: priceDiscount,
-        percentageDiscount: percentageDiscount
+        percentageDiscount: percentageDiscount,
+        category: category
     })
 
     async function mongoConnect() {
@@ -167,7 +169,7 @@ exports.updatePromotion = (req, res, next) => {
 
     const _id = req.body._id;
     const title = req.body.title;
-    console.log("title",title)
+    console.log("title", title)
     const description = req.body.description;
     let imageData = req.body.imageData;
     const contentType = req.body.contentType;
