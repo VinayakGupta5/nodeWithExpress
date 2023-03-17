@@ -213,6 +213,19 @@ exports.updateProduct = (req, res, next) => {
     active: req.body.active
   }
 
+  if(updateProduct.NameToDisplay === '' || typeof updateProduct.NameToDisplay === 'undefined' ){
+   return res.send({
+      status:'failed',
+      msg:'Name To Display should not be empty'
+    })
+  }
+  if(updateProduct.Brand === '' || typeof updateProduct.Brand === 'undefined' ){
+    return res.send({
+      status:'failed',
+      msg:'Brand should not be empty'
+    })
+  }
+
   async function mongoConnect() {
     await connectToDb(databaseName)
       .then((result1) => {
