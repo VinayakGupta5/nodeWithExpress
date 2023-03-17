@@ -436,8 +436,15 @@ exports.appliedPromotionOnProduct = (req, res, next) => {
             return res.send({
               status: 'success',
               msg: "Products updated successfully",
-              data: [result]
+              data: result
             });
+          })
+          .catch((err)=>{
+            return res.send({
+              status: 'failed',
+              msg: "",
+              data: err
+            }
           })
       })
   }
