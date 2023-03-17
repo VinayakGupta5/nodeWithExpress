@@ -219,12 +219,7 @@ exports.updateProduct = (req, res, next) => {
       msg:'Name To Display should not be empty'
     })
   }
-  if(updateProduct.Brand === '' || typeof updateProduct.Brand === 'undefined' ){
-    return res.send({
-      status:'failed',
-      msg:'Brand should not be empty'
-    })
-  }
+ 
 
   async function mongoConnect() {
     await connectToDb(databaseName)
