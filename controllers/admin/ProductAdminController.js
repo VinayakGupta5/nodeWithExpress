@@ -164,7 +164,7 @@ exports.getOneProductById = (req, res, next) => {
 exports.updateProduct = (req, res, next) => {
   const databaseName = req.userData.connectString
   var _id = req.body._id
-  const updateProduct =
+  var updateProduct =
   {
     PKID: req.body.PKID,
     NameToDisplay: req.body.NameToDisplay,
@@ -219,6 +219,13 @@ exports.updateProduct = (req, res, next) => {
       status: 'failed',
       msg: 'Name To Display should not be empty'
     })
+  }
+  if (updateProduct.Category.length > 0) {
+   var tempCategory = []
+    updateProduct.Category.forEach((cat) => {
+      tempCategory.push(cat.toLowerCase())
+    })
+    updateProduct.Category = tempCategory
   }
 
 
@@ -439,7 +446,7 @@ exports.appliedPromotionOnProduct = (req, res, next) => {
               data: result
             });
           })
-          .catch((err)=>{
+          .catch((err) => {
             return res.send({
               status: 'failed',
               msg: "",

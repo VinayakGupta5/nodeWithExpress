@@ -96,10 +96,12 @@ exports.CreateSubCategory = async (req, res) => {
     Category.findById(parentId)
       .then(mainCategory => {
         console.log("mainCategory", mainCategory);
+        
         var category = Category({
           name: name,
           parent: parentId
         })
+
         category.save()
           .then(categoryResult => {
             mainCategory.children.push(categoryResult._id);
@@ -120,31 +122,31 @@ exports.CreateSubCategory = async (req, res) => {
   async function mongoConnect() {
     await connectToDb(databaseName)
       .then(async (result) => {
-        Category.findOne({ name: name })
+        Category.findOne({ name: name,parent:parentId })
           .then((found) => {
             if (found) {
-              if (found.parent.equals(parentId)) {
-                console.log("running",)
+              // if (found.parent.equals(parentId)) {
+              //   console.log("running",)
                 return res.status(200).send({
                   status: 'failed',
                   msg: 'Category already exists',
                   data: []
                 });
-              }
-              else {
-                createSubCategory()
-              }
+              // }
+              // else {
+              //   createSubCategory()
+              // }
             }
             else {
               createSubCategory()
             }
           })
       })
-  }
+  } 
   mongoConnect()
 }
 
-
+ 
 exports.getCategory = (req, res, next) => {
 
   console.log("get category---------1")
@@ -177,10 +179,10 @@ exports.getCategory = (req, res, next) => {
             status: 'failed',
             msg: err.message,
             data: err
-          });
+          }); 
         }
-      })
-  }
+      }) 
+  } 
   mongoConnect()
 }
 
