@@ -444,7 +444,7 @@ exports.appliedPromotionOnProduct = (req, res, next) => {
               status: 'failed',
               msg: "",
               data: err
-            }
+            })
           })
       })
   }
