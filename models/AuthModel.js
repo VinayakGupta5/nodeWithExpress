@@ -16,7 +16,13 @@ const userSchema = new Schema({
   },
   connectString: {
     type: String
-  }
-})
+  },
+  bToB: {
+    type: Boolean
+  },
+  bToC: {
+    type: Boolean
+  },
+}) 
 
 module.exports = mongoose.model('Users', userSchema)

@@ -386,7 +386,7 @@ exports.filterProducts = (req, res, next) => {
   const brands = req.body.brands
 
   let filters = {};
-  if (categorySearch) {
+  if (categorySearch?.legth > 0) {
     filters.Category = { $in: categorySearch };
   }
   if (minPrice || maxPrice) {
