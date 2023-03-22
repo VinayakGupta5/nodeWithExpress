@@ -220,7 +220,7 @@ exports.updateProduct = (req, res, next) => {
       msg: 'Name To Display should not be empty'
     })
   }
-  if (updateProduct.Category.length > 0) {
+  if (updateProduct.Category?.length > 0) {
    var tempCategory = []
     updateProduct.Category.forEach((cat) => {
       tempCategory.push(cat.toLowerCase())

@@ -47,5 +47,5 @@ app.use('/api/customer', isAuth, customerRouter)
 
 
 app.listen(port, () => {
-  console.log("listen server on http://localhost:" + port)
+  console.log("listen server on http://localhost:" + port) 
 })   
