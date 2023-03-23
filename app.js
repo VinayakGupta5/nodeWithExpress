@@ -6,7 +6,6 @@ const PromotionAdminRouter = require('./routes/admin/PromotionAdminRouter')
 const CategoryAdminRouter = require('./routes/admin/CategoryAdminRouter')
 
 const isAuth = require('./middleware/isAuth');
-const customerAuthRouter = require('./routes/customer/AuthCustomerRouter')
 const customerRouter = require('./routes/customer/CustomerRouter')
 const customerAdminRouter = require('./routes/admin/CustomerAdminRouter')
 
@@ -42,7 +41,6 @@ app.use('/api/admin', isAuth, PromotionAdminRouter)
 app.use('/api/admin', isAuth, CategoryAdminRouter)
 
 
-app.use('/api/customer', customerAuthRouter)
 app.use('/api/customer', isAuth, customerRouter)
 
 

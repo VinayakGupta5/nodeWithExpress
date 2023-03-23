@@ -86,7 +86,15 @@ const customerSchema = new Schema({
   },
   Selected: {
     type: String,
-
+  },
+  client: {
+    type: Array
+  },
+  b2b: {
+    type: Array,
+  },
+  b2c: {
+    type: Array
   }
 })
 

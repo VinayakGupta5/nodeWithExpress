@@ -104,6 +104,7 @@ exports.Signup = (req, res, next) => {
 exports.Login = (req, res, next) => {
   const email = req.body.email.toLowerCase();
   const pass = req.body.pass;
+  const roleType = req.body.roleType
 
   if (!email.includes('@')) {
     return res.send({ message: "email is not valid!" })
@@ -111,58 +112,61 @@ exports.Login = (req, res, next) => {
   if (!pass) {
     return res.send({ message: "password can not be empty!" })
   }
-  else {
-    async function mongoConnect() {
-      const connection = await connectToDb(databaseName)
-        .then((result) => {
-          return Users.findOne({ email: email })
-            .then(user => {
-              if (user) {
-                bcrypt.compare(pass, user.pass)
-                  .then(doMatch => {
-                    const userData = {
-                      _id: user._id,
-                      email: user.email,
-                      connectString: user.connectString
-                    }
-                    const userDataInString = JSON.stringify(userData);
-                    const tempSecreteKey = secretKey();
-                    const encryptData = encrypt(userDataInString, tempSecreteKey);
-                    const encData = {
-                      enc: encryptData
-                    }
-
-                    if (doMatch) {
-                      jwt.sign(encData, process.env.secretKey, { expiresIn: "43200s" }, (err, token) => {
-                        if (err) {
-                          return res.send({ err: err })
-                        }
-                        else {
-                          return res.send({
-                            status: 'success',
-                            message: "Successfully Login",
-                            data: {
-                              token: token,
-                              profileData: {
-                                _id: userData._id,
-                                email: userData.email
-                              }
-                            }
-                          })
-                        }
-                      })
-                    }
-                    else {
-                      return res.send({ message: "password does not match" })
-                    }
-                  })
-              }
-              else {
-                return res.send({ message: "Email not found!" })
-              }
-            })
-        });
-    }
-    mongoConnect()
+  if(!roleType){
+    return res.send({message: "roleType can not be empty!"})
   }
+
+  async function mongoConnect() {
+    const connection = await connectToDb(databaseName)
+      .then((result) => {
+        return Users.findOne({ email: email })
+          .then(user => {
+            if (user) {
+              bcrypt.compare(pass, user.pass)
+                .then(doMatch => {
+                  const userData = {
+                    _id: user._id,
+                    email: user.email,
+                    roleType:roleType,
+                    connectString: user.connectString
+                  }
+                  const userDataInString = JSON.stringify(userData);
+                  const tempSecreteKey = secretKey();
+                  const encryptData = encrypt(userDataInString, tempSecreteKey);
+                  const encData = {
+                    enc: encryptData
+                  }
+
+                  if (doMatch) {
+                    jwt.sign(encData, process.env.secretKey, { expiresIn: "43200s" }, (err, token) => {
+                      if (err) {
+                        return res.send({ err: err })
+                      }
+                      else {
+                        return res.send({
+                          status: 'success',
+                          message: "Successfully Login",
+                          data: {
+                            token: token,
+                            profileData: {
+                              _id: userData._id,
+                              email: userData.email
+                            }
+                          }
+                        })
+                      }
+                    })
+                  }
+                  else {
+                    return res.send({ message: "password does not match" })
+                  }
+                })
+            }
+            else {
+              return res.send({ message: "Email not found!" })
+            }
+          })
+      });
+  }
+  mongoConnect()
 }

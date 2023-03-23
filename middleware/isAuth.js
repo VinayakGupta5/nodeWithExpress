@@ -17,7 +17,7 @@ module.exports = (req, res, next) => {
           const tempSecretKey = secretKey()
           const dcryptData = decrypt(userData.enc, tempSecretKey)
           req.userData = JSON.parse(dcryptData)
-          // console.log("req.userData", req.userData)
+          console.log("req.userData", req.userData)
           next()
         }
       })

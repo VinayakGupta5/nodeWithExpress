@@ -4,7 +4,8 @@ const customerController = require('../../controllers/customer/CustomerControlle
 
 const router = express.Router()
 
-router.get('/ProfileById/:_id', customerController.profileById)
-router.post('/ProfileUpdateById/:_id', customerController.ProfileUpdate)
+router.post('/customer', customerController.ProfileUpdate)
+// router.post('/profileUpdateById/:_id', customerController.ProfileUpdate)
+router.get('/profileById/:_id', customerController.profileById)
 
 module.exports = router;

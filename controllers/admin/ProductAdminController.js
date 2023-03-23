@@ -3,6 +3,7 @@ const Product = require('../../models/ProductModel')
 const mongoose = require('mongoose')
 
 exports.getAllProducts = (req, res, next) => {
+  console.log("req.userData", req.userData)
   const databaseName = req.userData.connectString
 
   async function mongoConnect() {

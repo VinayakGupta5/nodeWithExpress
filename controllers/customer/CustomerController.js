@@ -63,4 +63,33 @@ exports.ProfileUpdate = (req, res, next) => {
   }
 
   mongoConnect()
-} 
+}
+
+exports.createCustomerProfile = (req, res, next) => {
+  const userData = req.userData
+
+  async function mongoConnect() {
+    const connection = await connectToDb(databaseName)
+      .then((result) => {
+        Customer.updateOne(req.body._id, profileUpdate)
+          .then((profileUpdated) => {
+            return res.send({
+              status: 'success',
+              msg: '',
+              data: profileUpdated
+            })
+          })
+          .catch((err) => {
+            return res.send({
+              status: 'failed',
+              msg: '',
+              data: err
+            })
+          })
+      })
+  }
+
+  mongoConnect()
+
+
+}
