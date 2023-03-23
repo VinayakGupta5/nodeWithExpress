@@ -89,10 +89,10 @@ const customerSchema = new Schema({
   client: {
     type: Array
   },
-  b2b: {
+  [process.env.b2b]: {
     type: Array,
   },
-  b2c: {
+  [process.env.b2c]: {
     type: Array
   }
 })
