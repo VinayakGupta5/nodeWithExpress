@@ -5,7 +5,7 @@ const Customer = require('../../models/CustomerModel')
 exports.GetCustomers = (req, res, next) => {
 
   const databaseName = req.userData.connectString
-  console.log("databaseName",databaseName)
+  console.log("databaseName", databaseName)
 
   async function mongoConnect() {
     await connectToDb(databaseName)
@@ -16,7 +16,7 @@ exports.GetCustomers = (req, res, next) => {
             return res.send({
               status: 'success',
               message: '',
-              data: customers 
+              data: customers
             })
           })
           .catch((err) => {
@@ -57,19 +57,60 @@ exports.GetCustomerById = (req, res, next) => {
 }
 
 exports.CreateCustomer = (req, res, next) => {
+  const customer = req.body;
+  async function mongoConnect() {
+    await connectToDb(req.userData.connectString)
+      .then((result) => {
+        Customer.findOne({ PKID: req.body.PKID })
+          .then((result) => {
+            if (result) {
+              return res.send({
+                status: 'failed',
+                message: 'Customer already exists as per PKID',
+                data: []
+              })
+            }
+            else {
+              Customer.create(customer)
+                .then(customer => {
+                  return res.send({
+                    status: 'success',
+                    message: '',
+                    data: customer
+                  })
+                })
+                .catch((err) => {
+                  return res.send({
+                    status: 'error',
+                    message: '',
+                    data: err
+                  })
+                })
+
+            }
+
+          })
+
+      })
+  }
+  mongoConnect()
+}
+
+exports.UpdateCustomer = (req, res, next) => {
+  const id = req.params._id
   const customer = req.body
   async function mongoConnect() {
     await connectToDb(req.userData.connectString)
-     .then((result) => {
-        Customer.create(customer)
-         .then(customer => {
+      .then((result) => {
+        Customer.findByIdAndUpdate(id, customer)
+          .then(customer => {
             return res.send({
-              status:'success',
+              status: 'success',
               message: '',
               data: customer
             })
           })
-         .catch((err) => {
+          .catch((err) => {
             return res.send({
               status: 'error',
               message: '',
@@ -81,21 +122,21 @@ exports.CreateCustomer = (req, res, next) => {
   mongoConnect()
 }
 
-exports.UpdateCustomer = (req, res, next) => {
-  const id = req.params._id
-  const customer = req.body
+exports.deleteCustomer = (req, res, next) => {
+  const id = req.params._id;
+
   async function mongoConnect() {
     await connectToDb(req.userData.connectString)
-    .then((result) => {
-        Customer.findByIdAndUpdate(id, customer)
-        .then(customer => {
+      .then((result) => {
+        Customer.findOneAndDelete({ _id: id })
+          .then(customer => {
             return res.send({
-              status:'success',
+              status: 'success',
               message: '',
               data: customer
             })
           })
-        .catch((err) => {
+          .catch((err) => {
             return res.send({
               status: 'error',
               message: '',

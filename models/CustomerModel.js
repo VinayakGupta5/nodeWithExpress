@@ -82,7 +82,6 @@ const customerSchema = new Schema({
   },
   Images: {
     type: String,
-
   },
   Selected: {
     type: String,
