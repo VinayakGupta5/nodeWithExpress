@@ -63,7 +63,7 @@ exports.GetSettings = (req, res, next) => {
 }
 
 exports.UpdateSetting = (req, res, next) => {
-  console.log("req.userData", req.userData)
+ 
   const _id = req.params._id;
   const setting = {
     name: req.body.name,
