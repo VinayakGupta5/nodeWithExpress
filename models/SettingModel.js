@@ -4,19 +4,21 @@ const Schema = mongoose.Schema
 
 
 const settingSchema = new Schema({
-
   name: {
+    type: String,
+  },
+  email: {
     type: String,
   },
   address: {
     type: String,
   },
-  email:{
+  gstNo: {
     type: String,
-  },
-   
-})
+  }
 
+
+})
 
 module.exports = mongoose.model('Setting', settingSchema)
 

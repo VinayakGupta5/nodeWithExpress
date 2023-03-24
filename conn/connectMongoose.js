@@ -20,7 +20,7 @@ const mongooseConnect = async (dbName, resolve, reject) => {
 const connectToDb = (dbName) => {
   return new Promise(async (resolve, reject) => {
     console.log("dbName", dbName)
-    var dbNameComing = dbName.split('/')[3].split('?')[0]
+    var dbNameComing = dbName.split('/')[3]?.split('?')[0]
     console.log("dbNameComing", dbNameComing)
 
     console.log("mongoose state: ", mongoose.connection.readyState)
