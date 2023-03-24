@@ -35,6 +35,9 @@ app.use((req, res, next) => {
 });
 
 
+
+// admin routes
+
 app.use('/api/auth', AuthAdminRouter)
 app.use('/api/admin', isAuth, ProductAdminRouter)
 app.use('/api/admin', isAuth, customerAdminRouter)

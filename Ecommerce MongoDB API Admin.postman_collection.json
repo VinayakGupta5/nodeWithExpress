@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\":\"omesh3@gmail.com\",\r\n    \"pass\":\"12345\",\r\n    \"confimPass\":\"12345\",\r\n    \"websiteName\":\"www.omesh3.com\"\r\n}",
+					"raw": "{\r\n    \"email\":\"omesh@gmail.com\",\r\n    \"pass\":\"1234\",\r\n    \"confimPass\":\"1234\",\r\n    \"websiteName\":\"www.omesh.com\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -43,7 +43,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\":\"omesh1@gmail.com\",\r\n    \"pass\":\"12345\"\r\n}",
+					"raw": "{\r\n    \"email\":\"omesh@gmail.com\",\r\n    \"pass\":\"1234\",\r\n    \"roleType\":\"client\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -62,7 +62,8 @@
 						"auth",
 						"login"
 					]
-				}
+				},
+				"description": "We use this to identitfiy roleType for 3 different domain\n\nadmin,b2b, b2 c\n\nrole Type can be of 3 Type:\n\n1. client\n2. b2b\n3. b2c"
 			},
 			"response": []
 		},
@@ -127,21 +128,11 @@
 		{
 			"name": "/admin/add-product",
 			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2UyMzFhMGI4NDJkYWZjOGQ3MmIzZGQiLCJlbWFpbCI6IjEyM0BnbWFpbC5jb20iLCJpYXQiOjE2NzU3NzUyMjQsImV4cCI6MTY3NTc3ODIyNH0.uVijm1ytRxQsxFRwMF0mbFnRmO34dAkGPKEKelN_5DM",
-							"type": "string"
-						}
-					]
-				},
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": " {\r\n        \"PKID\": 498,\r\n        \"NameToDisplay\": \"S CELEPRA 10 14 *10\",\r\n        \"Alias\": \"ML231\",\r\n        \"Product\": \"S CELEPRA 10                            \",\r\n        \"Brand\": null,\r\n        \"Strength\": \"14 *10    \",\r\n        \"Unit1\": \"Strip     \",\r\n        \"ProdConv1\": 14.0000,\r\n        \"Unit2\": \"*10       \",\r\n        \"SellLoose\": false,\r\n        \"ProdConv2\": 14.0000,\r\n        \"Unit3\": \"0\",\r\n        \"CaseLot\": \"1\",\r\n        \"NameToPrint\": \"S CELEPRA 10                            \",\r\n        \"IsExpiryApplied\": true,\r\n        \"IsMfgDateApplied\": false,\r\n        \"IsUniqueIDapplied\": false,\r\n        \"IsColorApplied\": false,\r\n        \"IsBarCodeApplied\": true,\r\n        \"IsBatchApplied\": true,\r\n        \"IsVirtual\": false,\r\n        \"Description\": \"\",\r\n        \"FkprodCatgId\": 9,\r\n        \"FkmktGroupId\": 256,\r\n        \"FkmfgGroupId\": null,\r\n        \"ShelfID\": \"               \",\r\n        \"MinStock\": 0,\r\n        \"MaxStock\": 0,\r\n        \"MinDays\": null,\r\n        \"MaxDays\": null,\r\n        \"MRP\": 90.9400,\r\n        \"SaleRate\": 64.9600,\r\n        \"TradeRate\": 58.1800,\r\n        \"DistributionRate\": 0.0000,\r\n        \"SuggestedRate\": 64.9600,\r\n        \"MRPSaleRateUnit\": \"1\",\r\n        \"PurchaseRate\": 58.4600,\r\n        \"CostRate\": 58.4600,\r\n        \"PurchaseRateUnit\": \"1\",\r\n        \"AddLT\": false,\r\n        \"Barcode\": 0,\r\n        \"Weight\": 0.0000,\r\n        \"Height\": 0.0000,\r\n        \"Width\": 0.0000,\r\n        \"Length\": 0.0000,\r\n        \"WeightUnit\": null,\r\n        \"HeightUnit\": null,\r\n        \"Status\": \"C\",\r\n        \"DiscDate\": null,\r\n        \"IncreaseSaleRateBy\": null,\r\n        \"Image\": null,\r\n        \"KeepStock\": true,\r\n        \"AllowDecimal\": false,\r\n        \"BestBefore\": 0,\r\n        \"BestBeforeUnit\": \"0\",\r\n        \"Skudefinition\": null,\r\n        \"TradeDisc\": 0.0000,\r\n        \"Fkhsnid\": 161,\r\n        \"HSNCode\": \"30049099(GST12)\",\r\n        \"GroupName\": \"MICRO LABS SYNAPSE            \",\r\n        \"MfgGroupName\": null,\r\n        \"GroupAlias\": null,\r\n        \"MfgGroupAlias\": null,\r\n        \"Category\": \"N_A  [PG2,SG2]\",\r\n        \"CurrQty\": 1.000000,\r\n        \"curQtyUnit1\": 1.000000,\r\n        \"curQtyUnit2\": 0.000000,\r\n        \"pm_PkprodId\": 0,\r\n        \"pm_SellLoose\": false,\r\n        \"SalesTax\": \"SG2_G\",\r\n        \"FKSaleTaxID\": 68,\r\n        \"PurchaseTax\": \"PG2_G\",\r\n        \"FKPurchaseTaxID\": 49,\r\n        \"ProdCatgColor\": \"0\",\r\n        \"CategoryGroup\": null,\r\n        \"MRPSaleRateUnitDesc\": \"Strip     \",\r\n        \"PurchaseRateUnitDesc\": \"Strip     \",\r\n        \"MaxDiscount\": 0.0000,\r\n        \"defProdBatch\": null,\r\n        \"defProdExpDate\": null,\r\n        \"defProdMfgDate\": null,\r\n        \"defProdColor\": null,\r\n        \"defProdUniqueID\": null,\r\n        \"defProdNameStyle\": null,\r\n        \"defProdConv1\": null,\r\n        \"defProdConv2\": null,\r\n        \"defDimension\": null,\r\n        \"defUnit1\": null,\r\n        \"defUnit2\": null,\r\n        \"defTradeRate\": null,\r\n        \"defDistributionRate\": null,\r\n        \"TblProdLocLnk\": [],\r\n        \"TblProdAttrDtl\": [],\r\n        \"TblProdLotDtl\": [],\r\n        \"TblProdStockDtl\": [],\r\n        \"TblProdUniqueMas\": [],\r\n        \"dtBatch\": [],\r\n        \"pimage\": null,\r\n        \"Stock\": 0.000000,\r\n        \"CatgSKU\": null,\r\n        \"SaleRateCalcMethod\": null,\r\n        \"DiscountPer\": 0.0,\r\n        \"DiscountOn\": null,\r\n        \"MarginOn\": null,\r\n        \"MarginPer\": 0.0,\r\n        \"SaleTaxRate\": 0.0,\r\n        \"MRPOn\": null,\r\n        \"MRPCalcFactor\": 0.0,\r\n        \"MRPCalcRound\": 0.0,\r\n        \"SaleRateCalcRound\": 0.0,\r\n        \"DistRateRoundOff\": 0.0,\r\n        \"TradeRateRoundOff\": 0.0,\r\n        \"DistRateMargin\": 0.0,\r\n        \"TradeRateMargin\": 0.0,\r\n        \"DistRateOn\": null,\r\n        \"TradeRateOn\": null,\r\n        \"DeductionExpired\": 0.0,\r\n        \"DeductionDamaged\": 0.0,\r\n        \"DeductionDays\": 0,\r\n        \"PurDeductionExpired\": 0.0,\r\n        \"PurDeductionDamaged\": 0.0,\r\n        \"FKPurTaxIDWithoutCForm\": 0,\r\n        \"PurchaseTaxWithoutCForm\": null,\r\n        \"FKSalesTaxIDWithoutCForm\": 0,\r\n        \"SalesTaxWithoutCForm\": null,\r\n        \"FKSalesTaxIDWithCForm\": 0,\r\n        \"SalesTaxWithCForm\": null,\r\n        \"FKPurTaxIDWithCForm\": 0,\r\n        \"PurchaseTaxWithCForm\": null,\r\n        \"NoOfPrompt\": 0,\r\n        \"Prompt1\": null,\r\n        \"Prompt2\": null,\r\n        \"Prompt3\": null,\r\n        \"WidthPrompt1\": 0,\r\n        \"WidthPrompt2\": 0,\r\n        \"WidthPrompt3\": 0,\r\n        \"PurchaseTaxRate\": 0.0,\r\n        \"Generic1\": null,\r\n        \"Generic2\": null,\r\n        \"FkGenericId1\": null,\r\n        \"FkGenericId2\": null,\r\n        \"BoxSize\": null,\r\n        \"Schedule\": null,\r\n        \"PkprodId\": 0,\r\n        \"Remarks\": null,\r\n        \"Images\": null,\r\n        \"ImageStatus\": false,\r\n        \"FKUserID\": 1,\r\n        \"UserName\": \"admin\",\r\n        \"DATE_MODIFIED\": \"2021-05-07T13:25:46.173\",\r\n        \"FKCreatedByID\": 0,\r\n        \"CreatedByUser\": null,\r\n        \"CreationDate\": \"0001-01-01T00:00:00\"\r\n    }",
+					"raw": "{\r\n            \"PKID\": 10000040,\r\n            \"NameToDisplay\": \"helloooooooooo\",\r\n            \"Brand\": \"5E\",\r\n            \"Strength\": null,\r\n            \"Unit1\": \"Pack\",\r\n            \"ProdConv1\": 1,\r\n            \"Unit2\": \"NO\",\r\n            \"SellLoose\": false,\r\n            \"ProdConv2\": 5,\r\n            \"Unit3\": \"\",\r\n            \"IsExpiryApplied\": false,\r\n            \"IsMfgDateApplied\": false,\r\n            \"IsUniqueIDapplied\": true,\r\n            \"IsColorApplied\": false,\r\n            \"IsBarCodeApplied\": false,\r\n            \"Description\": null,\r\n            \"FkprodCatgId\": 10000073,\r\n            \"MRP\": 2799,\r\n            \"Barcode\": 0,\r\n            \"Weight\": null,\r\n            \"Height\": null,\r\n            \"Width\": null,\r\n            \"Length\": null,\r\n            \"WeightUnit\": null,\r\n            \"HeightUnit\": null,\r\n            \"Status\": \"C\",\r\n            \"BestBefore\": 0,\r\n            \"BestBeforeUnit\": \"D\",\r\n            \"Skudefinition\": null,\r\n            \"HSNCode\": \"84701000(GST18)\",\r\n            \"GroupName\": \"MOBILE ACCESSORIES\",\r\n            \"MfgGroupName\": null,\r\n            \"GroupAlias\": null,\r\n            \"MfgGroupAlias\": null,\r\n            \"Category\": [\r\n                \"POWER BANK\"\r\n            ],\r\n            \"CategoryGroup\": null,\r\n            \"CatgSKU\": null,\r\n            \"Generic1\": null,\r\n            \"Generic2\": null,\r\n            \"BoxSize\": \"0\",\r\n            \"Schedule\": null,\r\n            \"Remarks\": null,\r\n            \"Images\": null,\r\n            \"active\": true\r\n        }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -207,7 +198,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/admin/getProductsPerPage?page=1&noOfItems=1",
+					"raw": "http://localhost:1234/api/admin/getProductsPerPage?page=1&noOfItems=10",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -225,7 +216,7 @@
 						},
 						{
 							"key": "noOfItems",
-							"value": "1"
+							"value": "10"
 						}
 					]
 				}
@@ -270,7 +261,7 @@
 					]
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/admin/getProduct/63f5bc209d36a62495bd5963",
+					"raw": "http://localhost:1234/api/admin/getProduct/64105ca006e86a089e058e6f",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -280,7 +271,7 @@
 						"api",
 						"admin",
 						"getProduct",
-						"63f5bc209d36a62495bd5963"
+						"64105ca006e86a089e058e6f"
 					]
 				}
 			},
@@ -293,7 +284,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"_id\": \"63f5acc6fc46fccc18448604\",\r\n    \"PKID\": 498,\r\n    \"NameToDisplay\": \"shoee\",\r\n    \"active\": true,\r\n    \"__v\": 0\r\n}",
+					"raw": " {\r\n            \"_id\": \"6414530063531636a1202c46\",\r\n            \"PKID\": 10000038,\r\n            \"NameToDisplay\": \"5E BLAZE | GREY 5E\",\r\n            \"Brand\": \"5E\",\r\n            \"Strength\": null,\r\n            \"Unit1\": \"Pack\",\r\n            \"ProdConv1\": 1,\r\n            \"Unit2\": \"NO\",\r\n            \"SellLoose\": false,\r\n            \"ProdConv2\": 5,\r\n            \"Unit3\": \"\",\r\n            \"IsExpiryApplied\": false,\r\n            \"IsMfgDateApplied\": false,\r\n            \"IsUniqueIDapplied\": true,\r\n            \"IsColorApplied\": false,\r\n            \"IsBarCodeApplied\": true,\r\n            \"Description\": null,\r\n            \"FkprodCatgId\": 10000073,\r\n            \"MRP\": 2799,\r\n            \"Barcode\": 99901000000531,\r\n            \"Weight\": null,\r\n            \"Height\": null,\r\n            \"Width\": null,\r\n            \"Length\": null,\r\n            \"WeightUnit\": null,\r\n            \"HeightUnit\": null,\r\n            \"Status\": \"C\",\r\n            \"BestBefore\": 0,\r\n            \"BestBeforeUnit\": \"D\",\r\n            \"Skudefinition\": null,\r\n            \"HSNCode\": \"85176290(GST18)\",\r\n            \"GroupName\": \"MOBILE ACCESSORIES\",\r\n            \"MfgGroupName\": null,\r\n            \"GroupAlias\": null,\r\n            \"MfgGroupAlias\": null,\r\n            \"Category\": [\r\n                \"POWER BANK\",\r\n                \"electronics\"\r\n            ],\r\n            \"CategoryGroup\": null,\r\n            \"CatgSKU\": null,\r\n            \"Generic1\": null,\r\n            \"Generic2\": null,\r\n            \"BoxSize\": \"0\",\r\n            \"Schedule\": null,\r\n            \"Remarks\": null,\r\n            \"Images\": null,\r\n            \"active\": true,\r\n            \"promotionId\": [],\r\n            \"__v\": 0\r\n        }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -311,6 +302,38 @@
 						"api",
 						"admin",
 						"updateProduct"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "product/promotion",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"category\": [\r\n        \"electronics\"\r\n    ],\r\n    \"promotionId\":[76]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1234/api/admin//product/promotion",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"api",
+						"admin",
+						"",
+						"product",
+						"promotion"
 					]
 				}
 			},
@@ -433,7 +456,37 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n   \"Category\":[\"Fashion\"]\r\n}",
+					"raw": "{\r\n   \"Category\":[\"medical\"],\r\n   \"maxPrice\":3000,\r\n   \"minPrice\":2000,\r\n   \"brands\":[\"5E\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1234/api/admin/filterProd",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"api",
+						"admin",
+						"filterProd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "filterProducts Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Category\":[],\r\n   \"maxPrice\":3000,\r\n   \"minPrice\":2000\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -463,7 +516,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Diwali\",\r\n    \"description\": \"Diwali festival for big discounts\",\r\n    \"startDate\": \"12-12-2022\",\r\n    \"endDate\": \"22-12-2022\"\r\n}",
+					"raw": "{\r\n    \"title\": \"Holi\",\r\n    \"description\": \"Holi festival\",\r\n    \"imageData\": \"\",\r\n    \"contentType\": \"\",\r\n    \"startDate\":\"2023-04-01\",\r\n    \"endDate\":\"2023-05-01\",\r\n    \"priceDiscount\":20,\r\n    \"percentageDiscount\":null\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -496,7 +549,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\":\"Diwali\",\r\n    \"description\":\"Diwali festival for big discounts\",\r\n    \"startDate\":\"12-12-2022\",\r\n    \"EndDate\":\"22-12-2022\"\r\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -537,7 +590,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/admin/GetPromotionById/63f5bc829d36a62495bd596e",
+					"raw": "http://localhost:1234/api/admin/GetPromotionById/6412cbb240693042bf62f4b6",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -547,7 +600,99 @@
 						"api",
 						"admin",
 						"GetPromotionById",
-						"63f5bc829d36a62495bd596e"
+						"6412cbb240693042bf62f4b6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updatePromotion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"_id\": \"6412cbb240693042bf62f4b6\",\r\n    \"title\": \"Di3\",\r\n    \"description\": \"Holi ft\",\r\n    \"imageData\": {\r\n        \"type\": \"Buffer\",\r\n        \"data\": []\r\n    },\r\n    \"contentType\": \"\",\r\n    \"startDate\": \"2023-04-01T00:00:00.000Z\",\r\n    \"endDate\": \"2023-05-01T00:00:00.000Z\",\r\n    \"priceDiscount\": 20,\r\n    \"percentageDiscount\": null,\r\n    \"__v\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1234/api/admin/updatePromotion",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"api",
+						"admin",
+						"updatePromotion"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updatePromotion Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"_id\": \"6412cbb240693042bf62f4b6\",\r\n    \"title\": \"Diwal3\",\r\n    \"description\": \"Holi\",\r\n    \"imageData\": {\r\n        \"type\": \"Buffer\",\r\n        \"data\": []\r\n    },\r\n    \"contentType\": \"\",\r\n    \"startDate\": \"2023-04-01T00:00:00.000Z\",\r\n    \"endDate\": \"2023-05-01T00:00:00.000Z\",\r\n    \"priceDiscount\": 20,\r\n    \"percentageDiscount\": null,\r\n    \"__v\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1234/api/admin/updatePromotion",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"api",
+						"admin",
+						"updatePromotion"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeletePromotionById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1234/api/admin//DeletePromotionById/641012ed63a0a98fd54a42a3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"api",
+						"admin",
+						"",
+						"DeletePromotionById",
+						"641012ed63a0a98fd54a42a3"
 					]
 				}
 			},
@@ -633,7 +778,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n        \"_id\": \"63f5b7dafa511afc8fa5302a\",\r\n        \"PKID\": 588,\r\n        \"Party\": \" NEW\",\r\n        \"Customer\": null,\r\n        \"Vendor\": null,\r\n        \"Address\": \"1659  SRINAGAR  PANCHASAYAR NARENDRAPUR  KOLKATA- 700 094\",\r\n        \"District\": \"KOLKATA\",\r\n        \"Country\": \"Not Define\",\r\n        \"Pincode\": \"700 094\",\r\n        \"Phone\": null,\r\n        \"Mobile\": \"9330624199\",\r\n        \"Fax\": null,\r\n        \"Status\": \"F\",\r\n        \"Email\": \"newvivekanandapharmacy2019@gmail.com\",\r\n        \"Dob\": null,\r\n        \"PaymentMode\": \"R\",\r\n        \"Contact\": \"RC                            \",\r\n        \"Station\": \"KOLKATA        \",\r\n        \"State\": \"West Bengal         \",\r\n        \"Locality\": \"KOLKATA        \",\r\n        \"Carrier\": \"                              \",\r\n        \"Account\": null,\r\n        \"Bank\": null,\r\n        \"Images\": null,\r\n        \"__v\": 0\r\n    }",
+					"raw": " {\r\n            \"_id\": \"641070d44d3f40603ca94267\",\r\n            \"PKID\": 588,\r\n            \"Party\": \"Shrut\",\r\n            \"Customer\": \"shruti bharti\",\r\n            \"Vendor\": null,\r\n            \"Address\": \"1659  SRINAGAR  PANCHASAYAR NARENDRAPUR  KOLKATA- 700 094\",\r\n            \"District\": \"KOLKATA\",\r\n            \"Country\": \"Not Define\",\r\n            \"Pincode\": \"700 094\",\r\n            \"Phone\": null,\r\n            \"Mobile\": \"9330624199\",\r\n            \"Fax\": null,\r\n            \"Status\": \"F\",\r\n            \"Email\": \"newvivekanandapharmacy2019@gmail.com                                                                \",\r\n            \"Dob\": null,\r\n            \"PaymentMode\": \"R\",\r\n            \"Contact\": \"RC\",\r\n            \"Station\": \"KOLKATA\",\r\n            \"State\": \"West Bengal\",\r\n            \"Locality\": \"KOLKATA\",\r\n            \"Carrier\": \"\",\r\n            \"Account\": null,\r\n            \"Bank\": null,\r\n            \"Images\": null,\r\n            \"__v\": 0\r\n        }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -641,7 +786,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/admin/updatecustomer/63f5b7dafa511afc8fa5302a",
+					"raw": "http://localhost:1234/api/admin/updatecustomer/641070d44d3f40603ca94267",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -651,20 +796,20 @@
 						"api",
 						"admin",
 						"updatecustomer",
-						"63f5b7dafa511afc8fa5302a"
+						"641070d44d3f40603ca94267"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "updatecustomer Copy",
+			"name": "Delete customer",
 			"request": {
-				"method": "POST",
+				"method": "DELETE",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"_id\": \"63f5b7dafa511afc8fa5302a\",\r\n    \"PKID\": 588,\r\n    \"Party\": \" NEW b\",\r\n    \"Customer\": null,\r\n    \"Vendor\": null,\r\n    \"Address\": \"1659  SRINAGAR  PANCHASAYAR NARENDRAPUR  KOLKATA- 700 094\",\r\n    \"District\": \"KOLKATA\",\r\n    \"Country\": \"Not Define\",\r\n    \"Pincode\": \"700 094\",\r\n    \"Phone\": null,\r\n    \"Mobile\": \"9330624199\",\r\n    \"Fax\": null,\r\n    \"Status\": \"F\",\r\n    \"Email\": \"newvivekanandapharmacy2019@gmail.com\",\r\n    \"Dob\": null,\r\n    \"PaymentMode\": \"R\",\r\n    \"Contact\": \"RC                            \",\r\n    \"Station\": \"KOLKATA        \",\r\n    \"State\": \"West Bengal         \",\r\n    \"Locality\": \"KOLKATA        \",\r\n    \"Carrier\": \"                              \",\r\n    \"Account\": null,\r\n    \"Bank\": null,\r\n    \"Images\": null,\r\n    \"__v\": 0\r\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -672,7 +817,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/admin/updatecustomer/63f5b7dafa511afc8fa5302a",
+					"raw": "http://localhost:1234/api/admin/deletecustomer/641c149108eb34c3d1732bdd",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -681,8 +826,8 @@
 					"path": [
 						"api",
 						"admin",
-						"updatecustomer",
-						"63f5b7dafa511afc8fa5302a"
+						"deletecustomer",
+						"641c149108eb34c3d1732bdd"
 					]
 				}
 			},
@@ -788,7 +933,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"_ids\": [\r\n        \"6401a17953b57ec6182322b0\",\"6401a17053b57ec6182322a6\",\"6401a16853b57ec61823229c\"\r\n    ]\r\n}",
+					"raw": "{\r\n    \"_ids\": [\"6401c9ffbdac78edd0fbef3a\"]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -818,7 +963,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"_id\": \"63ff1378b6e3ebe0fdbacb53\",\r\n    \"name\": \"Samsung m30s 128\"\r\n}",
+					"raw": "{\r\n    \"_id\": \"641bd865d29eb3b3f5bf7de5\",\r\n    \"name\": \"bagi\",\r\n    \"parent\": null,\r\n    \"children\": [],\r\n    \"__v\": 0\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -874,6 +1019,88 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "create Setting",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n    \"name\": \"omesh\",\r\n    \"email\": \"omesh@gmail.com\",\r\n    \"address\": \"jaipur\",\r\n    \"gstNo\": \"1234567890\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1234/api/admin/Setting",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"api",
+						"admin",
+						"Setting"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "all Setting",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:1234/api/admin/Setting",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"api",
+						"admin",
+						"Setting"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update Setting",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"omesh ymmm\",\r\n    \"email\": \"omesh@gmail.com\",\r\n    \"address\": \"jaipur\",\r\n    \"gstNo\": \"1234567890\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1234/api/admin/Setting/641d33a64bdc705684097f22",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"api",
+						"admin",
+						"Setting",
+						"641d33a64bdc705684097f22"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"auth": {
@@ -881,7 +1108,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbmMiOiJmNjUxNGUxNTg4ZDBkNmI3ZjhhNzBhYTFiM2M4YzEyZDA2M2IyMDI1ZDlmYmYzZDM2NTYzNmY5OWUxYTY3YzFhNzU2ZTkxNzcyZmRjYzI0MDY3MzE4N2E4ZDFmZDUwMGU5NTVjOTE3MGEzZDg4OWQ0YTE5NzBkYjJlYmUxODk5MmI3ODMzYTAyMDA0OWUzMWI0ZTc3ODMyYTUzZjI1N2Q3MzNlOWQ4NTE4YjU1Mjc2ZWY2MjIwNmRmNGI0ZTg0YWY1OWUzZjRjMmNiZjE5ZjlkODYwNjM3M2VlYTdkYTIxYTc4ZjlmZWRmYjFhMGY4Y2JlNWI0ODAxZTgxYmM1NjM1NjQzZmU2ZjAxZDI4NzU1YmRiYjk1OWE5MTQyZTc5OGU1NTMyMGRkOGZlN2NiMDk4MDZlZjViZTEwNWExNjBjYWFiMzBmZjdhMjg5MjUzZGQ3N2M5OWI2NGYzMzAyY2E4N2I5Y2Y5YTQ5OTU3NGFlMTBkMjUyNWJhNDRlZjAwZmNlMjQ1ZWI2NDU3MDY2ZjlkOGE3YjMzY2M0YmViZTY5YiIsImlhdCI6MTY3ODA4MjIxNSwiZXhwIjoxNjc4MTI1NDE1fQ.l2ebYHLmi8Wpk05GdyZA9pCisc_6QLD5ut3np2-hs4M",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbmMiOiJmNGJhNTY4MzUzNjBhNzAzNjU2NzZmMzU4NWVjNDVjYTllZjQ0ZGZmODcxNTc1NWY5YjZiOWJiZWJlZTgxYmMwMTNkMDYzM2I0ODgzN2I4MGZhNjM2ZmQwNmQxNWRiZWViZjkwMjlhYmFlOTJhNzJlMGI5MTliNmMzMThkZjAyNzcwZmNjZDdmOGIyODYxMzFjNTZlZWE1YjAwYjNhNGNmYWIwYmY0MWIxMzMyNjU5Y2JkMGMxMGI4NjBiZWJlM2M5MjRmYzU4OWEzM2UxNDI5MjlkN2RlMDI5OTBjZjBlYWI1ZjdkNzg0YTllMWRlYmRiODBlMmY2ZGU1MzI0OWQ5OTk4OGQ4Zjk1NjVjZjBiZGE0NzcxNmY4MDEwOTJkYTUxNDI2MTE4N2VlN2VhYzM0OWQwZjlmYzVlMzM0NzZiOWFiMzk2ZjJmNWFjMjhiZDQwY2Q5N2YxYmQ3M2JhZWViOTU2NzMyZjNkN2Q2OTMzZjZhN2JjNmM0MzUwMmI3YThkODcwOWM2NzExODBhMDUwMjQ4NWU4YWMzZTI4MmMyN2NkYThkZThlYjUzMzhlZWYzOGJkNGYzNDk4N2U2ZjE4IiwiaWF0IjoxNjc5NjMzODMyLCJleHAiOjE2Nzk2NzcwMzJ9.1vd3t7RrrAVV0RPzOHwDv0c5NQtoqsW0Qp8x__i4w8Q",
 				"type": "string"
 			}
 		]
