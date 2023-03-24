@@ -2,6 +2,12 @@ const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema;
 
+const b2bSchema = new Schema({
+  address: {
+    type: String
+  }
+})
+
 const customerSchema = new Schema({
   PKID: {
     type: Number,
@@ -11,7 +17,6 @@ const customerSchema = new Schema({
   },
   Party: {
     type: String,
-    required: true
   },
   Customer: {
     type: String,
@@ -78,7 +83,6 @@ const customerSchema = new Schema({
   },
   Bank: {
     type: String,
-
   },
   Images: {
     type: String,
@@ -86,15 +90,18 @@ const customerSchema = new Schema({
   Selected: {
     type: String,
   },
-  client: {
-    type: Array
-  },
-  [process.env.b2b]: {
-    type: Array,
-  },
+
+  [process.env.b2b]: b2bSchema,
+
   [process.env.b2c]: {
     type: Array
+  },
+  updatedBy: {
+    type: Schema.Types.ObjectId,
+    ref: 'Users'
   }
 })
+
+
 
 module.exports = mongoose.model('Customer', customerSchema)

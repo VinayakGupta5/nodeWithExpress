@@ -3,6 +3,7 @@ const Setting = require('../../models/SettingModel')
 exports.CreateSetting = (req, res, next) => {
   console.log("req.userData", req.userData)
   const setting = new Setting({
+    auth_id: req.userData._id,
     name: req.body.name,
     email: req.body.email,
     address: req.body.address,
