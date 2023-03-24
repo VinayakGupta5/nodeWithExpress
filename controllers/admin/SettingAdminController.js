@@ -99,3 +99,32 @@ exports.UpdateSetting = (req, res, next) => {
   mongoConnect();
 }
 
+exports.DeleteSettingById = (req,res,next) => {
+
+  const _id = req.params._id
+  console.log("_id", _id)
+  async function mongoConnect() {
+    await connectToDb(req.userData.connectString)
+      .then((result) => {
+        Setting.findOneAndDelete(_id)
+          .then(response => {
+            return res.status(200).send({
+              status: 'success',
+              msg: '',
+              data: response
+            })
+          })
+          .catch((err) => {
+            return res.status(500).send({
+              status: 'failed',
+              msg: '',
+              data: []
+            })
+          })
+
+      })
+  }
+
+  mongoConnect();
+}
+
