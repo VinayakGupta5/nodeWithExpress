@@ -12,14 +12,16 @@ const customerAdminRouter = require('./routes/admin/CustomerAdminRouter')
 
 
 const cors = require('cors');
-const port = 1234;
+// const port = 1234;
+const port = process.env.PORT;
 
 const app = express()
-app.use(cors({
-  methods: ['GET', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
-  origin: 'http://localhost:3000',
-  allowedHeaders: ['Authorization', 'Content-Type']
-}))
+// app.use(cors({
+//   methods: ['GET', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
+//   origin: '*',
+//   allowedHeaders: ['Authorization', 'Content-Type']
+// }))
+app.use(cors())
 
 
 app.use(express.static('public'));
@@ -50,5 +52,5 @@ app.use('/api/customer', isAuth, customerRouter)
 
 
 app.listen(port, () => {
-  console.log("listen server on http://localhost:" + port) 
+  console.log("listen server on" +  process.env.baseUrl + port) 
 })   

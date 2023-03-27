@@ -99,6 +99,9 @@ const customerSchema = new Schema({
   updatedBy: {
     type: Schema.Types.ObjectId,
     ref: 'Users'
+  },
+  CreationDate:{
+    type:Date
   }
 })
 
