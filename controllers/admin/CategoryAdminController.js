@@ -28,7 +28,7 @@ exports.CreateMainCategory = async (req, res, next) => {
     await connectToDb(databaseName)
       .then(async (result) => {
 
-        const category = new Category({ name,active, parent });
+        const category = new Category({ name, active, parent });
         Category.findOne({ name: name })
           .then((found) => {
             if (found) {
@@ -101,7 +101,7 @@ exports.CreateSubCategory = async (req, res) => {
 
         var category = Category({
           name: name,
-          active:active,
+          active: active,
           parent: parentId
         })
 
@@ -254,13 +254,22 @@ exports.updateCategory = (req, res, next) => {
   //   });
   // }
 
- 
+  const operations = updateCategoryObj.map(category => {
+    return {
+      updateOne: {
+        filter: { _id: category._id },
+        update: { $set: { name: category.name, active: category.active } }
+      }
+    };
+  });
+
+
   async function mongoConnect() {
     await connectToDb(req.userData.connectString)
       .then(async (result) => {
-       await Category.updateMany({}, updateCategoryObj)
+        await Category.bulkWrite(operations)
 
-        // Category.findByIdAndUpdate(id, { name })
+          // Category.findByIdAndUpdate(id, { name })
           .then(updateCategory => {
             return res.status(200).send({
               status: 'success',
