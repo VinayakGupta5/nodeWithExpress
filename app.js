@@ -5,10 +5,13 @@ const AuthAdminRouter = require('./routes/admin/AuthAdminRouter')
 const PromotionAdminRouter = require('./routes/admin/PromotionAdminRouter')
 const CategoryAdminRouter = require('./routes/admin/CategoryAdminRouter')
 const SettingAdminRouter = require('./routes/admin/SettingAdminRouter')
+const customerAdminRouter = require('./routes/admin/CustomerAdminRouter')
+
 
 const isAuth = require('./middleware/isAuth');
 const customerRouter = require('./routes/customer/CustomerRouter')
-const customerAdminRouter = require('./routes/admin/CustomerAdminRouter')
+const productCustomerRouter = require('./routes/customer/ProductCustomerRouter')
+
 
 
 const cors = require('cors');
@@ -49,8 +52,9 @@ app.use('/api/admin', isAuth, SettingAdminRouter)
 
 
 app.use('/api/customer', isAuth, customerRouter)
+app.use('/api/customer', isAuth, productCustomerRouter)
 
 
 app.listen(port, () => {
-  console.log("listen server on" +  process.env.baseUrl + port) 
+  console.log("listen server on" + process.env.baseUrl + port)
 })   
