@@ -7,7 +7,7 @@ router.post('/CreateMainCategory', categoryAdminController.CreateMainCategory)
 router.post('/CreateSubCategory', categoryAdminController.CreateSubCategory)
 router.get('/getCategory', categoryAdminController.getCategory)
 router.delete('/deleteCategory', categoryAdminController.deleteCategory)
-router.post('/updateCategory', categoryAdminController.updateCategory)
+router.put('/updateCategory', categoryAdminController.updateCategory)
 router.get('/getCategoryById/:_id', categoryAdminController.getCategoryById)
 
 module.exports = router;

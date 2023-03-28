@@ -6,6 +6,9 @@ const categorySchema = new Schema({
     type: String,
     required: true
   },
+  active: {
+    type: Boolean
+  },
   parent: {
     type: Schema.Types.ObjectId,
     ref: 'Category'

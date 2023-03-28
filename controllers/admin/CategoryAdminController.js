@@ -5,6 +5,7 @@ exports.CreateMainCategory = async (req, res, next) => {
 
   const parent = req.body.parent;
   const name = req.body.name.toLowerCase();
+  const active = req.body.active
   console.log("name", name);
 
   if (name === '' || name === null || name === undefined) {
@@ -27,11 +28,11 @@ exports.CreateMainCategory = async (req, res, next) => {
     await connectToDb(databaseName)
       .then(async (result) => {
 
-        const category = new Category({ name, parent });
+        const category = new Category({ name,active, parent });
         Category.findOne({ name: name })
           .then((found) => {
             if (found) {
-              return res.status(200).send({
+              return res.status(403).send({
                 status: 'failed',
                 msg: 'Category already exists',
                 data: []
@@ -75,6 +76,7 @@ exports.CreateSubCategory = async (req, res) => {
 
   const parentId = req.body.parentId;
   const name = req.body.name.toLowerCase();
+  const active = req.body.active
 
 
   if (name === '' || name === null || name === undefined) {
@@ -96,9 +98,10 @@ exports.CreateSubCategory = async (req, res) => {
     Category.findById(parentId)
       .then(mainCategory => {
         console.log("mainCategory", mainCategory);
-        
+
         var category = Category({
           name: name,
+          active:active,
           parent: parentId
         })
 
@@ -122,16 +125,16 @@ exports.CreateSubCategory = async (req, res) => {
   async function mongoConnect() {
     await connectToDb(databaseName)
       .then(async (result) => {
-        Category.findOne({ name: name,parent:parentId })
+        Category.findOne({ name: name, parent: parentId })
           .then((found) => {
             if (found) {
               // if (found.parent.equals(parentId)) {
               //   console.log("running",)
-                return res.status(200).send({
-                  status: 'failed',
-                  msg: 'Category already exists',
-                  data: []
-                });
+              return res.status(403).send({
+                status: 'failed',
+                msg: 'Category already exists',
+                data: []
+              });
               // }
               // else {
               //   createSubCategory()
@@ -142,11 +145,11 @@ exports.CreateSubCategory = async (req, res) => {
             }
           })
       })
-  } 
+  }
   mongoConnect()
 }
 
- 
+
 exports.getCategory = (req, res, next) => {
 
   console.log("get category---------1")
@@ -179,10 +182,10 @@ exports.getCategory = (req, res, next) => {
             status: 'failed',
             msg: err.message,
             data: err
-          }); 
+          });
         }
-      }) 
-  } 
+      })
+  }
   mongoConnect()
 }
 
@@ -210,7 +213,7 @@ exports.deleteCategory = (req, res, next) => {
         await Category.deleteMany({ _id: { $in: ids } }).exec()
           .then(result1 => {
             // const existProdIds = result1?.map(pro => pro.PKID);
-            return res.send({
+            return res.status(200).send({
               status: 'success',
               message: "",
               data: { _id: result1 }
@@ -219,7 +222,7 @@ exports.deleteCategory = (req, res, next) => {
           .catch(err => {
             return res.status(400).send({
               status: "failed",
-              err: err
+              msg: err
             })
           })
       })
@@ -229,32 +232,35 @@ exports.deleteCategory = (req, res, next) => {
 
 
 exports.updateCategory = (req, res, next) => {
-  const id = req.body._id
-  const name = req.body.name;
-  console.log("id: " + id)
-  console.log("name: " + name)
+  // const id = req.body._id
+  // const name = req.body.name;
+  const updateCategoryObj = req.body
+  // console.log("id: " + id)
+  // console.log("name: " + name)
 
-  if (id === undefined || id === null || id === '') {
-    return res.status(200).send({
-      status: 'failed',
-      msg: 'Category id is required',
-      data: []
-    });
-  }
+  // if (id === undefined || id === null || id === '') {
+  //   return res.status(400).send({
+  //     status: 'failed',
+  //     msg: 'Category id is required',
+  //     data: []
+  //   });
+  // }
 
-  if (name === undefined || name === null || name === '') {
-    return res.status(200).send({
-      status: 'failed',
-      msg: 'Category name is required',
-      data: []
-    });
-  }
+  // if (name === undefined || name === null || name === '') {
+  //   return res.status(400).send({
+  //     status: 'failed',
+  //     msg: 'Category name is required',
+  //     data: []
+  //   });
+  // }
 
-  const databaseName = req.userData.connectString;
+ 
   async function mongoConnect() {
-    await connectToDb(databaseName)
+    await connectToDb(req.userData.connectString)
       .then(async (result) => {
-        Category.findByIdAndUpdate(id, { name })
+       await Category.updateMany({}, updateCategoryObj)
+
+        // Category.findByIdAndUpdate(id, { name })
           .then(updateCategory => {
             return res.status(200).send({
               status: 'success',
@@ -262,6 +268,7 @@ exports.updateCategory = (req, res, next) => {
               data: updateCategory
             })
           })
+
 
       })
       .catch(err => {
