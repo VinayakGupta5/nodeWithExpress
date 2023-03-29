@@ -385,9 +385,10 @@ exports.filterProducts = (req, res, next) => {
   const minPrice = req.body.minPrice
   const maxPrice = req.body.maxPrice
   const brands = req.body.brands
+  console.log("categorySearch", categorySearch)
 
   let filters = {};
-  if (categorySearch?.legth > 0) {
+  if (categorySearch?.length > 0) {
     filters.Category = { $in: categorySearch };
   }
   if (minPrice || maxPrice) {
@@ -408,6 +409,7 @@ exports.filterProducts = (req, res, next) => {
   async function mongoConnect() {
     await connectToDb(databaseName)
       .then((result) => {
+        console.log('filters', filters)
 
         Product.find(filters)
           .then((filterProducts) => {
