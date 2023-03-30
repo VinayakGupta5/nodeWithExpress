@@ -5,6 +5,7 @@ const router = express.Router()
 
 router.post('/signup', authController.Signup)
 router.post('/login', authController.Login)
+router.post('/websiteVerify', authController.websiteVerify)
 
 
 

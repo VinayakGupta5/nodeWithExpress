@@ -21,12 +21,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/auth/signup",
-					"protocol": "http",
+					"raw": "{{baseUrl1}}/api/auth/signup",
 					"host": [
-						"localhost"
+						"{{baseUrl1}}"
 					],
-					"port": "1234",
 					"path": [
 						"api",
 						"auth",
@@ -51,12 +49,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/auth/login",
-					"protocol": "http",
+					"raw": "{{baseUrl1}}/api/auth/login",
 					"host": [
-						"localhost"
+						"{{baseUrl1}}"
 					],
-					"port": "1234",
 					"path": [
 						"api",
 						"auth",
@@ -80,12 +76,10 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/admin/getProducts",
-					"protocol": "http",
+					"raw": "{{baseUrl1}}/api/admin/getProducts",
 					"host": [
-						"localhost"
+						"{{baseUrl1}}"
 					],
-					"port": "1234",
 					"path": [
 						"api",
 						"admin",
@@ -110,12 +104,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/admin/addManyProduct",
-					"protocol": "http",
+					"raw": "{{baseUrl1}}/api/admin/addManyProduct",
 					"host": [
-						"localhost"
+						"{{baseUrl1}}"
 					],
-					"port": "1234",
 					"path": [
 						"api",
 						"admin",
@@ -140,12 +132,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/admin/addProduct",
-					"protocol": "http",
+					"raw": "{{baseUrl1}}/api/admin/addProduct",
 					"host": [
-						"localhost"
+						"{{baseUrl1}}"
 					],
-					"port": "1234",
 					"path": [
 						"api",
 						"admin",
@@ -170,12 +160,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/admin/checkProductsExist",
-					"protocol": "http",
+					"raw": "{{baseUrl1}}/api/admin/checkProductsExist",
 					"host": [
-						"localhost"
+						"{{baseUrl1}}"
 					],
-					"port": "1234",
 					"path": [
 						"api",
 						"admin",
@@ -198,12 +186,10 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/admin/getProductsPerPage?page=1&noOfItems=10",
-					"protocol": "http",
+					"raw": "{{baseUrl1}}/api/admin/getProductsPerPage?page=1&noOfItems=10",
 					"host": [
-						"localhost"
+						"{{baseUrl1}}"
 					],
-					"port": "1234",
 					"path": [
 						"api",
 						"admin",
@@ -261,12 +247,10 @@
 					]
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/admin/getProduct/64105ca006e86a089e058e6f",
-					"protocol": "http",
+					"raw": "{{baseUrl1}}/api/admin/getProduct/64105ca006e86a089e058e6f",
 					"host": [
-						"localhost"
+						"{{baseUrl1}}"
 					],
-					"port": "1234",
 					"path": [
 						"api",
 						"admin",
@@ -292,12 +276,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/admin/updateProduct",
-					"protocol": "http",
+					"raw": "{{baseUrl1}}/api/admin/updateProduct",
 					"host": [
-						"localhost"
+						"{{baseUrl1}}"
 					],
-					"port": "1234",
 					"path": [
 						"api",
 						"admin",
@@ -322,12 +304,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/admin//product/promotion",
-					"protocol": "http",
+					"raw": "{{baseUrl1}}/api/admin//product/promotion",
 					"host": [
-						"localhost"
+						"{{baseUrl1}}"
 					],
-					"port": "1234",
 					"path": [
 						"api",
 						"admin",
@@ -374,12 +354,10 @@
 					]
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/admin/deleteProduct/63e4bf62ecc51bd3c6917940",
-					"protocol": "http",
+					"raw": "{{baseUrl1}}/api/admin/deleteProduct/63e4bf62ecc51bd3c6917940",
 					"host": [
-						"localhost"
+						"{{baseUrl1}}"
 					],
-					"port": "1234",
 					"path": [
 						"api",
 						"admin",
@@ -428,12 +406,10 @@
 					]
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/admin/searchProdByName?search=",
-					"protocol": "http",
+					"raw": "{{baseUrl1}}/api/admin/searchProdByName?search=",
 					"host": [
-						"localhost"
+						"{{baseUrl1}}"
 					],
-					"port": "1234",
 					"path": [
 						"api",
 						"admin",
@@ -464,12 +440,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/admin/filterProd",
-					"protocol": "http",
+					"raw": "{{baseUrl}}/api/admin/filterProd",
 					"host": [
-						"localhost"
+						"{{baseUrl}}"
 					],
-					"port": "1234",
 					"path": [
 						"api",
 						"admin",
@@ -486,7 +460,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n   \"Category\":[],\r\n   \"maxPrice\":3000,\r\n   \"minPrice\":2000\r\n}",
+					"raw": "{\r\n   \"Category\":[\"power bank\"]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -494,12 +468,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/admin/filterProd",
-					"protocol": "http",
+					"raw": "{{baseUrl}}/api/admin/filterProd",
 					"host": [
-						"localhost"
+						"{{baseUrl}}"
 					],
-					"port": "1234",
 					"path": [
 						"api",
 						"admin",
@@ -524,12 +496,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/admin/createPromotion",
-					"protocol": "http",
+					"raw": "{{baseUrl1}}/api/admin/createPromotion",
 					"host": [
-						"localhost"
+						"{{baseUrl1}}"
 					],
-					"port": "1234",
 					"path": [
 						"api",
 						"admin",
@@ -557,12 +527,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/admin/GetAllPromotion",
-					"protocol": "http",
+					"raw": "{{baseUrl1}}/api/admin/GetAllPromotion",
 					"host": [
-						"localhost"
+						"{{baseUrl1}}"
 					],
-					"port": "1234",
 					"path": [
 						"api",
 						"admin",
@@ -590,12 +558,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/admin/GetPromotionById/6412cbb240693042bf62f4b6",
-					"protocol": "http",
+					"raw": "{{baseUrl1}}/api/admin/GetPromotionById/6412cbb240693042bf62f4b6",
 					"host": [
-						"localhost"
+						"{{baseUrl1}}"
 					],
-					"port": "1234",
 					"path": [
 						"api",
 						"admin",
@@ -651,12 +617,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/admin/updatePromotion",
-					"protocol": "http",
+					"raw": "{{baseUrl1}}/api/admin/updatePromotion",
 					"host": [
-						"localhost"
+						"{{baseUrl1}}"
 					],
-					"port": "1234",
 					"path": [
 						"api",
 						"admin",
@@ -681,12 +645,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/admin//DeletePromotionById/641012ed63a0a98fd54a42a3",
-					"protocol": "http",
+					"raw": "{{baseUrl1}}/api/admin//DeletePromotionById/641012ed63a0a98fd54a42a3",
 					"host": [
-						"localhost"
+						"{{baseUrl1}}"
 					],
-					"port": "1234",
 					"path": [
 						"api",
 						"admin",
@@ -705,7 +667,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": " {\r\n        \"AttributeList\": null,\r\n        \"FKOldCustomerID\": null,\r\n        \"FKOldVendorID\": null,\r\n        \"PKID\": 588,\r\n        \"Party\": \"Shruti\",\r\n        \"Customer\": \"shruti bharti\",\r\n        \"pCustomer\": null,\r\n        \"Vendor\": null,\r\n        \"Alias\": \"NVP2\",\r\n        \"Address\": \"1659  SRINAGAR  PANCHASAYAR NARENDRAPUR  KOLKATA- 700 094\",\r\n        \"pAddress\": null,\r\n        \"FkstationId\": null,\r\n        \"pFkstationId\": null,\r\n        \"FklocalityId\": null,\r\n        \"FkmasterCustomerId\": null,\r\n        \"District\": \"KOLKATA\",\r\n        \"Country\": \"Not Define\",\r\n        \"FkcarrierId\": null,\r\n        \"Pincode\": \"700 094\",\r\n        \"Phone\": null,\r\n        \"Mobile\": \"9330624199\",\r\n        \"Fax\": null,\r\n        \"Status\": \"F\",\r\n        \"FKPostingID\": 0,\r\n        \"Email\": \"newvivekanandapharmacy2019@gmail.com                                                                \",\r\n        \"EmailCC\": null,\r\n        \"Website\": null,\r\n        \"CreditDays\": 25,\r\n        \"CreditLimit\": 0.0000,\r\n        \"SupplyDays\": null,\r\n        \"PaymentDays\": null,\r\n        \"FkbankId\": null,\r\n        \"page\": null,\r\n        \"licence\": null,\r\n        \"Dob\": null,\r\n        \"Dow\": null,\r\n        \"PaymentMode\": \"R\",\r\n        \"SeriesPrefix\": null,\r\n        \"DiscDate\": null,\r\n        \"Contact\": \"RC\",\r\n        \"IsDefaulter\": false,\r\n        \"PaymentModeDesc\": \"Credit\",\r\n        \"Station\": \"KOLKATA\",\r\n        \"State\": \"West Bengal\",\r\n        \"Locality\": \"KOLKATA\",\r\n        \"Carrier\": \"\",\r\n        \"Account\": null,\r\n        \"Bank\": null,\r\n        \"No\": \"License 1\",\r\n        \"StatusDesc\": \"InActive\",\r\n        \"OverDueDays\": 20,\r\n        \"PriceListCount\": 0,\r\n        \"FKStateID\": 0,\r\n        \"FkcustCatgId\": null,\r\n        \"CustCategory\": null,\r\n        \"FKReferByIDPD\": null,\r\n        \"FKReferByVendorIDPD\": null,\r\n        \"ReferByPD\": null,\r\n        \"FKReferByID\": null,\r\n        \"FKReferByVendorID\": null,\r\n        \"ReferBy\": \"RAJU CHATTERJEE\",\r\n        \"RateHikeBy\": 0.0,\r\n        \"ProdCatgFilter\": null,\r\n        \"Points\": null,\r\n        \"PointExpDate\": null,\r\n        \"FKAreaID\": 0,\r\n        \"FKDistrictID\": null,\r\n        \"Gstno\": \"19CCIPS0372R1ZQ\",\r\n        \"pGstno\": null,\r\n        \"Gstdate\": null,\r\n        \"GSTVDate\": null,\r\n        \"Composition\": false,\r\n        \"CompIdate\": null,\r\n        \"CompVdate\": null,\r\n        \"Distance\": null,\r\n        \"LocationList\": null,\r\n        \"Area\": \"**             \",\r\n        \"StmtPeriod\": 0,\r\n        \"RGRegNo\": null,\r\n        \"ApplyPromotion\": false,\r\n        \"ApplyDiscount\": false,\r\n        \"OldCustomer\": null,\r\n        \"Remarks\": null,\r\n        \"Images\": null,\r\n        \"ImageStatus\": false,\r\n        \"FKUserID\": 1,\r\n        \"UserName\": \"admin\",\r\n        \"DATE_MODIFIED\": \"2022-12-06T15:42:42.623\",\r\n        \"FKCreatedByID\": 0,\r\n        \"CreatedByUser\": null,\r\n        \"CreationDate\": \"0001-01-01T00:00:00\"\r\n    }",
+					"raw": " {\r\n        \"AttributeList\": null,\r\n        \"FKOldCustomerID\": null,\r\n        \"FKOldVendorID\": null,\r\n        \"PKID\": 589,\r\n        \"Party\": \"bhargav\",\r\n        \"Customer\": \"shruti bharti\",\r\n        \"pCustomer\": null,\r\n        \"Vendor\": null,\r\n        \"Alias\": \"NVP2\",\r\n        \"Address\": \"1659  SRINAGAR  PANCHASAYAR NARENDRAPUR  KOLKATA- 700 094\",\r\n        \"pAddress\": null,\r\n        \"FkstationId\": null,\r\n        \"pFkstationId\": null,\r\n        \"FklocalityId\": null,\r\n        \"FkmasterCustomerId\": null,\r\n        \"District\": \"KOLKATA\",\r\n        \"Country\": \"Not Define\",\r\n        \"FkcarrierId\": null,\r\n        \"Pincode\": \"700 094\",\r\n        \"Phone\": null,\r\n        \"Mobile\": \"9330624199\",\r\n        \"Fax\": null,\r\n        \"Status\": \"F\",\r\n        \"FKPostingID\": 0,\r\n        \"Email\": \"newvivekanandapharmacy2019@gmail.com                                                                \",\r\n        \"EmailCC\": null,\r\n        \"Website\": null,\r\n        \"CreditDays\": 25,\r\n        \"CreditLimit\": 0.0000,\r\n        \"SupplyDays\": null,\r\n        \"PaymentDays\": null,\r\n        \"FkbankId\": null,\r\n        \"page\": null,\r\n        \"licence\": null,\r\n        \"Dob\": null,\r\n        \"Dow\": null,\r\n        \"PaymentMode\": \"R\",\r\n        \"SeriesPrefix\": null,\r\n        \"DiscDate\": null,\r\n        \"Contact\": \"RC\",\r\n        \"IsDefaulter\": false,\r\n        \"PaymentModeDesc\": \"Credit\",\r\n        \"Station\": \"KOLKATA\",\r\n        \"State\": \"West Bengal\",\r\n        \"Locality\": \"KOLKATA\",\r\n        \"Carrier\": \"\",\r\n        \"Account\": null,\r\n        \"Bank\": null,\r\n        \"No\": \"License 1\",\r\n        \"StatusDesc\": \"InActive\",\r\n        \"OverDueDays\": 20,\r\n        \"PriceListCount\": 0,\r\n        \"FKStateID\": 0,\r\n        \"FkcustCatgId\": null,\r\n        \"CustCategory\": null,\r\n        \"FKReferByIDPD\": null,\r\n        \"FKReferByVendorIDPD\": null,\r\n        \"ReferByPD\": null,\r\n        \"FKReferByID\": null,\r\n        \"FKReferByVendorID\": null,\r\n        \"ReferBy\": \"RAJU CHATTERJEE\",\r\n        \"RateHikeBy\": 0.0,\r\n        \"ProdCatgFilter\": null,\r\n        \"Points\": null,\r\n        \"PointExpDate\": null,\r\n        \"FKAreaID\": 0,\r\n        \"FKDistrictID\": null,\r\n        \"Gstno\": \"19CCIPS0372R1ZQ\",\r\n        \"pGstno\": null,\r\n        \"Gstdate\": null,\r\n        \"GSTVDate\": null,\r\n        \"Composition\": false,\r\n        \"CompIdate\": null,\r\n        \"CompVdate\": null,\r\n        \"Distance\": null,\r\n        \"LocationList\": null,\r\n        \"Area\": \"**             \",\r\n        \"StmtPeriod\": 0,\r\n        \"RGRegNo\": null,\r\n        \"ApplyPromotion\": false,\r\n        \"ApplyDiscount\": false,\r\n        \"OldCustomer\": null,\r\n        \"Remarks\": null,\r\n        \"Images\": null,\r\n        \"ImageStatus\": false,\r\n        \"FKUserID\": 1,\r\n        \"UserName\": \"admin\",\r\n        \"DATE_MODIFIED\": \"2022-12-06T15:42:42.623\",\r\n        \"FKCreatedByID\": 0,\r\n        \"CreatedByUser\": null,\r\n        c\r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -713,12 +675,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/admin/createCustomer",
-					"protocol": "http",
+					"raw": "{{baseUrl1}}/api/admin/createCustomer",
 					"host": [
-						"localhost"
+						"{{baseUrl1}}"
 					],
-					"port": "1234",
 					"path": [
 						"api",
 						"admin",
@@ -734,12 +694,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:1234/api/admin/getCustomers",
-					"protocol": "http",
+					"raw": "{{baseUrl1}}/api/admin/getCustomers",
 					"host": [
-						"localhost"
+						"{{baseUrl1}}"
 					],
-					"port": "1234",
 					"path": [
 						"api",
 						"admin",
@@ -755,17 +713,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:1234/api/admin/getcustomerById/63f5b7dafa511afc8fa5302a",
-					"protocol": "http",
+					"raw": "{{baseUrl1}}/api/admin/getcustomerById/64215c127d310f0c7c48e15f",
 					"host": [
-						"localhost"
+						"{{baseUrl1}}"
 					],
-					"port": "1234",
 					"path": [
 						"api",
 						"admin",
 						"getcustomerById",
-						"63f5b7dafa511afc8fa5302a"
+						"64215c127d310f0c7c48e15f"
 					]
 				}
 			},
@@ -778,7 +734,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": " {\r\n            \"_id\": \"641070d44d3f40603ca94267\",\r\n            \"PKID\": 588,\r\n            \"Party\": \"Shrut\",\r\n            \"Customer\": \"shruti bharti\",\r\n            \"Vendor\": null,\r\n            \"Address\": \"1659  SRINAGAR  PANCHASAYAR NARENDRAPUR  KOLKATA- 700 094\",\r\n            \"District\": \"KOLKATA\",\r\n            \"Country\": \"Not Define\",\r\n            \"Pincode\": \"700 094\",\r\n            \"Phone\": null,\r\n            \"Mobile\": \"9330624199\",\r\n            \"Fax\": null,\r\n            \"Status\": \"F\",\r\n            \"Email\": \"newvivekanandapharmacy2019@gmail.com                                                                \",\r\n            \"Dob\": null,\r\n            \"PaymentMode\": \"R\",\r\n            \"Contact\": \"RC\",\r\n            \"Station\": \"KOLKATA\",\r\n            \"State\": \"West Bengal\",\r\n            \"Locality\": \"KOLKATA\",\r\n            \"Carrier\": \"\",\r\n            \"Account\": null,\r\n            \"Bank\": null,\r\n            \"Images\": null,\r\n            \"__v\": 0\r\n        }",
+					"raw": "{\r\n    \"status\": \"success\",\r\n    \"message\": \"\",\r\n    \"data\": {\r\n        \"_id\": \"64215c127d310f0c7c48e15f\",\r\n        \"PKID\": 589,\r\n        \"Party\": \"bhargav bhuni\",\r\n        \"Customer\": \"shruti bharti\",\r\n        \"Vendor\": null,\r\n        \"Address\": \"1659  SRINAGAR  PANCHASAYAR NARENDRAPUR  KOLKATA- 700 094\",\r\n        \"District\": \"KOLKATA\",\r\n        \"Country\": \"Not Define\",\r\n        \"Pincode\": \"700 094\",\r\n        \"Phone\": null,\r\n        \"Mobile\": \"9330624199\",\r\n        \"Fax\": null,\r\n        \"Status\": \"F\",\r\n        \"Email\": \"newvivekanandapharmacy2019@gmail.com                                                                \",\r\n        \"Dob\": null,\r\n        \"PaymentMode\": \"R\",\r\n        \"Contact\": \"RC\",\r\n        \"Station\": \"KOLKATA\",\r\n        \"State\": \"West Bengal\",\r\n        \"Locality\": \"KOLKATA\",\r\n        \"Carrier\": \"\",\r\n        \"Account\": null,\r\n        \"Bank\": null,\r\n        \"Images\": null,\r\n        \"b2c\": [],\r\n        \"CreationDate\": \"0000-12-31T18:06:32.000Z\",\r\n        \"__v\": 0\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -786,17 +742,15 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/admin/updatecustomer/641070d44d3f40603ca94267",
-					"protocol": "http",
+					"raw": "{{baseUrl1}}/api/admin/updatecustomer/64215c127d310f0c7c48e15f",
 					"host": [
-						"localhost"
+						"{{baseUrl1}}"
 					],
-					"port": "1234",
 					"path": [
 						"api",
 						"admin",
 						"updatecustomer",
-						"641070d44d3f40603ca94267"
+						"64215c127d310f0c7c48e15f"
 					]
 				}
 			},
@@ -817,17 +771,15 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/admin/deletecustomer/641c149108eb34c3d1732bdd",
-					"protocol": "http",
+					"raw": "{{baseUrl1}}/api/admin/deletecustomer/641c2cc6d8d1049eba59e99e",
 					"host": [
-						"localhost"
+						"{{baseUrl1}}"
 					],
-					"port": "1234",
 					"path": [
 						"api",
 						"admin",
 						"deletecustomer",
-						"641c149108eb34c3d1732bdd"
+						"641c2cc6d8d1049eba59e99e"
 					]
 				}
 			},
@@ -840,7 +792,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\":\"home\",\r\n    \"parent\":null\r\n}",
+					"raw": "{\r\n    \"name\":\"home\",\r\n    \"active\":true,\r\n    \"parent\":null\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -848,12 +800,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/admin/CreateMainCategory",
-					"protocol": "http",
+					"raw": "{{baseUrl1}}/api/admin/CreateMainCategory",
 					"host": [
-						"localhost"
+						"{{baseUrl1}}"
 					],
-					"port": "1234",
 					"path": [
 						"api",
 						"admin",
@@ -870,7 +820,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\":\"Smartphone\",\r\n    \"parentId\":\"64008f6e1bbaf21655ce6791\"\r\n}",
+					"raw": "{\r\n    \"name\":\"Smartphone\",\r\n    \"active\":true,\r\n    \"parentId\":\"64008f6e1bbaf21655ce6791\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -878,12 +828,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/admin/CreateSubCategory",
-					"protocol": "http",
+					"raw": "{{baseUrl1}}/api/admin/CreateSubCategory",
 					"host": [
-						"localhost"
+						"{{baseUrl1}}"
 					],
-					"port": "1234",
 					"path": [
 						"api",
 						"admin",
@@ -911,12 +859,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/admin/getCategory",
-					"protocol": "http",
+					"raw": "{{baseUrl1}}/api/admin/getCategory",
 					"host": [
-						"localhost"
+						"{{baseUrl1}}"
 					],
-					"port": "1234",
 					"path": [
 						"api",
 						"admin",
@@ -933,7 +879,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"_ids\": [\"6401c9ffbdac78edd0fbef3a\"]\r\n}",
+					"raw": "{\r\n    \"_ids\": [\"641beaadd29eb3b3f5bf7fac\"]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -941,12 +887,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/admin/deleteCategory",
-					"protocol": "http",
+					"raw": "{{baseUrl1}}/api/admin/deleteCategory",
 					"host": [
-						"localhost"
+						"{{baseUrl1}}"
 					],
-					"port": "1234",
 					"path": [
 						"api",
 						"admin",
@@ -959,11 +903,11 @@
 		{
 			"name": "updateCategory",
 			"request": {
-				"method": "POST",
+				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"_id\": \"641bd865d29eb3b3f5bf7de5\",\r\n    \"name\": \"bagi\",\r\n    \"parent\": null,\r\n    \"children\": [],\r\n    \"__v\": 0\r\n}",
+					"raw": "[\r\n    {\r\n            \"_id\": \"6422923d0610056f2e377447\",\r\n            \"name\": \"womenia\",\r\n            \"active\": false,\r\n            \"parent\": null,\r\n            \"children\": [],\r\n            \"__v\": 0\r\n        },\r\n        {\r\n            \"_id\": \"642292410610056f2e37744b\",\r\n            \"name\": \"formalia\",\r\n            \"active\": true,\r\n            \"parent\": null,\r\n            \"children\": [],\r\n            \"__v\": 0\r\n        }\r\n]",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -971,12 +915,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/admin/updateCategory",
-					"protocol": "http",
+					"raw": "{{baseUrl1}}/api/admin/updateCategory",
 					"host": [
-						"localhost"
+						"{{baseUrl1}}"
 					],
-					"port": "1234",
 					"path": [
 						"api",
 						"admin",
@@ -1004,17 +946,15 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/admin/getCategoryById/6400893145ba85decbc49b1b",
-					"protocol": "http",
+					"raw": "{{baseUrl1}}/api/admin/getCategoryById/641bea5fd29eb3b3f5bf7f73",
 					"host": [
-						"localhost"
+						"{{baseUrl1}}"
 					],
-					"port": "1234",
 					"path": [
 						"api",
 						"admin",
 						"getCategoryById",
-						"6400893145ba85decbc49b1b"
+						"641bea5fd29eb3b3f5bf7f73"
 					]
 				}
 			},
@@ -1027,7 +967,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{ \r\n    \"name\": \"omesh\",\r\n    \"email\": \"omesh@gmail.com\",\r\n    \"address\": \"jaipur\",\r\n    \"gstNo\": \"1234567890\"\r\n}",
+					"raw": "{ \r\n    \"auth_id\":\"\",\r\n    \"name\": \"omesh\",\r\n    \"email\": \"omesh@gmail.com\",\r\n    \"address\": \"jaipur\",\r\n    \"gstNo\": \"1234567890\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1035,12 +975,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/admin/Setting",
-					"protocol": "http",
+					"raw": "{{baseUrl1}}/api/admin/Setting",
 					"host": [
-						"localhost"
+						"{{baseUrl1}}"
 					],
-					"port": "1234",
 					"path": [
 						"api",
 						"admin",
@@ -1056,12 +994,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:1234/api/admin/Setting",
-					"protocol": "http",
+					"raw": "{{baseUrl1}}/api/admin/Setting",
 					"host": [
-						"localhost"
+						"{{baseUrl1}}"
 					],
-					"port": "1234",
 					"path": [
 						"api",
 						"admin",
@@ -1078,6 +1014,35 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"omesh kumar\",\r\n    \"email\": \"omesh@gmail.com\",\r\n    \"address\": \"jaipur\",\r\n    \"gstNo\": \"1234567890\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl1}}/api/admin/Setting/641d33a64bdc705684097f22",
+					"host": [
+						"{{baseUrl1}}"
+					],
+					"path": [
+						"api",
+						"admin",
+						"Setting",
+						"641d33a64bdc705684097f22"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Setting",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
 					"raw": "{\r\n    \"name\": \"omesh ymmm\",\r\n    \"email\": \"omesh@gmail.com\",\r\n    \"address\": \"jaipur\",\r\n    \"gstNo\": \"1234567890\"\r\n}",
 					"options": {
 						"raw": {
@@ -1086,17 +1051,15 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/admin/Setting/641d33a64bdc705684097f22",
-					"protocol": "http",
+					"raw": "{{baseUrl1}}/api/admin/Setting/641d6fb3f0d405b2f99c63dd",
 					"host": [
-						"localhost"
+						"{{baseUrl1}}"
 					],
-					"port": "1234",
 					"path": [
 						"api",
 						"admin",
 						"Setting",
-						"641d33a64bdc705684097f22"
+						"641d6fb3f0d405b2f99c63dd"
 					]
 				}
 			},
@@ -1108,7 +1071,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbmMiOiJmNGJhNTY4MzUzNjBhNzAzNjU2NzZmMzU4NWVjNDVjYTllZjQ0ZGZmODcxNTc1NWY5YjZiOWJiZWJlZTgxYmMwMTNkMDYzM2I0ODgzN2I4MGZhNjM2ZmQwNmQxNWRiZWViZjkwMjlhYmFlOTJhNzJlMGI5MTliNmMzMThkZjAyNzcwZmNjZDdmOGIyODYxMzFjNTZlZWE1YjAwYjNhNGNmYWIwYmY0MWIxMzMyNjU5Y2JkMGMxMGI4NjBiZWJlM2M5MjRmYzU4OWEzM2UxNDI5MjlkN2RlMDI5OTBjZjBlYWI1ZjdkNzg0YTllMWRlYmRiODBlMmY2ZGU1MzI0OWQ5OTk4OGQ4Zjk1NjVjZjBiZGE0NzcxNmY4MDEwOTJkYTUxNDI2MTE4N2VlN2VhYzM0OWQwZjlmYzVlMzM0NzZiOWFiMzk2ZjJmNWFjMjhiZDQwY2Q5N2YxYmQ3M2JhZWViOTU2NzMyZjNkN2Q2OTMzZjZhN2JjNmM0MzUwMmI3YThkODcwOWM2NzExODBhMDUwMjQ4NWU4YWMzZTI4MmMyN2NkYThkZThlYjUzMzhlZWYzOGJkNGYzNDk4N2U2ZjE4IiwiaWF0IjoxNjc5NjMzODMyLCJleHAiOjE2Nzk2NzcwMzJ9.1vd3t7RrrAVV0RPzOHwDv0c5NQtoqsW0Qp8x__i4w8Q",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbmMiOiIwNmU1MmE4ZGFmMTY5Mjc5MDg5MWE2NWU1MTMzNzUyZDhjYmU5NGRmMWY2NTNlZTgyMTM2OTM2YzE2MjVjMmQ0NDc1YTUwMGM3ZDc0OTcwODZjNDVjMTU3ODU0YmVkNDE3YzMyMzIwYmYwMjgwNGQxMGMyODczMTBhN2NmZjIxZTI5YzExZDgwOWRiMGI2OTczMzEzMTMzNzdkZWE0YTk3NTVkMjM1MTg3MzAzNzY2ZWFiZmI0YWVhMWUxMDNjNWVlOTE2NGRjNWM4YzE5ZjJlZmYyMTVhZjk4NjgxMTI4OTQ0ZDhlMDZiNjM5YWZmYTM5NThhMTFjZDJiZTk4YzI0NzllM2IwYjA3NWFmMGE2ZDFmN2ZkZjNmODRjZDcyYzdiMzk3ZDkxOWE1N2NlNDUwNTRhMDAzZjgyYTU1OTg2MmE4ODYyZTk2NDA2ZTJhNGFlNzliN2IwMTRhZDBmODNmZmIzN2RjZjhjMTdjZDJiMzFhOGVlMTkyNjc1NTEwYTk1MTA5ZWQ1NTc4MDQwNGQ3ZWY4ZGIxNDEwOGQ3NDdhY2ZjMGRmMTdlMDQ4NWVmN2E0MDgxODM3NmJhZTlkNzNjIiwiaWF0IjoxNjgwMDY0ODI1LCJleHAiOjE2ODAxMDgwMjV9.cA1ii7dsM3W4BRxfwLu1r6yxWtAY3GSbmOJ1ve4iYFc",
 				"type": "string"
 			}
 		]
@@ -1131,6 +1094,18 @@
 					""
 				]
 			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl1",
+			"value": "https://swilmart-api.azurewebsites.net",
+			"type": "string"
+		},
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:1234",
+			"type": "string"
 		}
 	]
 }
